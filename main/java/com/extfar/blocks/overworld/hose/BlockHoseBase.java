@@ -2,6 +2,7 @@ package com.extfar.blocks.overworld.hose;
 
 import java.util.Random;
 
+import com.extfar.blocks.nether.hose.BlockNetherHose;
 import com.extfar.init.ExtendedFarmingBlocks;
 import com.extfar.init.ExtendedFarmingItems;
 
@@ -32,10 +33,13 @@ public class BlockHoseBase extends Block{
      */
     public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int p_149664_5_) 
     {
+    	if(this instanceof BlockHose)
+    	{
 	EntityItem item = new EntityItem(world, i, j, k, new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.Hose)));
 	if(!world.isRemote)
 	{
 	world.spawnEntityInWorld(item);
 	}
+    }
     }
 }

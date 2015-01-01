@@ -76,25 +76,59 @@ public class BlockFarmSoulSand extends Block
     /**
      * Ticks the block if it's been scheduled
      */
-    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
+    public void updateTick(World world, int i, int j, int k, Random random)
     {
-        if (!this.func_149821_m(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_) && !p_149674_1_.canLightningStrikeAt(p_149674_2_, p_149674_3_ + 1, p_149674_4_))
+        if (!this.func_149821_m(world, i, j, k) && !world.canLightningStrikeAt(i, j + 1, k))
         {
-            int l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+            int l = world.getBlockMetadata(i, j, k);
 
             if (l > 0)
             {
-                p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l - 1, 2);
+            	world.setBlockMetadataWithNotify(i, j, k, l - 1, 2);
             }
-            else if (!this.func_149822_e(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_))
+            else if (!this.func_149822_e(world, i, j, k))
             {
-                p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, Blocks.soul_sand);
+            	world.setBlock(i, j, k, Blocks.soul_sand);
             }
         }
         else
         {
-            p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 7, 2);
+        	world.setBlockMetadataWithNotify(i, j, k, 7, 2);
         }
+        
+    	int metadata = world.getBlockMetadata(i, j+1, k);
+
+    	if(!world.isRemote)
+    	{
+        //Set crops to their Nether Counterparts        
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeans, metadata, 2);
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeas, metadata, 2);
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeppers, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.potatoes)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPotatoes, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.carrots)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherCarrots, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.wheat)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherWheat, metadata, 2);
+    	}
+    	else
+    	{
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeans, metadata, 2);
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeas, metadata, 2);
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeppers, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.potatoes)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPotatoes, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.carrots)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherCarrots, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.wheat)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherWheat, metadata, 2);
+    	}
     }
 
     /**
@@ -128,7 +162,39 @@ public class BlockFarmSoulSand extends Block
 			}
 		}
     	}
+    	int metadata = world.getBlockMetadata(i, j+1, k);
 
+    	if(!world.isRemote)
+    	{
+        //Set crops to their Nether Counterparts        
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeans, metadata, 2);
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeas, metadata, 2);
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeppers, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.potatoes)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPotatoes, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.carrots)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherCarrots, metadata, 2);
+        if(world.getBlock(i, j+1, k) == Blocks.wheat)
+        	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherWheat, metadata, 2);
+    	}
+    	else
+    	{
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeans, metadata, 2);
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeas, metadata, 2);
+            if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeppers, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.potatoes)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPotatoes, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.carrots)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherCarrots, metadata, 2);
+            if(world.getBlock(i, j+1, k) == Blocks.wheat)
+            	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherWheat, metadata, 2);
+    	}
 	}
     private boolean func_149822_e(World p_149822_1_, int p_149822_2_, int p_149822_3_, int p_149822_4_)
     {

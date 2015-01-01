@@ -1,8 +1,10 @@
 package com.extfar.core;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.util.EnumHelper;
 
 import com.extfar.core.handler.ConfigHandler;
 import com.extfar.init.ExtendedFarmingAchievementsBook;
@@ -16,7 +18,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-1.0", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-2.0", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {
@@ -28,6 +30,8 @@ public class ExtendedFarming
 	public static ExtendedFarming instance;	
 	
 	public static CreativeTabs ItemsTab = new MyItemsTab(CreativeTabs.getNextID(),"ExtendedFarmingItems");
+
+	public static ToolMaterial Quartz= EnumHelper.addToolMaterial("QUARTZ", 1, 200, 5.0F, 2, 8);
 
 	//PreInit
 	@Mod.EventHandler
@@ -48,5 +52,6 @@ public class ExtendedFarming
      	
 		ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.BeanSeeds, 0, 1, 4, 10));
      	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.PeaSeeds, 0, 1, 4, 10));
+     	ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.ChilliPepperSeeds, 0, 1, 4, 10));
 	}
 }

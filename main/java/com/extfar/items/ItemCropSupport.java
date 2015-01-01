@@ -31,16 +31,22 @@ public class ItemCropSupport extends Item
     	{
     		world.setBlock(i, j+1, k, SupportBlock);
     		player.inventory.consumeInventoryItem(this);
+        	System.out.println(world.getBlock(i, j, k));
+
     		return true;
     	}
     	else if(world.getBlock(i, j, k) == ExtendedFarmingBlocks.BambooSticks && SupportBlock == ExtendedFarmingBlocks.Net)
     	{
     		world.setBlock(i, j, k, SupportBlock);
     		player.inventory.consumeInventoryItem(this);
+        	System.out.println(world.getBlock(i, j, k));
+
     		return true;
     	}
     	else
     	{
+        	System.out.println(world.getBlock(i, j, k));
+
     		return false;
     	}
     }

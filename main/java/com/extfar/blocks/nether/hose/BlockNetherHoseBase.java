@@ -31,10 +31,13 @@ public class BlockNetherHoseBase extends Block{
      */
     public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int p_149664_5_) 
     {
+    	if(this instanceof BlockNetherHose)
+    	{
 	EntityItem item = new EntityItem(world, i, j, k, new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.NetherHose)));
 	if(!world.isRemote)
 	{
 	world.spawnEntityInWorld(item);
 	}
+    	}
     }
 }

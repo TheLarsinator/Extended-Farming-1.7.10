@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemCropSupport;
 import com.extfar.items.ItemMyFood;
+import com.extfar.items.ItemQuartzHoe;
 import com.extfar.items.ItemSupportCrop;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -29,6 +30,8 @@ public class ExtendedFarmingItems
 	
 	public static Item BambooSticksItem;
 	public static Item NetItem;
+	
+	public static Item QuartzHoe;
 		
 	public static void init()
 	{
@@ -48,6 +51,7 @@ public class ExtendedFarmingItems
 		RoastedPeppers = new ItemMyFood(3, 4, false).setUnlocalizedName("RoastedPeppers").setTextureName(modid + ":RoastedPeppers");
 		BakedPeas = new ItemMyFood(3, 4, false).setUnlocalizedName("BakedPeas").setTextureName(modid + ":BakedPeas");
 		
+		QuartzHoe = new ItemQuartzHoe(ExtendedFarming.Quartz).setUnlocalizedName("QuartzHoe").setTextureName(modid + ":QuartzHoe");
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
@@ -63,6 +67,9 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(RoastedBeans, "RoastedBeans", modid);
 		GameRegistry.registerItem(RoastedPeppers, "RoastedPeppers", modid);
 		GameRegistry.registerItem(BakedPeas, "BakedPeas", modid);
+
+		
+		GameRegistry.registerItem(QuartzHoe, "QuartzHoe", modid);
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
 		Rice = new ItemMyFood(0, 2, false);
 		

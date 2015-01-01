@@ -83,31 +83,29 @@ public class ExtendedFarmingBlocks
 		Hose = new BlockHose(Material.wood).setBlockName("Hose").setBlockTextureName("Hose");
 		ActiveHose = new BlockActiveHose(Material.wood).setBlockName("ActiveHose").setBlockTextureName("ActiveHose");
 		PassiveHose = new BlockPassiveHose(Material.wood).setBlockName("PassiveHose").setBlockTextureName("Hose");
-		Pump = new BlockPump(Material.iron).setBlockName("Pump").setBlockTextureName("Pump");
-		Sprayer = new BlockSprayer(Material.wood).setBlockName("Sprayer").setBlockTextureName("Sprayer");
-		ActiveSprayer = new BlockActiveSprayer(Material.water).setBlockName("ActiveSprayer").setBlockTextureName("Sprayer");
+		Pump = new BlockPump(Material.iron).setBlockName("Pump").setBlockTextureName("Pump").setHardness(1.3F);
+		Sprayer = new BlockSprayer(Material.wood).setBlockName("Sprayer").setBlockTextureName("Sprayer").setHardness(1.3F);
+		ActiveSprayer = new BlockActiveSprayer(Material.water).setBlockName("ActiveSprayer").setBlockTextureName("Sprayer").setHardness(1.3F);
 		
 		NetherHose = new BlockNetherHose(Material.wood).setBlockName("NetherHose").setBlockTextureName("NetherHose");
 		ActiveNetherHose = new BlockActiveNetherHose(Material.wood).setBlockName("ActiveNetherHose").setBlockTextureName("ActiveNetherHose");
 		PassiveNetherHose = new BlockPassiveNetherHose(Material.wood).setBlockName("PassiveNetherHose").setBlockTextureName("NetherHose");
-		NetherPump = new BlockNetherPump(Material.iron).setBlockName("NetherPump").setBlockTextureName("NetherPump");
-		NetherSprayer = new BlockNetherSprayer(Material.wood).setBlockName("NetherSprayer").setBlockTextureName("NetherSprayer");
-		ActiveNetherSprayer = new BlockActiveNetherSprayer(Material.lava).setBlockName("ActiveNetherSprayer").setBlockTextureName("NetherSprayer");
-		FarmSoulSand = new BlockFarmSoulSand().setBlockName("FarmSoulSand").setBlockTextureName("FarmSoulSand");
+		NetherPump = new BlockNetherPump(Material.iron).setBlockName("NetherPump").setBlockTextureName("NetherPump").setHardness(1.6F);
+		NetherSprayer = new BlockNetherSprayer(Material.wood).setBlockName("NetherSprayer").setBlockTextureName("NetherSprayer").setHardness(1.6F);
+		ActiveNetherSprayer = new BlockActiveNetherSprayer(Material.lava).setBlockName("ActiveNetherSprayer").setBlockTextureName("NetherSprayer").setHardness(1.6F);
+		FarmSoulSand = new BlockFarmSoulSand().setBlockName("FarmSoulSand").setBlockTextureName("FarmSoulSand").setHardness(1F);
 		
 		Beans = new BlockMyCrops(1, 1, 6, 4, 1).setBlockName("Beans").setBlockTextureName("Beans");
 		Peas = new BlockMyCrops(2, 2, 6, 4, 2).setBlockName("Peas").setBlockTextureName("Peas");
 		ChilliPepper = new BlockMyCrops(3, 3, 6, 4, 1).setBlockName("ChilliPepper").setBlockTextureName("ChilliPepper");
 		
-		NetherBeans = new BlockMyCrops(101, 1, 6, 4, 1).setBlockName("NetherBeans").setBlockTextureName("Beans");
-		NetherPeas = new BlockMyCrops(102, 2, 6, 4, 2).setBlockName("NetherPeas").setBlockTextureName("Peas");
-		NetherPeppers = new BlockMyCrops(103, 3, 6, 4, 1).setBlockName("NetherPepper").setBlockTextureName("ChilliPepper");
+		NetherBeans = new BlockMyCrops(1, 101, 6, 4, 1).setBlockName("NetherBeans").setBlockTextureName("Beans");
+		NetherPeas = new BlockMyCrops(2, 102, 6, 4, 2).setBlockName("NetherPeas").setBlockTextureName("Peas");
+		NetherPeppers = new BlockMyCrops(3, 103, 6, 4, 1).setBlockName("NetherPepper").setBlockTextureName("ChilliPepper");
 
-		NetherPotatoes = new BlockMyCrops(104, 4, 6, 4, 0).setBlockName("NetherBeans").setBlockTextureName("Potato");
-		NetherCarrots = new BlockMyCrops(105, 5, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("Carrot");
-		NetherWheat = new BlockMyCrops(106, 6, 6, 4, 0).setBlockName("NetherPepper").setBlockTextureName("Wheat");
-		
-		
+		NetherPotatoes = new BlockMyCrops(4, 104, 6, 4, 0).setBlockName("NetherBeans").setBlockTextureName("potatoes");
+		NetherCarrots = new BlockMyCrops(5, 105, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("carrots");
+		NetherWheat = new BlockMyCrops(6, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("wheat");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");

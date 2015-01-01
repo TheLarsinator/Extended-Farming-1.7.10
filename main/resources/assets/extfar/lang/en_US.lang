@@ -4,14 +4,26 @@ item.NetItem.name=Net
 
 item.BeanSeeds.name=Bean Seeds
 item.PeaSeeds.name=Pea Seeds
+item.ChilliPepperSeeds.name=Chilli Pepper Seeds
 
 item.Beans.name=Beans
 item.Peas.name=Peas
+item.ChilliPeppers.name=Chilli Pepper
 
+item.RoastedCarrot.name=Roasted Carrot
+item.RoastedBeans.name=Roasted Beans
+item.BakedPeas.name=Baked Peas
+item.RoastedPeppers.name=Roasted Pepper
+
+item.QuartzHoe.name=Quartz Hoe
 //Blocks
 tile.Hose.name=Hose
 tile.Pump.name=Pump
 tile.Sprayer.name=Sprinkler
+
+tile.NetherHose.name=Insulated Hose
+tile.NetherPump.name=Lava Pump
+tile.NetherSprayer.name=Lava Sprinkler
 
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items
