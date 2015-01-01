@@ -1,0 +1,17 @@
+//Items
+item.BambooSticksItem.name=Bamboo Sticks
+item.NetItem.name=Net
+
+item.BeanSeeds.name=Bean Seeds
+item.PeaSeeds.name=Pea Seeds
+
+item.Beans.name=Beans
+item.Peas.name=Peas
+
+//Blocks
+tile.Hose.name=Hose
+tile.Pump.name=Pump
+tile.Sprayer.name=Sprinkler
+
+//Tab
+itemGroup.ExtendedFarmingItems=Farming Items
