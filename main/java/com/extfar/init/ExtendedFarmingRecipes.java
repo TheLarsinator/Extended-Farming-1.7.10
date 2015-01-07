@@ -31,6 +31,7 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.ChilliPepperSeeds, 2), new Object[]{ExtendedFarmingItems.ChilliPeppers});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingBlocks.Hose, 8), new Object[]{Items.clay_ball, Items.clay_ball, Items.string});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingBlocks.NetherHose, 8), new Object[]{Hose, Hose, Hose, Hose, Hose, Hose, Hose, Hose, Blocks.obsidian});
+		 GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 2), new Object[]{ExtendedFarmingItems.SugarBeets});
 
 		 GameRegistry.addSmelting(Items.carrot, new ItemStack(ExtendedFarmingItems.RoastedCarrot), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beans, new ItemStack(ExtendedFarmingItems.RoastedBeans), 3F);

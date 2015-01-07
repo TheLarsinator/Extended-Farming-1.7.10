@@ -2,9 +2,6 @@ package com.extfar.blocks.nether;
 
 import java.util.Random;
 
-import com.extfar.core.ExtendedFarming;
-import com.extfar.init.ExtendedFarmingBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -18,6 +15,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import com.extfar.core.ExtendedFarming;
+import com.extfar.init.ExtendedFarmingBlocks;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -35,8 +36,7 @@ public class BlockFarmSoulSand extends Block
         this.setTickRandomly(true);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         this.setLightOpacity(255);
-        this.setCreativeTab(ExtendedFarming.ItemsTab);
-    }
+   }
 
     /**
      * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been

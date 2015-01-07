@@ -3,7 +3,7 @@
   "modid": "extfar",
   "name": "Extended Farming",
   "description": "Improve your minecraft farming experience!",
-  "version": "1.7.10-2.0",
+  "version": "1.7.10-2.1",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

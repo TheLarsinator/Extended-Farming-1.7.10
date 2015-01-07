@@ -1,7 +1,9 @@
 package com.extfar.init;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
+import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemCropSupport;
 import com.extfar.items.ItemMyFood;
@@ -24,6 +26,7 @@ public class ExtendedFarmingItems
 	public static Item RoastedBeans;
 	public static Item BakedPeas;
 	public static Item RoastedPeppers;
+	public static Item SugarBeets;
 
 	public static Item Rice;
 	public static Item RiceSeeds;
@@ -51,6 +54,9 @@ public class ExtendedFarmingItems
 		RoastedPeppers = new ItemMyFood(3, 4, false).setUnlocalizedName("RoastedPeppers").setTextureName(modid + ":RoastedPeppers");
 		BakedPeas = new ItemMyFood(3, 4, false).setUnlocalizedName("BakedPeas").setTextureName(modid + ":BakedPeas");
 		
+		SugarBeets = new ItemMyFoodSeed(1, 2, ExtendedFarmingBlocks.SugarBeet).setUnlocalizedName("SugarBeets").setTextureName(modid + ":SugarBeet");
+
+		
 		QuartzHoe = new ItemQuartzHoe(ExtendedFarming.Quartz).setUnlocalizedName("QuartzHoe").setTextureName(modid + ":QuartzHoe");
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
@@ -67,6 +73,8 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(RoastedBeans, "RoastedBeans", modid);
 		GameRegistry.registerItem(RoastedPeppers, "RoastedPeppers", modid);
 		GameRegistry.registerItem(BakedPeas, "BakedPeas", modid);
+
+		GameRegistry.registerItem(SugarBeets, "SugarBeets", modid);
 
 		
 		GameRegistry.registerItem(QuartzHoe, "QuartzHoe", modid);
