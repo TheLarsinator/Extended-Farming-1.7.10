@@ -87,6 +87,8 @@ public class BlockMyCrops extends BlockCrops
         	return ExtendedFarmingItems.PeaSeeds;
         case 3:
         	return ExtendedFarmingItems.ChilliPepperSeeds;
+        case 4:
+        	return ExtendedFarmingItems.BeetSeeds;
         case 100:
         	return null;
         case 101:
@@ -109,6 +111,8 @@ public class BlockMyCrops extends BlockCrops
         	return ExtendedFarmingItems.ChilliPeppers;
         case 4:
         	return ExtendedFarmingItems.SugarBeets;
+        case 5:
+        	return ExtendedFarmingItems.Beets;
         case 101:
         	return ExtendedFarmingItems.RoastedBeans;
         case 102:
@@ -120,7 +124,9 @@ public class BlockMyCrops extends BlockCrops
         case 105:
         	return ExtendedFarmingItems.RoastedCarrot;
         case 106:
-        	return Items.bread; 	
+        	return Items.bread; 
+        case 107:
+        	return ExtendedFarmingItems.RoastedBeets;
         default:
         	return null;
         }

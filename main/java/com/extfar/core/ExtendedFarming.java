@@ -18,7 +18,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-2.1", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-2.2", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {
@@ -54,5 +54,6 @@ public class ExtendedFarming
      	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.PeaSeeds, 0, 1, 4, 10));
      	ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.ChilliPepperSeeds, 0, 1, 4, 10));
      	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.SugarBeets, 0, 1, 4, 10));
+     	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(ExtendedFarmingItems.Beets, 0, 1, 4, 10));
 	}
 }

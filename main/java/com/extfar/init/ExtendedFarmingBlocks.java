@@ -64,10 +64,12 @@ public class ExtendedFarmingBlocks
 	public static Block Peas;
 	public static Block ChilliPepper;
 	public static Block SugarBeet;
+	public static Block Beets;
 	
 	public static Block NetherBeans;
 	public static Block NetherPeas;
 	public static Block NetherPeppers;
+	public static Block NetherBeets;
 	
 	public static Block NetherPotatoes;
 	public static Block NetherCarrots;
@@ -100,11 +102,13 @@ public class ExtendedFarmingBlocks
 		Peas = new BlockMyCrops(2, 2, 6, 4, 2).setBlockName("Peas").setBlockTextureName("Peas");
 		ChilliPepper = new BlockMyCrops(3, 3, 6, 4, 1).setBlockName("ChilliPepper").setBlockTextureName("ChilliPepper");
 		SugarBeet = new BlockMyCrops(0, 4, 6, 4, 0).setBlockName("SugarBeet").setBlockTextureName("SugarBeet");
+		Beets = new BlockMyCrops(4, 5, 6, 4, 0).setBlockName("Beets").setBlockTextureName("Beets");
 		
 		NetherBeans = new BlockMyCrops(1, 101, 6, 4, 1).setBlockName("NetherBeans").setBlockTextureName("Beans");
 		NetherPeas = new BlockMyCrops(2, 102, 6, 4, 2).setBlockName("NetherPeas").setBlockTextureName("Peas");
 		NetherPeppers = new BlockMyCrops(3, 103, 6, 4, 1).setBlockName("NetherPepper").setBlockTextureName("ChilliPepper");
-
+		NetherBeets = new BlockMyCrops(4, 107, 6, 4, 0).setBlockName("Beets").setBlockTextureName("Beets");
+		
 		NetherPotatoes = new BlockMyCrops(100, 104, 6, 4, 0).setBlockName("NetherBeans").setBlockTextureName("potatoes");
 		NetherCarrots = new BlockMyCrops(100, 105, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("carrots");
 		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("wheat");
@@ -144,10 +148,13 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(Peas, "Peas");
 		GameRegistry.registerBlock(ChilliPepper, "ChilliPepper");
 		GameRegistry.registerBlock(SugarBeet, "SugarBeet");
+		GameRegistry.registerBlock(Beets, "Beets");
 		
 		GameRegistry.registerBlock(NetherBeans, "NetherBeans");
 		GameRegistry.registerBlock(NetherPeas, "NetherPeas");
 		GameRegistry.registerBlock(NetherPeppers, "NetherPeppers");
+		GameRegistry.registerBlock(NetherBeets, "NetherBeets");
+
 		GameRegistry.registerBlock(NetherPotatoes, "NetherPotatoes");
 		GameRegistry.registerBlock(NetherCarrots, "NetherCarrots");
 		GameRegistry.registerBlock(NetherWheat, "NetherWheat");

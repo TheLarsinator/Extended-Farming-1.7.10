@@ -24,6 +24,7 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.QuartzHoe, 1), new Object [] {"II ", " S ", " S ", 'I', Items.quartz, 'S', Items.stick});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.QuartzHoe, 1), new Object [] {" II", " S ", " S ", 'I', Items.quartz, 'S', Items.stick});
 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.BeetSoup, 1), new Object [] {"III", "III", " S ", 'I', ExtendedFarmingItems.RoastedBeets, 'S', Items.bowl});
 		 
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BeanSeeds, 2), new Object[]{ExtendedFarmingItems.Beans});
@@ -32,10 +33,12 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingBlocks.Hose, 8), new Object[]{Items.clay_ball, Items.clay_ball, Items.string});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingBlocks.NetherHose, 8), new Object[]{Hose, Hose, Hose, Hose, Hose, Hose, Hose, Hose, Blocks.obsidian});
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 2), new Object[]{ExtendedFarmingItems.SugarBeets});
+		 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[]{ExtendedFarmingItems.Beets});
 
 		 GameRegistry.addSmelting(Items.carrot, new ItemStack(ExtendedFarmingItems.RoastedCarrot), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beans, new ItemStack(ExtendedFarmingItems.RoastedBeans), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Peas, new ItemStack(ExtendedFarmingItems.BakedPeas), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.ChilliPeppers, new ItemStack(ExtendedFarmingItems.RoastedPeppers), 3F);
+		 GameRegistry.addSmelting(ExtendedFarmingItems.Beets, new ItemStack(ExtendedFarmingItems.RoastedBeets), 3F);
 	}
 }

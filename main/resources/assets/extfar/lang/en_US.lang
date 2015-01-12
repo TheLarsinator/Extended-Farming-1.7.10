@@ -10,11 +10,15 @@ item.Beans.name=Beans
 item.Peas.name=Peas
 item.ChilliPeppers.name=Chilli Pepper
 item.SugarBeets.name=Sugar Beet
+item.Beets.name=Beet
 
 item.RoastedCarrot.name=Roasted Carrot
 item.RoastedBeans.name=Roasted Beans
 item.BakedPeas.name=Baked Peas
 item.RoastedPeppers.name=Roasted Pepper
+item.RoastedBeets.name=Roasted Beet
+
+item.BeetSoup.name=Beet Soup
 
 item.QuartzHoe.name=Quartz Hoe
 //Blocks

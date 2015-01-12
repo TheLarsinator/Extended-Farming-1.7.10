@@ -29,7 +29,9 @@ public class ItemSupportCrop extends Item
      */
     public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int i, int j, int k, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
-    	System.out.println(world.getBlockMetadata(i, j, k));
+    	System.out.println(Crop + ", " + Support);
+    	
+    	
     	if((world.getBlock(i, j-1, k) == Blocks.farmland || world.getBlock(i, j-1, k) == ExtendedFarmingBlocks.FarmSoulSand) && Support == 1 && world.getBlock(i, j, k) == ExtendedFarmingBlocks.BambooSticks)
     	{
     		world.setBlockToAir(i, j, k);
@@ -44,7 +46,7 @@ public class ItemSupportCrop extends Item
     		player.inventory.consumeInventoryItem(this);
     		return true;
     	}
-    	else if((world.getBlock(i, j-1, k) == Blocks.farmland || world.getBlock(i, j-1, k) == ExtendedFarmingBlocks.FarmSoulSand) && Support == 1)
+    	else if((world.getBlock(i, j-1, k) == Blocks.farmland || world.getBlock(i, j-1, k) == ExtendedFarmingBlocks.FarmSoulSand) && Support == 0)
     	{
     		world.setBlock(i, j, k, Crop);
     		player.inventory.consumeInventoryItem(this);
