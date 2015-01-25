@@ -116,7 +116,7 @@ public class BlockActiveNetherSprayer extends BlockNetherHoseBase implements ITi
 				{
 					if(world.getBlock(xCoord, j-1, zCoord)==ExtendedFarmingBlocks.FarmSoulSand)
 					{
-						world.setBlockMetadataWithNotify(xCoord, j-1, zCoord, 7, 2);
+						world.setBlockMetadataWithNotify(xCoord, j-1, zCoord, 100, 2);
 					}
 				}
 		}

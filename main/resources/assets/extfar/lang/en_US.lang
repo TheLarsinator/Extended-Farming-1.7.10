@@ -18,6 +18,16 @@ item.BakedPeas.name=Baked Peas
 item.RoastedPeppers.name=Roasted Pepper
 item.RoastedBeets.name=Roasted Beet
 
+item.Tractor_0.name=Tractor
+item.Plow.name=Plow
+item.Engine.name=Engine
+item.Body.name=Body
+item.DriveShaft.name=Wheels on axis
+item.Chair.name=Chair
+item.SteeringWheel.name=Steering Wheel
+item.Wheel.name=Wheel
+item.Wrench.name=Wrench
+
 item.BeetSoup.name=Beet Soup
 
 item.QuartzHoe.name=Quartz Hoe

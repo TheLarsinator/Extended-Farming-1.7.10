@@ -1,14 +1,18 @@
 package com.extfar.init;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
 import com.extfar.items.ItemCropSupport;
+import com.extfar.items.ItemMaterials;
 import com.extfar.items.ItemMyFood;
 import com.extfar.items.ItemQuartzHoe;
 import com.extfar.items.ItemSupportCrop;
+import com.extfar.items.ItemTractor;
+import com.extfar.items.ItemTractorParts;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -42,6 +46,24 @@ public class ExtendedFarmingItems
 	public static Item NetItem;
 	
 	public static Item QuartzHoe;
+	
+	
+	
+	public static final Item Tractor = new ItemTractor(0);
+	
+	public static Item Plow;
+	public static Item Mower;
+	public static Item Sprayer;
+
+	public static Item Engine;
+	public static Item Body;
+	public static Item DriveShaft;
+	public static Item Wheel;
+	public static Item Chair;
+	public static Item SteeringWheel;
+	
+	public static Item Wrench;
+
 		
 	public static void init()
 	{
@@ -68,8 +90,20 @@ public class ExtendedFarmingItems
 		
 		BeetSoup = new ItemBowlFood(8).setUnlocalizedName("BeetSoup").setTextureName(modid + ":BeetSoup");
 
-		
 		QuartzHoe = new ItemQuartzHoe(ExtendedFarming.Quartz).setUnlocalizedName("QuartzHoe").setTextureName(modid + ":QuartzHoe");
+		
+		Plow = new ItemMaterials().setUnlocalizedName("Plow").setTextureName(modid + ":Plow").setFull3D();
+		Mower = new ItemMaterials().setUnlocalizedName("Mower").setTextureName(modid + ":Mower").setFull3D();
+		Sprayer = new ItemMaterials().setUnlocalizedName("Mower").setTextureName(modid + ":Sprayer").setFull3D();
+		
+		Engine = (new ItemTractorParts(1)).setUnlocalizedName("Engine").setTextureName(modid + ":Engine").setFull3D();
+		Body = (new ItemTractorParts(1)).setUnlocalizedName("Body").setTextureName(modid + ":Body").setFull3D();
+		DriveShaft = (new ItemTractorParts(1)).setUnlocalizedName("DriveShaft").setTextureName(modid + ":DriveShaft").setFull3D();
+		Chair = (new ItemTractorParts(1)).setUnlocalizedName("Chair").setTextureName(modid + ":Chair").setFull3D();
+		SteeringWheel = (new ItemTractorParts(1)).setUnlocalizedName("SteeringWheel").setTextureName(modid + ":SteeringWheel").setFull3D();
+		Wheel = (new ItemTractorParts(1)).setUnlocalizedName("Wheel").setTextureName(modid + ":Wheel").setFull3D();
+		
+		Wrench = new ItemMaterials().setUnlocalizedName("Wrench").setTextureName(modid + ":Wrench");
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
@@ -93,6 +127,20 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(BeetSoup, "BeetSoup", modid);
 		
 		GameRegistry.registerItem(QuartzHoe, "QuartzHoe", modid);
+		
+		GameRegistry.registerItem(Tractor, "Tractor", modid);
+		GameRegistry.registerItem(Plow, "Plow", modid);
+		GameRegistry.registerItem(Mower, "Mower", modid);
+		GameRegistry.registerItem(Sprayer, "TractorSprayer", modid);
+
+		GameRegistry.registerItem(Engine, "Engine", modid);
+		GameRegistry.registerItem(Body, "Body", modid);
+		GameRegistry.registerItem(DriveShaft, "DriveShaft", modid);
+		GameRegistry.registerItem(Chair, "Chair", modid);
+		GameRegistry.registerItem(SteeringWheel, "SteeringWheel", modid);
+		GameRegistry.registerItem(Wheel, "Wheel", modid);
+
+		GameRegistry.registerItem(Wrench, "Wrench", modid);
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
 		Rice = new ItemMyFood(0, 2, false);
 		

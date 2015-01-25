@@ -119,7 +119,7 @@ public class BlockActiveSprayer extends BlockHoseBase implements ITileEntityProv
 				{
 					if(world.getBlock(xCoord, j-1, zCoord)==Blocks.farmland)
 					{
-						world.setBlockMetadataWithNotify(xCoord, j-1, zCoord, 7, 2);
+						world.setBlockMetadataWithNotify(xCoord, j-1, zCoord, 100, 2);
 					}
 				}
 		}

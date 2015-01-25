@@ -24,6 +24,18 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.QuartzHoe, 1), new Object [] {"II ", " S ", " S ", 'I', Items.quartz, 'S', Items.stick});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.QuartzHoe, 1), new Object [] {" II", " S ", " S ", 'I', Items.quartz, 'S', Items.stick});
 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Tractor, 1), new Object [] {" SC", "BET", "W W", 'T', Blocks.chest, 'S', ExtendedFarmingItems.SteeringWheel, 'B', ExtendedFarmingItems.Body, 'E', ExtendedFarmingItems.Engine, 'C', ExtendedFarmingItems.Chair, 'W', ExtendedFarmingItems.DriveShaft});
+
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Plow, 1), new Object [] {"III", "SSS", "BBB", 'I', Blocks.iron_block, 'S', Items.stick, 'B', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Mower, 1), new Object [] {"III", "S S", "B B", 'I', Blocks.iron_block, 'S', Items.stick, 'B', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Engine, 1), new Object [] {"I I", "BBB", 'I', Items.iron_ingot, 'B', Blocks.iron_block});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.SteeringWheel, 1), new Object [] {"III", "I I", "III", 'I', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Chair, 1), new Object [] {"  L", "LLL", "I I", 'L', Items.leather, 'I', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Wheel, 1), new Object [] {"OOO", "ORO", "OOO", 'O', Blocks.obsidian, 'R', Blocks.redstone_block});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Body, 1), new Object [] {" I ", "LBB", "III", 'I', Items.iron_ingot, 'B', Blocks.iron_block, 'L', Blocks.redstone_lamp});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.DriveShaft, 1), new Object [] {"WIW", 'W', ExtendedFarmingItems.Wheel, 'I', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Wrench, 1), new Object [] {"S", "S", "S", 'S', Items.iron_ingot});
+
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.BeetSoup, 1), new Object [] {"III", "III", " S ", 'I', ExtendedFarmingItems.RoastedBeets, 'S', Items.bowl});
 		 
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
