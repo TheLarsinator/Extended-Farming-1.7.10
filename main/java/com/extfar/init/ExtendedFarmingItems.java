@@ -54,6 +54,7 @@ public class ExtendedFarmingItems
 	public static Item Plow;
 	public static Item Mower;
 	public static Item Sprayer;
+	public static Item Seeder;
 
 	public static Item Engine;
 	public static Item Body;
@@ -95,6 +96,7 @@ public class ExtendedFarmingItems
 		Plow = new ItemMaterials().setUnlocalizedName("Plow").setTextureName(modid + ":Plow").setFull3D();
 		Mower = new ItemMaterials().setUnlocalizedName("Mower").setTextureName(modid + ":Mower").setFull3D();
 		Sprayer = new ItemMaterials().setUnlocalizedName("Sprayer").setTextureName(modid + ":Sprayer").setFull3D();
+		Seeder = new ItemMaterials().setUnlocalizedName("Seeder").setTextureName(modid + ":Seeder").setFull3D();
 		
 		Engine = (new ItemTractorParts(1)).setUnlocalizedName("Engine").setTextureName(modid + ":Engine").setFull3D();
 		Body = (new ItemTractorParts(1)).setUnlocalizedName("Body").setTextureName(modid + ":Body").setFull3D();
@@ -132,6 +134,7 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(Plow, "Plow", modid);
 		GameRegistry.registerItem(Mower, "Mower", modid);
 		GameRegistry.registerItem(Sprayer, "TractorSprayer", modid);
+		GameRegistry.registerItem(Seeder, "TractorSeeder", modid);
 
 		GameRegistry.registerItem(Engine, "Engine", modid);
 		GameRegistry.registerItem(Body, "Body", modid);

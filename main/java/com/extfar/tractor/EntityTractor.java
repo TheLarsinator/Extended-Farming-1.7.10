@@ -23,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import com.extfar.core.ExtendedFarming;
+import com.extfar.init.ExtendedFarmingBlocks;
 import com.extfar.init.ExtendedFarmingItems;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
@@ -48,11 +49,12 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 	public double fuelTime = 0;
 	public double waterTime = 0;
 
-	private ItemStack[] invItems = new ItemStack[36];
+	private ItemStack[] invItems = new ItemStack[9];
 	
 	public TractorType tractorType;
 	
 	public ResourceLocation TractorTexture = new ResourceLocation(ExtendedFarming.modid + ":textures/entities/Tractor.png");
+	public ResourceLocation Tractor2Texture = new ResourceLocation(ExtendedFarming.modid + ":textures/entities/Tractor2.png");
 ;
 
 	public EntityTractor(World world)
@@ -90,6 +92,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
         this.dataWatcher.addObject(27, Byte.valueOf((byte)0));
 		this.dataWatcher.addObject(28, new Integer(this.water));
         this.dataWatcher.addObject(29, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(30, Byte.valueOf((byte)0));
 
 	}
 
@@ -214,6 +217,27 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
         else
         {
             this.dataWatcher.updateObject(29, Byte.valueOf((byte)(b0 & -2)));
+        }
+    }
+    
+    /**
+     * Check if there is a seeder attached
+     */
+    public boolean hasSeederOn()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(30) & 1) != 0;
+    }
+    public void setSeederOn(boolean p_70904_1_)
+    {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(30);
+
+        if (p_70904_1_)
+        {
+            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 | 1)));
+        }
+        else
+        {
+            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 & -2)));
         }
     }
     
@@ -531,7 +555,9 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		int j = (int)this.posY;
 		int k = (int)this.posZ;
 		
-    	if(this.riddenByEntity instanceof EntityPlayer)
+		boolean blockPlaced = false;
+		
+    	if(this.riddenByEntity instanceof EntityPlayer && this.speed > 0)
     	{    			
 			for(int xCoord = -1; xCoord < 2; ++xCoord)
 			{
@@ -553,6 +579,259 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    		{
 			    			world.setBlockMetadataWithNotify(i+xCoord, j-1, k+zCoord, 100, 2);			
 			    		}
+			    		
+			    		if(this.hasSeederOn() && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn())
+			    		{
+			    		if((this.invItems[1] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+				    			Item item = this.invItems[1].getItem();
+				    			if(item == Items.wheat_seeds)
+				    			{
+				    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+				    			}
+				    			else if(item == Items.potato)
+				    			{
+					    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+				    			}
+				    			else if(item == Items.carrot)
+				    			{
+				    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+				    			}
+				    			else if(item == ExtendedFarmingItems.SugarBeets)
+				    			{
+				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+				    			}
+				    			else if(item == ExtendedFarmingItems.Beets)
+				    			{
+				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+				    			}
+				    			this.decrStackSize(1, 1);
+				    		}	
+			    		}
+			    		else if((this.invItems[2] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[2].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(2, 1);}
+			    		}
+			    		else if((this.invItems[3] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[3].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(3, 1);}
+			    		}
+			    		else if((this.invItems[4] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[4].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(4, 1);	}
+			    		}
+			    		if((this.invItems[5] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[5].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(5, 1);	}
+			    		}
+			    		else if((this.invItems[6] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[6].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(6, 1);
+				    		}
+			    		}
+			    		else if((this.invItems[7] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[7].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(7, 1);}
+			    		}
+			    		else if((this.invItems[8] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[8].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+			    			this.decrStackSize(8, 1);
+				    		}
+			    		}			    		
+			    		else if((this.invItems[0] != null))
+			    		{
+				    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.farmland) && (world.getBlock(i+xCoord, j, k+zCoord) == Blocks.air))
+				    		{
+			    			Item item = this.invItems[0].getItem();
+			    			if(item == Items.wheat_seeds)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.wheat);
+			    			}
+			    			else if(item == Items.potato)
+			    			{
+				    		world.setBlock(i+xCoord, j, k+zCoord, Blocks.potatoes);
+			    			}
+			    			else if(item == Items.carrot)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, Blocks.carrots);
+			    			}
+			    			else if(item == ExtendedFarmingItems.SugarBeets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			}
+			    			else if(item == ExtendedFarmingItems.Beets)
+			    			{
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			}
+				    	
+			    			this.decrStackSize(0, 1);
+			    		}
+			    		}
+			    		}
+			    		
 					}
 			}
     	}
@@ -583,6 +862,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		nbt.setBoolean("hasPlowOn", this.hasPlowOn());
 		nbt.setBoolean("hasMowerOn", this.hasMowerOn());
 		nbt.setBoolean("hasSprayerOn", this.hasSprayerOn());
+		nbt.setBoolean("hasSeederOn", this.hasSeederOn());
 
 		NBTTagList nbttaglist = new NBTTagList();
 
@@ -614,6 +894,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		this.setPlowOn(nbt.getBoolean("hasPlowOn"));
 		this.setMowerOn(nbt.getBoolean("hasMowerOn"));
 		this.setSprayerOn(nbt.getBoolean("hasSprayerOn"));
+		this.setSeederOn(nbt.getBoolean("hasSeederOn"));
 
 
 		NBTTagList nbttaglist = nbt.getTagList("Items", 10);
@@ -688,20 +969,25 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 					/**
 					 * Add Attachments
 					 */
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Plow && !this.hasPlowOn() && !this.hasMowerOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Plow && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Plow);
 			            this.dataWatcher.updateObject(26, Byte.valueOf((byte)(b0 | 1)));
 					}
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Mower && !this.hasPlowOn() && !this.hasMowerOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Mower && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Mower);
 			            this.dataWatcher.updateObject(27, Byte.valueOf((byte)(b0 | 1)));
 					}
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Sprayer && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Sprayer && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn()&& !this.hasSeederOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Sprayer);
 			            this.dataWatcher.updateObject(29, Byte.valueOf((byte)(b0 | 1)));
+					}
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Seeder && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSeederOn() && !this.hasSprayerOn())
+					{
+						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Seeder);
+			            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 | 1)));
 					}
 					
 					/**
@@ -737,6 +1023,16 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    	    		this.worldObj.spawnEntityInWorld(item);
 			    	    	   }
 				            this.dataWatcher.updateObject(29, Byte.valueOf((byte)(b0 & -2)));
+						}
+						
+						else if(this.hasSeederOn())
+						{
+			    	    	   if(this.worldObj.isRemote == false)
+			    	    	   {
+			    	    		EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(ExtendedFarmingItems.Seeder));
+			    	    		this.worldObj.spawnEntityInWorld(item);
+			    	    	   }
+				            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 & -2)));
 						}
 					}
 					else
@@ -945,7 +1241,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 	 */
 	public int getInventoryStackLimit()
 	{
-		return 18;
+		return 64;
 	}
 
 	@Override

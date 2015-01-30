@@ -22,6 +22,7 @@ item.Tractor_0.name=Tractor
 item.Plow.name=Plow
 item.Mower.name=Mower
 item.Sprayer.name=Tractor Sprinkler
+item.Seeder.name=Tractor Seeder
 
 item.Engine.name=Engine
 item.Body.name=Body

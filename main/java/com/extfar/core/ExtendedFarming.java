@@ -22,7 +22,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-3.2", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-3.3", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {

@@ -8,21 +8,17 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.extfar.core.ExtendedFarming;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import com.extfar.tractor.model.ModelTractor;
+import com.extfar.tractor.model.ModelTractor2;
 
 public class RenderTractor extends Render
 {
-	public ModelBase model;
+	public ModelBase model = new ModelTractor();
+	public ModelBase model2 = new ModelTractor2();
 
-	public TractorType type;
 	
-	public RenderTractor(ModelBase model, TractorType type)
+	public RenderTractor()
 	{
-		this.model = model;
-		this.type = type;
 	}
 
 	public void doRenderCar(EntityTractor car, double x, double y, double z, float rotationYaw, float par1)
@@ -50,6 +46,10 @@ public class RenderTractor extends Render
 			GL11.glScalef(1.0F / f4, 1.0F / f4, 1.0F / f4);
 			this.bindEntityTexture(car);
 			GL11.glScalef(-1.0F, -1.0F, 1.0F);
+			
+			if(car.hasSeederOn())
+			this.model2.render(car, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+			else
 			this.model.render(car, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 			GL11.glPopMatrix();
 		}
@@ -65,6 +65,9 @@ public class RenderTractor extends Render
 	public ResourceLocation getEntityTexture(Entity entity) 
 	{
 		EntityTractor tractor = (EntityTractor)entity;
+		if(tractor.hasSeederOn())
+		return tractor.Tractor2Texture;
+		else
 		return tractor.TractorTexture;
 	}
 
