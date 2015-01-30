@@ -94,7 +94,7 @@ public class ExtendedFarmingItems
 		
 		Plow = new ItemMaterials().setUnlocalizedName("Plow").setTextureName(modid + ":Plow").setFull3D();
 		Mower = new ItemMaterials().setUnlocalizedName("Mower").setTextureName(modid + ":Mower").setFull3D();
-		Sprayer = new ItemMaterials().setUnlocalizedName("Mower").setTextureName(modid + ":Sprayer").setFull3D();
+		Sprayer = new ItemMaterials().setUnlocalizedName("Sprayer").setTextureName(modid + ":Sprayer").setFull3D();
 		
 		Engine = (new ItemTractorParts(1)).setUnlocalizedName("Engine").setTextureName(modid + ":Engine").setFull3D();
 		Body = (new ItemTractorParts(1)).setUnlocalizedName("Body").setTextureName(modid + ":Body").setFull3D();

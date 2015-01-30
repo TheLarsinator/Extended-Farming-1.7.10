@@ -28,6 +28,8 @@ public class ExtendedFarmingRecipes
 
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Plow, 1), new Object [] {"III", "SSS", "BBB", 'I', Blocks.iron_block, 'S', Items.stick, 'B', Items.iron_ingot});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Mower, 1), new Object [] {"III", "S S", "B B", 'I', Blocks.iron_block, 'S', Items.stick, 'B', Items.iron_ingot});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Sprayer, 1), new Object [] {"III", "SSS", "BBB", 'I', Blocks.iron_block, 'S', ExtendedFarmingBlocks.Hose, 'B', Items.iron_ingot});
+
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Engine, 1), new Object [] {"I I", "BBB", 'I', Items.iron_ingot, 'B', Blocks.iron_block});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.SteeringWheel, 1), new Object [] {"III", "I I", "III", 'I', Items.iron_ingot});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Chair, 1), new Object [] {"  L", "LLL", "I I", 'L', Items.leather, 'I', Items.iron_ingot});

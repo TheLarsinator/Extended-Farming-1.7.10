@@ -1,5 +1,7 @@
 package com.extfar.tractor;
 
+import org.lwjgl.input.Keyboard;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.BlockBush;
 import net.minecraft.entity.Entity;
@@ -395,7 +397,6 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			this.setDamageTaken(this.getDamageTaken() - 1.0F);
 		}
 
-
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
@@ -431,18 +432,19 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 						{			
 								for (int i = 0; i < 10; i++) 
 								{
-									this.worldObj.spawnParticle("splash", posX + (rand.nextDouble() - 0.5D) * (double)width, (posY + rand.nextDouble() * (double)height) - 0.25D, posZ + (rand.nextDouble() - 0.5D) * (double)width, 0, 0, 0);
+									//this.worldObj.spawnParticle("splash", posX + (rand.nextDouble() - 0.5D) * (double)width, (posY + rand.nextDouble() * (double)height) - 0.25D, posZ + (rand.nextDouble() - 0.5D) * (double)width, 0, 0, 0);
 								}
+						}
+						if(this.water > 0 && this.hasSprayerOn())
+						{
+							for (int i = 0; i < 10; i++) 
+							{
+								this.worldObj.spawnParticle("splash", posX + (rand.nextDouble() - 0.5D) * (double)width, (posY + rand.nextDouble() * (double)height) - 0.25D, posZ + (rand.nextDouble() - 0.5D) * (double)width, 0, 0, 0);
+							}
 						}
 					}
 				}
-				if(this.water > 0 && this.hasSprayerOn())
-				{
-					for (int i = 0; i < 10; i++) 
-					{
-						this.worldObj.spawnParticle("splash", posX + (rand.nextDouble() - 0.5D) * (double)width, (posY + rand.nextDouble() * (double)height) - 0.25D, posZ + (rand.nextDouble() - 0.5D) * (double)width, 0, 0, 0);
-					}
-				}
+
 
 				if(fuel > 0)
 				{
@@ -654,6 +656,10 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			{
 				if(player.isSneaking())
 				{
+					
+					/**
+					 * Add fuel and water
+					 */
 					if(player.getHeldItem() != null && (player.getHeldItem().getItem() == Items.coal || player.getHeldItem().getItem() == Item.getItemFromBlock(Blocks.coal_block)))
 					{
 						if(player.getHeldItem().getItem() == Items.coal)
@@ -678,6 +684,10 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 						player.addChatMessage(new ChatComponentText("Tractor water level: " + water));
 					}
 					
+					
+					/**
+					 * Add Attachments
+					 */
 					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Plow && !this.hasPlowOn() && !this.hasMowerOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Plow);
@@ -690,10 +700,13 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 					}
 					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Sprayer && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn())
 					{
-						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Mower);
+						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Sprayer);
 			            this.dataWatcher.updateObject(29, Byte.valueOf((byte)(b0 | 1)));
 					}
 					
+					/**
+					 * Remove Attachments
+					 */
 					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Wrench)
 					{
 						if(this.hasPlowOn())

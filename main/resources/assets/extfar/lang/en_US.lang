@@ -20,6 +20,9 @@ item.RoastedBeets.name=Roasted Beet
 
 item.Tractor_0.name=Tractor
 item.Plow.name=Plow
+item.Mower.name=Mower
+item.Sprayer.name=Tractor Sprinkler
+
 item.Engine.name=Engine
 item.Body.name=Body
 item.DriveShaft.name=Wheels on axis
