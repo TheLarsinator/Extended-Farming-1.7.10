@@ -1,0 +1,75 @@
+//Items
+item.BambooSticksItem.name=Baton de banbou
+item.NetItem.name=Filet
+
+item.BeanSeeds.name=Graines de haricot
+item.PeaSeeds.name=Graines de pois
+item.ChilliPepperSeeds.name=Graine de piment
+
+item.Beans.name=Haricots
+item.Peas.name=Pois
+item.ChilliPeppers.name=Piment 
+item.SugarBeets.name=Betterave sucrière
+item.Beets.name=Betterave
+
+item.RoastedCarrot.name=Carotte rotie
+item.RoastedBeans.name=Haricot roti
+item.BakedPeas.name=Pois cuits
+item.RoastedPeppers.name=Piment roti
+item.RoastedBeets.name=Betterave rotie
+
+item.Tractor_0.name=Tracteur
+item.Plow.name=Charrue
+item.Mower.name=Faucheuse
+item.Sprayer.name=Arroseur de tracteur
+item.Seeder.name=Planteur de tracteur
+
+item.Engine.name=Moteur
+item.Body.name=Carrosserie
+item.DriveShaft.name=Direction
+item.Chair.name=Chaire
+item.SteeringWheel.name=Volant
+item.Wheel.name=Roue
+item.Wrench.name=Clé
+
+item.BeetSoup.name=Soupe de betteraves
+
+item.QuartzHoe.name=Houe en quartz
+//Blocks
+tile.Hose.name=Tuyau
+tile.Pump.name=Pompe
+tile.Sprayer.name=Arroseur
+
+tile.NetherHose.name=Tuyau isolé
+tile.NetherPump.name=Pompe à lave
+tile.NetherSprayer.name=Arroseur à lave
+
+//Tab
+itemGroup.ExtendedFarmingItems=Articles agricoles
+
+//Achievement + desc
+achievement.extfarlogin=Play with Extended Farming
+achievement.extfarlogin.desc=Run the mod once
+achievement.extfarpump=Aquarius
+achievement.extfarpump.desc=Craft a water pump
+achievement.extfarsprinkler=Watering
+achievement.extfarsprinkler.desc=Craft a water sprinkler
+achievement.extfarnether=Irrigate Hell
+achievement.extfarnether.desc=Craft a Quartz Hoe
+achievement.extfarlavapump=Lavaflow
+achievement.extfarlavapump.desc=Craft a lava pump
+achievement.extfarlavasprinkler=Lavaing
+achievement.extfarlavasprinkler.desc=Craft a lava sprinkler
+achievement.extfarshortcut=Too lazy to cook
+achievement.extfarshortcut.desc=Harvest a cooked crop
+achievement.extfarbeans=Beans!
+achievement.extfarbeans.desc=Harvest Beans!
+achievement.extfarpeas=Peas!
+achievement.extfarpeas.desc=Harvest Peas!
+achievement.extfarpeppers=Chilli Peppers!
+achievement.extfarpeppers.desc=Harvest Chilli Peppers!
+achievement.extfarsugarbeets=Sugar Beets!
+achievement.extfarsugarbeets.desc=Harvest Sugar Beets!
+achievement.extfarbeets=Beets!
+achievement.extfarbeets.desc=Harvest Beets!
+
