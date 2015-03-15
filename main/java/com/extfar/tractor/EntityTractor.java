@@ -93,6 +93,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		this.dataWatcher.addObject(28, new Integer(this.water));
         this.dataWatcher.addObject(29, Byte.valueOf((byte)0));
         this.dataWatcher.addObject(30, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(31, Byte.valueOf((byte)0));
 
 	}
 
@@ -238,6 +239,27 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
         else
         {
             this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 & -2)));
+        }
+    }
+    
+    /**
+     * Check if there is a harvester attached
+     */
+    public boolean hasHarvesterOn()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(31) & 1) != 0;
+    }
+    public void setHarvesterOn(boolean p_70904_1_)
+    {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(31);
+
+        if (p_70904_1_)
+        {
+            this.dataWatcher.updateObject(31, Byte.valueOf((byte)(b0 | 1)));
+        }
+        else
+        {
+            this.dataWatcher.updateObject(31, Byte.valueOf((byte)(b0 & -2)));
         }
     }
     
@@ -579,6 +601,10 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    		{
 			    			world.setBlockMetadataWithNotify(i+xCoord, j-1, k+zCoord, 100, 2);			
 			    		}
+			    		if((world.getBlock(i+xCoord, j-1, k+zCoord) == Blocks.dirt) && !this.hasPlowOn() && !this.hasMowerOn() && this.hasSprayerOn() && this.water > 0)
+			    		{
+			    			world.setBlock(i+xCoord, j-1, k+zCoord, Blocks.grass);			
+			    		}
 			    		
 			    		if(this.hasSeederOn() && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn())
 			    		{
@@ -829,7 +855,63 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 				    	
 			    			this.decrStackSize(0, 1);
 			    		}
+				    		
 			    		}
+			    		}
+			    		if(this.hasHarvesterOn())
+			    		{
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == Blocks.wheat && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			{
+				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
+				    	    if(this.worldObj.isRemote == false)
+				    	    {
+				    	    	EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(Items.wheat, world.rand.nextInt(4)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item);
+				    	    	
+				    	    	EntityItem item2 = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(Items.wheat_seeds, world.rand.nextInt(2)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item2);
+				    	    }
+			    			}
+			    			
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == Blocks.potatoes && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			{
+				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
+				    	    if(this.worldObj.isRemote == false)
+				    	    {
+				    	    	EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(Items.potato, world.rand.nextInt(4)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item);
+				    	    }
+			    			}
+			    			
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == Blocks.carrots && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			{
+				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
+				    	    if(this.worldObj.isRemote == false)
+				    	    {
+				    	    	EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(Items.carrot, world.rand.nextInt(4)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item);
+				    	    }
+			    			}
+			    			
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.SugarBeet && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			{
+				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
+				    	    if(this.worldObj.isRemote == false)
+				    	    {
+				    	    	EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(ExtendedFarmingItems.SugarBeets, world.rand.nextInt(4)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item);
+				    	    }
+			    			}
+			    			
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.Beets && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			{
+				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
+				    	    if(this.worldObj.isRemote == false)
+				    	    {
+				    	    	EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(ExtendedFarmingItems.Beets, world.rand.nextInt(4)+1));
+				    	    	this.worldObj.spawnEntityInWorld(item);
+				    	    }
+			    			}
 			    		}
 			    		
 					}
@@ -863,6 +945,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		nbt.setBoolean("hasMowerOn", this.hasMowerOn());
 		nbt.setBoolean("hasSprayerOn", this.hasSprayerOn());
 		nbt.setBoolean("hasSeederOn", this.hasSeederOn());
+		nbt.setBoolean("hasHarvesterOn", this.hasHarvesterOn());
 
 		NBTTagList nbttaglist = new NBTTagList();
 
@@ -895,6 +978,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 		this.setMowerOn(nbt.getBoolean("hasMowerOn"));
 		this.setSprayerOn(nbt.getBoolean("hasSprayerOn"));
 		this.setSeederOn(nbt.getBoolean("hasSeederOn"));
+		this.setHarvesterOn(nbt.getBoolean("hasHarvesterOn"));
 
 
 		NBTTagList nbttaglist = nbt.getTagList("Items", 10);
@@ -969,25 +1053,31 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 					/**
 					 * Add Attachments
 					 */
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Plow && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Plow && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn()&& !this.hasHarvesterOn()&& !this.hasSprayerOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Plow);
 			            this.dataWatcher.updateObject(26, Byte.valueOf((byte)(b0 | 1)));
 					}
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Mower && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Mower && !this.hasPlowOn() && !this.hasMowerOn()&& !this.hasSeederOn()&& !this.hasHarvesterOn()&& !this.hasSprayerOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Mower);
 			            this.dataWatcher.updateObject(27, Byte.valueOf((byte)(b0 | 1)));
 					}
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Sprayer && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn()&& !this.hasSeederOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Sprayer && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSprayerOn()&& !this.hasSeederOn()&& !this.hasHarvesterOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Sprayer);
 			            this.dataWatcher.updateObject(29, Byte.valueOf((byte)(b0 | 1)));
 					}
-					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Seeder && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSeederOn() && !this.hasSprayerOn())
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Seeder && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSeederOn() && !this.hasSprayerOn() && !this.hasHarvesterOn())
 					{
 						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Seeder);
 			            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 | 1)));
+					}					
+					else if(player.getHeldItem() != null && player.getHeldItem().getItem() == ExtendedFarmingItems.Harvester && !this.hasPlowOn() && !this.hasMowerOn() && !this.hasSeederOn() && !this.hasSprayerOn()&& !this.hasHarvesterOn())
+					{
+						player.inventory.consumeInventoryItem(ExtendedFarmingItems.Harvester);
+			            this.dataWatcher.updateObject(31, Byte.valueOf((byte)(b0 | 1)));
+			            System.out.println(this.hasHarvesterOn());
 					}
 					
 					/**
@@ -1033,6 +1123,16 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    	    		this.worldObj.spawnEntityInWorld(item);
 			    	    	   }
 				            this.dataWatcher.updateObject(30, Byte.valueOf((byte)(b0 & -2)));
+						}
+						
+						else if(this.hasHarvesterOn())
+						{
+			    	    	   if(this.worldObj.isRemote == false)
+			    	    	   {
+			    	    		EntityItem item = new EntityItem(this.worldObj, this.posX + rand.nextFloat() * 2, this.posY + 0.2F, this.posZ+ rand.nextFloat() * 2, new ItemStack(ExtendedFarmingItems.Harvester));
+			    	    		this.worldObj.spawnEntityInWorld(item);
+			    	    	   }
+				            this.dataWatcher.updateObject(31, Byte.valueOf((byte)(b0 & -2)));
 						}
 					}
 					else
