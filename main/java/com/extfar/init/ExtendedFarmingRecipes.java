@@ -51,7 +51,7 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 2), new Object[]{ExtendedFarmingItems.SugarBeets});
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[]{ExtendedFarmingItems.Beets});
 
-		 GameRegistry.addSmelting(Items.carrot, new ItemStack(ExtendedFarmingItems.RoastedCarrot), 3F);
+		 GameRegistry.addSmelting(ExtendedFarmingItems.RawGoatMeat, new ItemStack(ExtendedFarmingItems.GoatMeat), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beans, new ItemStack(ExtendedFarmingItems.RoastedBeans), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Peas, new ItemStack(ExtendedFarmingItems.BakedPeas), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.ChilliPeppers, new ItemStack(ExtendedFarmingItems.RoastedPeppers), 3F);

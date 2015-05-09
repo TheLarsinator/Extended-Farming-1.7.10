@@ -6,6 +6,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import com.extfar.animals.entity.EntityGoat;
+import com.extfar.animals.model.ModelGoat;
+import com.extfar.animals.render.RenderGoat;
 import com.extfar.blocks.nether.hose.TileEntityActiveNetherHose;
 import com.extfar.blocks.nether.hose.TileEntityNetherHose;
 import com.extfar.blocks.nether.hose.TileEntityPassiveNetherHose;
@@ -75,6 +78,11 @@ import com.extfar.tractor.model.ModelTractorSprayer;
 import com.extfar.tractor.model.ModelWheel;
 import com.extfar.tractor.render.RenderPlow;
 
+
+
+
+
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -124,6 +132,9 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
 
   		RenderingRegistry.registerEntityRenderingHandler(EntityTractor.class, new RenderTractor());
   		RenderingRegistry.registerEntityRenderingHandler(EntityPlow.class, new RenderPlow(new ModelPlow()));
+  		
+  		RenderingRegistry.registerEntityRenderingHandler(EntityGoat.class, new RenderGoat(new ModelGoat(), 0.5F));
+
         }
     public int addArmor(String armor){
     	return RenderingRegistry.addNewArmourRendererPrefix(armor);

@@ -1,7 +1,7 @@
 package com.extfar.init;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucketMilk;
 
 import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
@@ -47,6 +47,9 @@ public class ExtendedFarmingItems
 	
 	public static Item QuartzHoe;
 	
+	public static Item GoatMilk_Bucket;
+	public static Item GoatMeat;
+	public static Item RawGoatMeat;
 	
 	
 	public static final Item Tractor = new ItemTractor(0);
@@ -109,6 +112,11 @@ public class ExtendedFarmingItems
 		
 		Wrench = new ItemMaterials().setUnlocalizedName("Wrench").setTextureName(modid + ":Wrench");
 		
+		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket");
+		RawGoatMeat = new ItemMyFood(3, 4, false).setUnlocalizedName("RawGoatMeat").setTextureName(modid + ":RawGoatMeat");
+		GoatMeat = new ItemMyFood(6, 8, false).setUnlocalizedName("GoatMeat").setTextureName(modid + ":GoatMeat");
+		
+		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
 		
@@ -147,6 +155,11 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(Wheel, "Wheel", modid);
 
 		GameRegistry.registerItem(Wrench, "Wrench", modid);
+		
+		GameRegistry.registerItem(GoatMilk_Bucket, "GoatMilk_Bucket", modid);
+		GameRegistry.registerItem(RawGoatMeat, "RawGoatMeat", modid);
+		GameRegistry.registerItem(GoatMeat, "GoatMeat", modid);
+
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
 		Rice = new ItemMyFood(0, 2, false);
 		

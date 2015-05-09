@@ -18,6 +18,10 @@ item.BakedPeas.name=Baked Peas
 item.RoastedPeppers.name=Roasted Pepper
 item.RoastedBeets.name=Roasted Beet
 
+item.RawGoatMeat.name=Raw Goat
+item.GoatMeat.name= Roasted Goat
+item.GoatMilk_Bucket.name= Goatmilk
+
 item.Tractor_0.name=Tractor
 item.Plow.name=Plow
 item.Mower.name=Mower
@@ -74,3 +78,5 @@ achievement.extfarsugarbeets.desc=Harvest Sugar Beets!
 achievement.extfarbeets=Beets!
 achievement.extfarbeets.desc=Harvest Beets!
 
+//Entities
+entity.extfar_Goat.name=Goat
