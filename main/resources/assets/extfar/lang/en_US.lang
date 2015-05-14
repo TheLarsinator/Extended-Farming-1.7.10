@@ -49,6 +49,8 @@ tile.NetherHose.name=Insulated Hose
 tile.NetherPump.name=Lava Pump
 tile.NetherSprayer.name=Lava Sprinkler
 
+tile.MilkingStation.name=Milking Station
+
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items
 

@@ -9,6 +9,12 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import com.extfar.animals.entity.EntityGoat;
 import com.extfar.animals.model.ModelGoat;
 import com.extfar.animals.render.RenderGoat;
+import com.extfar.blocks.milking.ItemRenderMilkingStation;
+import com.extfar.blocks.milking.ModelMilkingStation;
+import com.extfar.blocks.milking.TileEntityCheeseBarrel;
+import com.extfar.blocks.milking.TileEntityMilkingStation;
+import com.extfar.blocks.milking.TileEntityRendererCheeseBarrel;
+import com.extfar.blocks.milking.TileEntityRendererMilkingStation;
 import com.extfar.blocks.nether.hose.TileEntityActiveNetherHose;
 import com.extfar.blocks.nether.hose.TileEntityNetherHose;
 import com.extfar.blocks.nether.hose.TileEntityPassiveNetherHose;
@@ -46,6 +52,7 @@ import com.extfar.tractor.entity.EntityChair;
 import com.extfar.tractor.entity.EntityDriveShaft;
 import com.extfar.tractor.entity.EntityEngine;
 import com.extfar.tractor.entity.EntityHarvester;
+import com.extfar.tractor.entity.EntityMilkingStation;
 import com.extfar.tractor.entity.EntityMower;
 import com.extfar.tractor.entity.EntityPlow;
 import com.extfar.tractor.entity.EntitySeeder;
@@ -77,11 +84,6 @@ import com.extfar.tractor.model.ModelTractor;
 import com.extfar.tractor.model.ModelTractorSprayer;
 import com.extfar.tractor.model.ModelWheel;
 import com.extfar.tractor.render.RenderPlow;
-
-
-
-
-
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -129,6 +131,11 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
 		MinecraftForgeClient.registerItemRenderer(ExtendedFarmingItems.Wheel, (IItemRenderer)new ItemRendererWheel(new EntityWheel(FMLClientHandler.instance().getClient().theWorld), new ModelWheel(), new ResourceLocation(ExtendedFarming.modid + ":textures/items/Tractor.png")));
 		MinecraftForgeClient.registerItemRenderer(ExtendedFarmingItems.SteeringWheel, (IItemRenderer)new ItemRendererSteeringWheel(new EntitySteeringWheel(FMLClientHandler.instance().getClient().theWorld), new ModelSteeringWheel(), new ResourceLocation(ExtendedFarming.modid + ":textures/items/Tractor.png")));
 		MinecraftForgeClient.registerItemRenderer(ExtendedFarmingItems.Chair, (IItemRenderer)new ItemRendererChair(new EntityChair(FMLClientHandler.instance().getClient().theWorld), new ModelChair(), new ResourceLocation(ExtendedFarming.modid + ":textures/items/Tractor.png")));
+
+  		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMilkingStation.class, new TileEntityRendererMilkingStation());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), (IItemRenderer)new ItemRenderMilkingStation(new EntityMilkingStation(FMLClientHandler.instance().getClient().theWorld), new ModelMilkingStation(), new ResourceLocation(ExtendedFarming.modid + ":textures/blocks/MilkingStation/MilkingStation0.png")));
+		
+  		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseBarrel.class, new TileEntityRendererCheeseBarrel());
 
   		RenderingRegistry.registerEntityRenderingHandler(EntityTractor.class, new RenderTractor());
   		RenderingRegistry.registerEntityRenderingHandler(EntityPlow.class, new RenderPlow(new ModelPlow()));

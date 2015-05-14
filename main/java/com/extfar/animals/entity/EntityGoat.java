@@ -1,6 +1,6 @@
 package com.extfar.animals.entity;
 
-import com.extfar.init.ExtendedFarmingItems;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
@@ -21,10 +21,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.extfar.init.ExtendedFarmingItems;
+
 public class EntityGoat extends EntityAnimal
 {
     private static final String __OBFID = "CL_00001640";
-
+    int x;
+    
     public EntityGoat(World p_i1683_1_)
     {
         super(p_i1683_1_);
@@ -38,8 +41,39 @@ public class EntityGoat extends EntityAnimal
         this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
+        this.x = 0;
     }
 
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+    }
+    
+    /**
+     * Called to update the entity's position/logic.
+     */
+    public void onUpdate()
+    {
+        super.onUpdate();
+        
+        if(!this.IsGoatMilkable())
+        {
+        
+        
+        Random rand = new Random();
+        
+        x = x + rand.nextInt(5);
+        //System.out.println(x);
+        if(x > 20)
+        {
+        	x = 0;
+        	this.setIsGoatMilkable(true);
+        	//System.out.println("Im milkable!");
+        }
+        }
+    }
+    
     /**
      * Returns true if the newer Entity AI code should be run
      */
@@ -126,15 +160,34 @@ public class EntityGoat extends EntityAnimal
         }
     }
 
+    
+    public boolean IsGoatMilkable()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+    
+    public void setIsGoatMilkable(boolean par1)
+    {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+
+        if(par1)
+        {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));
+        }
+        else
+        {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));
+        }
+    }
+
     /**
      * Called when a player interacts with a mob. e.g. gets milk from a Goat, gets into the saddle on a pig.
      */
     public boolean interact(EntityPlayer p_70085_1_)
     {
-    	//TODO Add goat milk
         ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
 
-        if (itemstack != null && itemstack.getItem() == Items.bucket && !p_70085_1_.capabilities.isCreativeMode && !this.isChild())
+        if (itemstack != null && itemstack.getItem() == Items.bucket && !p_70085_1_.capabilities.isCreativeMode && !this.isChild() && this.IsGoatMilkable())
         {
             if (itemstack.stackSize-- == 1)
             {
@@ -144,7 +197,8 @@ public class EntityGoat extends EntityAnimal
             {
                 p_70085_1_.dropPlayerItemWithRandomChoice(new ItemStack(ExtendedFarmingItems.GoatMilk_Bucket, 1, 0), false);
             }
-
+            
+            this.setIsGoatMilkable(false);
             return true;
         }
         else

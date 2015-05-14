@@ -2,9 +2,16 @@ package com.extfar.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
+import com.extfar.blocks.milking.BlockCheeseBarrel;
+import com.extfar.blocks.milking.BlockMilkLiquid;
+import com.extfar.blocks.milking.BlockMilkingStation;
+import com.extfar.blocks.milking.TileEntityCheeseBarrel;
+import com.extfar.blocks.milking.TileEntityMilkingStation;
 import com.extfar.blocks.nether.BlockFarmSoulSand;
 import com.extfar.blocks.nether.hose.BlockActiveNetherHose;
 import com.extfar.blocks.nether.hose.BlockNetherHose;
@@ -77,6 +84,11 @@ public class ExtendedFarmingBlocks
 	
 	public static Block Rice;
 	
+	public static Block MilkingStation;
+	public static Fluid MilkFluid;
+	public static Block MilkLiquid;
+	public static Block CheeseBarrel;
+	
 	public static void init()
 	{
 
@@ -113,6 +125,13 @@ public class ExtendedFarmingBlocks
 		NetherCarrots = new BlockMyCrops(100, 105, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("carrots");
 		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("wheat");
 		
+		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("wheat").setHardness(1.8F);
+		MilkFluid = new Fluid("milk").setLuminosity(0).setViscosity(20);
+		FluidRegistry.registerFluid(MilkFluid);
+		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid").setCreativeTab(ExtendedFarming.ItemsTab);
+		
+		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel");
+		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
 
@@ -143,6 +162,12 @@ public class ExtendedFarmingBlocks
 	    GameRegistry.registerTileEntity(TileEntityActiveNetherSprayer.class, "ActiveNetherSprayerTE");
 		GameRegistry.registerBlock(FarmSoulSand, "FarmSoulSand");
 
+		GameRegistry.registerBlock(MilkingStation, "MilkingStation");
+	    GameRegistry.registerTileEntity(TileEntityMilkingStation.class, "MilkingStationTE");
+		GameRegistry.registerBlock(MilkLiquid, "MilkLiquid");
+		
+	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
+		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
 
 		GameRegistry.registerBlock(Beans, "Beans");
 		GameRegistry.registerBlock(Peas, "Peas");
