@@ -3,12 +3,9 @@ package com.extfar.blocks.milking;
 import java.util.Random;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-
-import com.extfar.core.handler.PacketHandler;
 
 public class TileEntityCheeseBarrel extends TileEntity 
 {
@@ -141,10 +138,19 @@ public class TileEntityCheeseBarrel extends TileEntity
 	}
 	*/
 	@Override
-    public Packet getDescriptionPacket()
-    {
-        return PacketHandler.getPacket(this);
-    }
+	public Packet getDescriptionPacket() 
+	{
+	  NBTTagCompound nbt = new NBTTagCompound();
+	  writeToNBT(nbt);
+	  S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, this.blockMetadata, nbt);
+	  return packet;
+	 }
+	
+/*	@Override
+	public void onDataPacket(NetworkManager networkmngr, S35PacketUpdateTileEntity packetupdate) 
+	{
+	  readFromNBT(packetupdate.func_148857_g());
+	}
     
     public void handlePacketData(int cheesecontent, float milkcontent, boolean cheese, boolean milk)
     {
@@ -152,5 +158,5 @@ public class TileEntityCheeseBarrel extends TileEntity
     	this.milkAmount = milkcontent;
     	this.hasCheese = cheese;
     	this.hasMilk = milk;
-    }
+    }*/
 }
