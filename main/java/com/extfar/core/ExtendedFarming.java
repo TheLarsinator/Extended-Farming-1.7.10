@@ -9,6 +9,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import com.extfar.core.handler.ConfigHandler;
 import com.extfar.core.handler.ExtendedFarmingEventHandler;
+import com.extfar.core.handler.PacketHandler;
 import com.extfar.init.ExtendedFarmingAchievementsBook;
 import com.extfar.init.ExtendedFarmingBlocks;
 import com.extfar.init.ExtendedFarmingEntities;
@@ -49,6 +50,7 @@ public class ExtendedFarming
      ExtendedFarmingItems.init();
      ExtendedFarmingAchievementsBook.init();
      
+     PacketHandler.INSTANCE.ordinal();
 	}
 	
 	@EventHandler

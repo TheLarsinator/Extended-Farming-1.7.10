@@ -3,6 +3,7 @@ package com.extfar.core;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -151,5 +152,11 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
     {
 		return null;
     	
+    }
+    
+    @Override
+    public World getClientWorld()
+    {
+        return FMLClientHandler.instance().getClient().theWorld;
     }
 }

@@ -8,6 +8,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
+import com.extfar.blocks.milking.BlockGoatCheese;
 import com.extfar.blocks.milking.BlockMilkLiquid;
 import com.extfar.blocks.milking.BlockMilkingStation;
 import com.extfar.blocks.milking.TileEntityCheeseBarrel;
@@ -88,6 +89,7 @@ public class ExtendedFarmingBlocks
 	public static Fluid MilkFluid;
 	public static Block MilkLiquid;
 	public static Block CheeseBarrel;
+	public static Block GoatCheese;
 	
 	public static void init()
 	{
@@ -123,14 +125,15 @@ public class ExtendedFarmingBlocks
 		
 		NetherPotatoes = new BlockMyCrops(100, 104, 6, 4, 0).setBlockName("NetherBeans").setBlockTextureName("potatoes");
 		NetherCarrots = new BlockMyCrops(100, 105, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("carrots");
-		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("wheat");
+		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("extfar:wheat_stage_7");
 		
-		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("wheat").setHardness(1.8F);
+		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("extfar:wheat_stage_7").setHardness(1.8F);
 		MilkFluid = new Fluid("milk").setLuminosity(0).setViscosity(20);
 		FluidRegistry.registerFluid(MilkFluid);
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid").setCreativeTab(ExtendedFarming.ItemsTab);
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel");
+		GoatCheese = new BlockGoatCheese().setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -168,6 +171,7 @@ public class ExtendedFarmingBlocks
 		
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
+		GameRegistry.registerBlock(GoatCheese, "GoatCheeseBlock");
 
 		GameRegistry.registerBlock(Beans, "Beans");
 		GameRegistry.registerBlock(Peas, "Peas");

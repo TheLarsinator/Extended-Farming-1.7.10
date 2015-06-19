@@ -7,6 +7,7 @@ import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
 import com.extfar.items.ItemCropSupport;
+import com.extfar.items.ItemGoatCheese;
 import com.extfar.items.ItemMaterials;
 import com.extfar.items.ItemMyFood;
 import com.extfar.items.ItemQuartzHoe;
@@ -50,6 +51,7 @@ public class ExtendedFarmingItems
 	public static Item GoatMilk_Bucket;
 	public static Item GoatMeat;
 	public static Item RawGoatMeat;
+	public static Item GoatCheese;
 	
 	
 	public static final Item Tractor = new ItemTractor(0);
@@ -115,7 +117,7 @@ public class ExtendedFarmingItems
 		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket");
 		RawGoatMeat = new ItemMyFood(3, 4, false).setUnlocalizedName("RawGoatMeat").setTextureName(modid + ":RawGoatMeat");
 		GoatMeat = new ItemMyFood(6, 8, false).setUnlocalizedName("GoatMeat").setTextureName(modid + ":GoatMeat");
-		
+		GoatCheese = new ItemGoatCheese(ExtendedFarmingBlocks.GoatCheese).setUnlocalizedName("GoatCheeseItem").setTextureName(modid + ":GoatCheeseItem").setCreativeTab(ExtendedFarming.ItemsTab);
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
@@ -159,6 +161,7 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(GoatMilk_Bucket, "GoatMilk_Bucket", modid);
 		GameRegistry.registerItem(RawGoatMeat, "RawGoatMeat", modid);
 		GameRegistry.registerItem(GoatMeat, "GoatMeat", modid);
+		GameRegistry.registerItem(GoatCheese, "GoatCheese", modid);
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
 		Rice = new ItemMyFood(0, 2, false);

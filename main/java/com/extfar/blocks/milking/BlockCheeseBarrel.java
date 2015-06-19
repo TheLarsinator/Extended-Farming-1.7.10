@@ -83,7 +83,7 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	      }
 	      if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese == true)
 	      {
-	    	  //TODO Add the cheese block
+	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.GoatCheese, 1));
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasMilk(false);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasCheese(false);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(0);
@@ -92,9 +92,9 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	      return false;
 	}
 	
-    public void randomDisplayTick(World world, int x, int y, int z, Random rand) 
+  /*  public void randomDisplayTick(World world, int x, int y, int z, Random rand) 
     {
-    	if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasMilk && !((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese)
+    	if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasMilk && !((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese && world.isRemote)
     	{
         	System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount);
     		((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount - rand.nextFloat()/1);  		
@@ -125,10 +125,9 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
     	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(3);
  	           ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasMilk(false);
  	           ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasCheese(true);
-    		}
-    		
+    		}   		
     	}
-    }
+    }*/
 
 
 

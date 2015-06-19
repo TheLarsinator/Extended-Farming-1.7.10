@@ -1,6 +1,8 @@
 package com.extfar.core;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.world.World;
 
 public class ExtendedFarmingProxy {
     public void registerRenderInformation()
@@ -20,5 +22,10 @@ public class ExtendedFarmingProxy {
 	public ModelBiped getArmorModel(int id)
 	{
 		return null;
+	}
+	
+	public World getClientWorld() {
+		// TODO Auto-generated method stub
+        return FMLClientHandler.instance().getClient().theWorld;
 	}
 }

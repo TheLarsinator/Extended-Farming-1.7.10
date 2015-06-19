@@ -1,10 +1,14 @@
 package com.extfar.blocks.milking;
 
+import java.util.Random;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+
+import com.extfar.core.handler.PacketHandler;
 
 public class TileEntityCheeseBarrel extends TileEntity 
 {
@@ -33,10 +37,10 @@ public class TileEntityCheeseBarrel extends TileEntity
     public void readFromNBT(NBTTagCompound nbttag)
     {
 		super.readFromNBT(nbttag);
-        this.hasCheese = nbttag.getBoolean("cheese"); 
-        this.milkAmount = nbttag.getFloat("milkamount");
+        this.hasCheese = nbttag.getBoolean("cheese");
         this.hasMilk = nbttag.getBoolean("milk"); 
         this.cheeseAmount = nbttag.getInteger("cheeseamount");
+        this.milkAmount = nbttag.getFloat("milkamount");
     }
 
     
@@ -59,20 +63,94 @@ public class TileEntityCheeseBarrel extends TileEntity
     {
     	this.cheeseAmount = a;
     }
-    
+    Random rand = new Random();	
+    public void updateEntity()
+    {
+	if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).hasMilk && !((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).hasCheese && this.worldObj.isRemote)
+	{
+    	System.out.println(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount);
+		((TileEntityCheeseBarrel) this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount - rand.nextFloat()/1);  		
+		
+		if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 4 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 5F)
+		{ 
+	          // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(4);
+           ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(0);         
+		}
+		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 3 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 4)
+		{
+	      // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(3);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(1); 
+		}
+		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 2 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 3)
+		{
+	      // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(2);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(2); 
+		}
+		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 1 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 2)
+		{
+	       //((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(1);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(3); 
+		}
+		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount < 0)
+		{
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(0);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(3);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setHasMilk(false);
+	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setHasCheese(true);
+		}   		
+	}
+    }
 	
-	@Override
+	/*@Override
 	public Packet getDescriptionPacket() 
 	{
 	  NBTTagCompound nbt = new NBTTagCompound();
 	  writeToNBT(nbt);
 	  S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, this.blockMetadata, nbt);
 	  return packet;
-	 }
+	 }*/
 	
-	@Override
-	public void onDataPacket(NetworkManager arg0, S35PacketUpdateTileEntity arg1) 
-	{
-	  readFromNBT(arg1.func_148857_g());
+	/*public void sendChangeToServer(){
+	    ByteArrayOutputStream bos = new ByteArrayOutputStream(8);
+	    DataOutputStream outputStream = new DataOutputStream(bos);
+	    try {
+	        outputStream.writeInt(xCoord);
+	        outputStream.writeInt(yCoord);
+	        outputStream.writeInt(zCoord);
+	        //write the relevant information here... exemple:
+	        outputStream.writeInt(cheeseAmount);
+	        outputStream.writeFloat(milkAmount);
+	        outputStream.writeBoolean(hasCheese);
+	        outputStream.writeBoolean(hasMilk);
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	    }
+	               
+	    Packet250CustomPayload packet = new Packet250CustomPayload();
+	    packet.channel = "GenericRandom";
+	    packet.data = bos.toByteArray();
+	    packet.length = bos.size();
+
+	    PacketDispatcher.sendPacketToServer(packet);
 	}
+	*/
+	/*@Override
+	public void onDataPacket(NetworkManager networkmngr, S35PacketUpdateTileEntity packetupdate) 
+	{
+	  readFromNBT(packetupdate.func_148857_g());
+	}
+	*/
+	@Override
+    public Packet getDescriptionPacket()
+    {
+        return PacketHandler.getPacket(this);
+    }
+    
+    public void handlePacketData(int cheesecontent, float milkcontent, boolean cheese, boolean milk)
+    {
+    	this.cheeseAmount = cheesecontent;
+    	this.milkAmount = milkcontent;
+    	this.hasCheese = cheese;
+    	this.hasMilk = milk;
+    }
 }

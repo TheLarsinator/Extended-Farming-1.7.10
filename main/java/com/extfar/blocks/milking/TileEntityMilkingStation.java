@@ -59,9 +59,9 @@ public class TileEntityMilkingStation extends TileEntity
 	 }
 	
 	@Override
-	public void onDataPacket(NetworkManager arg0, S35PacketUpdateTileEntity arg1) 
+	public void onDataPacket(NetworkManager networkmngr, S35PacketUpdateTileEntity packetupdate) 
 	{
-	  readFromNBT(arg1.func_148857_g());
+	  readFromNBT(packetupdate.func_148857_g());
 	}
 	 
 }
