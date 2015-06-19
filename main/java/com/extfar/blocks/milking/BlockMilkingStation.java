@@ -81,10 +81,10 @@ public class BlockMilkingStation extends Block implements ITileEntityProvider
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
 	      ItemStack heldItem = player.getHeldItem();
-	   /*   if(heldItem != null)
+	      if(heldItem != null)
 	      {
 	    	  System.out.println(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount);
-	      }*/
+	      }
 	      if(heldItem != null && heldItem.getItem() == Items.bucket && ((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount >= 1 && player.inventory.getFirstEmptyStack() != -1)
 	      {
 	          ((TileEntityMilkingStation)world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount - 1);
