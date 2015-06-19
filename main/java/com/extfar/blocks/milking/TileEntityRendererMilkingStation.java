@@ -8,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.extfar.core.ExtendedFarming;
-import com.lom.lotsomobscore.LotsOMobs;
 
 public class TileEntityRendererMilkingStation extends TileEntitySpecialRenderer
 {
