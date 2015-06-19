@@ -2,22 +2,18 @@ package com.extfar.blocks.milking;
 
 import java.util.Random;
 
-import com.extfar.core.ExtendedFarming;
-import com.extfar.init.ExtendedFarmingItems;
-import com.lom.lotsomobsinit.LotsOMobsItems;
-import com.lom.lotsomobstileentity.saltbath.TileEntitySaltBath;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import com.extfar.core.ExtendedFarming;
+import com.extfar.init.ExtendedFarmingItems;
 
 public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 {
@@ -67,25 +63,22 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	      ItemStack heldItem = player.getHeldItem();
 	      if(heldItem != null && heldItem.getItem() == Items.wooden_sword)
 	      {
-	    	  System.out.print("Has Cheese: ");
-	    	  System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese);
 	    	  System.out.print("Has Milk: ");
-	    	  System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasMilk);
+	    	  System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount);
+	    	  System.out.print("Has Cheese: ");
+	    	  System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount);
 	    	  
 	      }
-	      if(heldItem != null && heldItem.getItem() == ExtendedFarmingItems.GoatMilk_Bucket && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese == false && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasMilk == false)
+	      if(heldItem != null && heldItem.getItem() == ExtendedFarmingItems.GoatMilk_Bucket && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 0 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount == 0)
 	      {
-	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasMilk(true);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(5);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
 	          player.inventory.consumeInventoryItem(ExtendedFarmingItems.GoatMilk_Bucket);
 	          player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
 	      }
-	      if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese == true)
+	      if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 3)
 	      {
 	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.GoatCheese, 1));
-	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasMilk(false);
-	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasCheese(false);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(0);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
 	      }

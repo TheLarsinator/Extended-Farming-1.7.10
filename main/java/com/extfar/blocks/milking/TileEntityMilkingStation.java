@@ -8,7 +8,6 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityMilkingStation extends TileEntity 
 {
-	public boolean hasMilk;
 	public int milkAmount;
 	
 	public boolean canUpdate() 
@@ -20,7 +19,6 @@ public class TileEntityMilkingStation extends TileEntity
     public void writeToNBT(NBTTagCompound nbttag)
     {
 		super.writeToNBT(nbttag);
-        nbttag.setBoolean("milk", hasMilk);    
         nbttag.setInteger("amount", milkAmount);
     }
 	
@@ -28,14 +26,7 @@ public class TileEntityMilkingStation extends TileEntity
     public void readFromNBT(NBTTagCompound nbttag)
     {
 		super.readFromNBT(nbttag);
-        this.hasMilk = nbttag.getBoolean("milk"); 
         this.milkAmount = nbttag.getInteger("amount");
-    }
-
-    
-    public void setHasMilk(boolean hasMilk)
-    {
-    	this.hasMilk = hasMilk;
     }
     
     public void setMilkAmount(int milkamount)

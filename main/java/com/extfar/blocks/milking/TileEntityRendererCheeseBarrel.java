@@ -57,7 +57,7 @@ public class TileEntityRendererCheeseBarrel extends TileEntitySpecialRenderer
 	        
 			TileEntityCheeseBarrel tile = (TileEntityCheeseBarrel) tileEntity;
 			
-			if(tile.hasMilk)
+			if(tile.milkAmount > 0)
 			{
 	        int[] displayList = RenderHelper.getFluidDisplayLists(tile.getWorldObj(), ExtendedFarmingBlocks.MilkFluid, ExtendedFarmingBlocks.MilkLiquid);
 	        GL11.glPushMatrix();

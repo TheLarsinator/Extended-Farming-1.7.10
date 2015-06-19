@@ -3,14 +3,14 @@ package com.extfar.blocks.milking;
 import java.util.Random;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityCheeseBarrel extends TileEntity 
 {
-	public boolean hasCheese;
-	public boolean hasMilk;
+
 	public int cheeseAmount;
 	public float milkAmount;
 	
@@ -20,42 +20,13 @@ public class TileEntityCheeseBarrel extends TileEntity
 		 return true;
 	}
 
-	@Override
-    public void writeToNBT(NBTTagCompound nbttag)
-    {
-		super.writeToNBT(nbttag);
-        nbttag.setBoolean("cheese", hasCheese);    
-        nbttag.setBoolean("milk", hasMilk);    
-        nbttag.setInteger("cheeseamount", cheeseAmount);
-        nbttag.setFloat("milkamount", milkAmount);
-    }
-	
-	@Override
-    public void readFromNBT(NBTTagCompound nbttag)
-    {
-		super.readFromNBT(nbttag);
-        this.hasCheese = nbttag.getBoolean("cheese");
-        this.hasMilk = nbttag.getBoolean("milk"); 
-        this.cheeseAmount = nbttag.getInteger("cheeseamount");
-        this.milkAmount = nbttag.getFloat("milkamount");
-    }
 
-    
-    public void setHasMilk(boolean w)
-    {
-    	this.hasMilk = w;
-    }
     
     public void setMilkAmount(float f)
     {
     	this.milkAmount = f;
     }
-    
-    public void setHasCheese(boolean b)
-    {
-    	this.hasCheese = b;
-    }
-    
+
     public void setCheeseAmount(int a)
     {
     	this.cheeseAmount = a;
@@ -63,7 +34,7 @@ public class TileEntityCheeseBarrel extends TileEntity
     Random rand = new Random();	
     public void updateEntity()
     {
-	if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).hasMilk && !((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).hasCheese && this.worldObj.isRemote)
+	if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 0 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).cheeseAmount == 0 && this.worldObj.isRemote)
 	{
     	System.out.println(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount);
 		((TileEntityCheeseBarrel) this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount - rand.nextFloat()/1);  		
@@ -92,51 +63,26 @@ public class TileEntityCheeseBarrel extends TileEntity
 		{
 	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(0);
 	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(3);
-	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setHasMilk(false);
-	       ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setHasCheese(true);
 		}   		
 	}
     }
+    
+    
+	@Override
+    public void writeToNBT(NBTTagCompound nbttag)
+    {
+		super.writeToNBT(nbttag);  
+        nbttag.setInteger("cheeseamount", cheeseAmount);
+        nbttag.setFloat("milkamount", milkAmount);
+    }
 	
-	/*@Override
-	public Packet getDescriptionPacket() 
-	{
-	  NBTTagCompound nbt = new NBTTagCompound();
-	  writeToNBT(nbt);
-	  S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, this.blockMetadata, nbt);
-	  return packet;
-	 }*/
-	
-	/*public void sendChangeToServer(){
-	    ByteArrayOutputStream bos = new ByteArrayOutputStream(8);
-	    DataOutputStream outputStream = new DataOutputStream(bos);
-	    try {
-	        outputStream.writeInt(xCoord);
-	        outputStream.writeInt(yCoord);
-	        outputStream.writeInt(zCoord);
-	        //write the relevant information here... exemple:
-	        outputStream.writeInt(cheeseAmount);
-	        outputStream.writeFloat(milkAmount);
-	        outputStream.writeBoolean(hasCheese);
-	        outputStream.writeBoolean(hasMilk);
-	    } catch (Exception ex) {
-	        ex.printStackTrace();
-	    }
-	               
-	    Packet250CustomPayload packet = new Packet250CustomPayload();
-	    packet.channel = "GenericRandom";
-	    packet.data = bos.toByteArray();
-	    packet.length = bos.size();
-
-	    PacketDispatcher.sendPacketToServer(packet);
-	}
-	*/
-	/*@Override
-	public void onDataPacket(NetworkManager networkmngr, S35PacketUpdateTileEntity packetupdate) 
-	{
-	  readFromNBT(packetupdate.func_148857_g());
-	}
-	*/
+	@Override
+    public void readFromNBT(NBTTagCompound nbttag)
+    {
+		super.readFromNBT(nbttag);
+        this.cheeseAmount = nbttag.getInteger("cheeseamount");
+        this.milkAmount = nbttag.getFloat("milkamount");
+    }
 	@Override
 	public Packet getDescriptionPacket() 
 	{
@@ -146,17 +92,10 @@ public class TileEntityCheeseBarrel extends TileEntity
 	  return packet;
 	 }
 	
-/*	@Override
+	@Override
 	public void onDataPacket(NetworkManager networkmngr, S35PacketUpdateTileEntity packetupdate) 
 	{
 	  readFromNBT(packetupdate.func_148857_g());
 	}
-    
-    public void handlePacketData(int cheesecontent, float milkcontent, boolean cheese, boolean milk)
-    {
-    	this.cheeseAmount = cheesecontent;
-    	this.milkAmount = milkcontent;
-    	this.hasCheese = cheese;
-    	this.hasMilk = milk;
-    }*/
+
 }

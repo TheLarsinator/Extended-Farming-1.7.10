@@ -166,6 +166,7 @@ public class EntityGoat extends EntityAnimal
         return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
     
+    
     public void setIsGoatMilkable(boolean par1)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);

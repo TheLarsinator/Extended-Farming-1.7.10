@@ -70,10 +70,9 @@ public class BlockMilkingStation extends Block implements ITileEntityProvider
 	public void onEntityWalking(World world, int i, int j, int k, Entity entity) 
 	{
 		//System.out.println("Someone walks on me!");
-		if(entity instanceof EntityGoat && ((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount < 8 && ((EntityGoat)entity).IsGoatMilkable())
+		if(entity instanceof EntityGoat && ((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount < 8)
 		{
 			((TileEntityMilkingStation)world.getTileEntity(i, j, k)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount +1);
-			((EntityGoat)entity).setIsGoatMilkable(false);
 		}
 		entity.motionX *= 0.1D;
 		entity.motionZ *= 0.1D;
