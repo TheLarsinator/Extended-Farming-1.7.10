@@ -168,11 +168,11 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(MilkingStation, "MilkingStation");
 	    GameRegistry.registerTileEntity(TileEntityMilkingStation.class, "MilkingStationTE");
 		GameRegistry.registerBlock(MilkLiquid, "MilkLiquid");
-	/*	
+		
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
 		GameRegistry.registerBlock(GoatCheese, "GoatCheeseBlock");
-	 */
+	 
 		GameRegistry.registerBlock(Beans, "Beans");
 		GameRegistry.registerBlock(Peas, "Peas");
 		GameRegistry.registerBlock(ChilliPepper, "ChilliPepper");

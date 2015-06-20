@@ -37,7 +37,6 @@ public class TileEntityCheeseBarrel extends TileEntity
 	if(this.milkAmount > 0 && this.cheeseAmount == 0 && this.worldObj.isRemote)
 	{
     	System.out.println(this.milkAmount);
-		((TileEntityCheeseBarrel) this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(this.milkAmount - rand.nextFloat()/1);  		
 		
 		if(this.milkAmount > 4 && this.milkAmount <= 5F)
 		{ 

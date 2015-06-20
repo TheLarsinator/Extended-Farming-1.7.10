@@ -61,6 +61,7 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
 	      ItemStack heldItem = player.getHeldItem();
+	      Random rand = new Random();
 	      if(heldItem != null && heldItem.getItem() == Items.wooden_sword)
 	      {
 	    	  System.out.print("Has Milk: ");
@@ -69,58 +70,31 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	    	  System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount);
 	    	  
 	      }
-	      if(heldItem != null && heldItem.getItem() == ExtendedFarmingItems.GoatMilk_Bucket && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 0 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount == 0)
+	      else if(heldItem != null && heldItem.getItem() == ExtendedFarmingItems.GoatMilk_Bucket && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 0 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount == 0)
 	      {
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(5);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
 	          player.inventory.consumeInventoryItem(ExtendedFarmingItems.GoatMilk_Bucket);
 	          player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
 	      }
-	      if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 3)
+	      else if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 3)
 	      {
 	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.GoatCheese, 1));
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(0);
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
 	      }
+	      if(heldItem != null && heldItem.getItem() == Items.stick && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount != 3 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 0)
+	      {
+	  		((TileEntityCheeseBarrel) world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityCheeseBarrel) world.getTileEntity(x, y, z)).milkAmount - rand.nextFloat()/1);  		
+
+	      }
 	      return false;
 	}
 	
-  /*  public void randomDisplayTick(World world, int x, int y, int z, Random rand) 
+    public void randomDisplayTick(World worldObj, int xCoord, int yCoord, int zCoord, Random rand) 
     {
-    	if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasMilk && !((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).hasCheese && world.isRemote)
-    	{
-        	System.out.println(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount);
-    		((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount - rand.nextFloat()/1);  		
-    		
-    		if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 4 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount <= 5F)
-    		{ 
-  	          // ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(4);
-	           ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
-    		}
-    		else if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 3 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount <= 4)
-    		{
-    	      // ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(3);
-    	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(1); 
-    		}
-    		else if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 2 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount <= 3)
-    		{
-    	      // ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(2);
-    	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(2); 
-    		}
-    		else if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 1 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount <= 2)
-    		{
-    	       //((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(1);
-    	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(3); 
-    		}
-    		else if(((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount < 0)
-    		{
-    	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(0);
-    	       ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(3);
- 	           ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasMilk(false);
- 	           ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setHasCheese(true);
-    		}   		
-    	}
-    }*/
+
+    }
 
 
 
