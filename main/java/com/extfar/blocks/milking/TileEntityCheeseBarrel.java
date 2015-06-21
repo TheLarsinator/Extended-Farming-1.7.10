@@ -13,7 +13,6 @@ public class TileEntityCheeseBarrel extends TileEntity
 
 	public int cheeseAmount;
 	public float milkAmount;
-	public boolean isupdateable;
     
     public void setMilkAmount(float f)
     {

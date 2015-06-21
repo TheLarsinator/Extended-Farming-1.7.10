@@ -14,20 +14,6 @@ public class TileEntityMilkingStation extends TileEntity
     {
     	return true;
     }
-    
-	@Override
-    public void writeToNBT(NBTTagCompound nbttag)
-    {
-		super.writeToNBT(nbttag);
-        nbttag.setInteger("amount", milkAmount);
-    }
-	
-	@Override
-    public void readFromNBT(NBTTagCompound nbttag)
-    {
-		super.readFromNBT(nbttag);
-        this.milkAmount = nbttag.getInteger("amount");
-    }
 	
     public void setMilkAmount(int milkamount)
     {
@@ -37,8 +23,21 @@ public class TileEntityMilkingStation extends TileEntity
     public void updateEntity()
     {
     	this.setMilkAmount(this.milkAmount);
+    } 
+    
+	@Override
+    public void writeToNBT(NBTTagCompound nbttag)
+    {
+		super.writeToNBT(nbttag);  
+        nbttag.setInteger("milkamount", milkAmount);
     }
 	
+	@Override
+    public void readFromNBT(NBTTagCompound nbttag)
+    {
+		super.readFromNBT(nbttag);
+        this.milkAmount = nbttag.getInteger("milkamount");
+    }
 	@Override
 	public Packet getDescriptionPacket() 
 	{
@@ -53,5 +52,4 @@ public class TileEntityMilkingStation extends TileEntity
 	{
 	  readFromNBT(packetupdate.func_148857_g());
 	}
-	 
 }

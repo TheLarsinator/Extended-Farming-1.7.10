@@ -67,6 +67,7 @@ public class BlockMilkingStation extends Block implements ITileEntityProvider
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void onEntityWalking(World world, int i, int j, int k, Entity entity) 
 	{
 		System.out.println("Someone walks on me!");
