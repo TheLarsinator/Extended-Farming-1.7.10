@@ -125,14 +125,14 @@ public class ExtendedFarmingBlocks
 		
 		NetherPotatoes = new BlockMyCrops(100, 104, 6, 4, 0).setBlockName("NetherBeans").setBlockTextureName("potatoes");
 		NetherCarrots = new BlockMyCrops(100, 105, 6, 4, 0).setBlockName("NetherPeas").setBlockTextureName("carrots");
-		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("extfar:wheat_stage_7");
+		NetherWheat = new BlockMyCrops(101, 106, 6, 8, 0).setBlockName("NetherPepper").setBlockTextureName("planks_acacia");
 		
-		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("extfar:wheat_stage_7").setHardness(1.8F);
+		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("planks_acacia").setHardness(1.8F);
 		MilkFluid = new Fluid("milk").setLuminosity(0).setViscosity(20);
 		FluidRegistry.registerFluid(MilkFluid);
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid").setCreativeTab(ExtendedFarming.ItemsTab);
 		
-		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel");
+		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockGoatCheese().setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");

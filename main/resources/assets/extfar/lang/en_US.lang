@@ -21,6 +21,7 @@ item.RoastedBeets.name=Roasted Beet
 item.RawGoatMeat.name=Raw Goat
 item.GoatMeat.name= Roasted Goat
 item.GoatMilk_Bucket.name= Goatmilk
+item.GoatCheeseItem.name=Goat Cheese
 
 item.Tractor_0.name=Tractor
 item.Plow.name=Plow
@@ -50,6 +51,7 @@ tile.NetherPump.name=Lava Pump
 tile.NetherSprayer.name=Lava Sprinkler
 
 tile.MilkingStation.name=Milking Station
+tile.CheeseBarrel.name=Cheese Barrel
 
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items

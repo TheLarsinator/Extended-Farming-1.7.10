@@ -26,31 +26,31 @@ public class TileEntityRendererMilkingStation extends TileEntitySpecialRenderer
 		switch(tile.milkAmount)
 		{
 		default:
-		case 0: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation0.png"));
+		case 0: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation0.png"));
 		break;
 		
-		case 1: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation1.png"));
+		case 1: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation1.png"));
 		break;
 		
-		case 2: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation2.png"));
+		case 2: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation2.png"));
 		break;
 		
-		case 3: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation3.png"));
+		case 3: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation3.png"));
 		break;
 		
-		case 4: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation4.png"));
+		case 4: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation4.png"));
 		break;
 		
-		case 5: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation5.png"));
+		case 5: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation5.png"));
 		break;
 		
-		case 6: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation6.png"));
+		case 6: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation6.png"));
 		break;
 		
-		case 7: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation7.png"));
+		case 7: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation7.png"));
 		break;
 		
-		case 8: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/milkingstation/MilkingStation8.png"));
+		case 8: Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/MilkingStation8.png"));
 		break;
 		}
 		GL11.glPushMatrix();

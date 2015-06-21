@@ -10,11 +10,11 @@ public class TileEntityMilkingStation extends TileEntity
 {
 	public int milkAmount;
 	
-	public boolean canUpdate() 
-	{
-		 return true;
-	}
-
+    public boolean canUpdate()
+    {
+    	return true;
+    }
+    
 	@Override
     public void writeToNBT(NBTTagCompound nbttag)
     {
@@ -28,17 +28,16 @@ public class TileEntityMilkingStation extends TileEntity
 		super.readFromNBT(nbttag);
         this.milkAmount = nbttag.getInteger("amount");
     }
-    
+	
     public void setMilkAmount(int milkamount)
     {
     	this.milkAmount = milkamount;
     }
-    
+      
     public void updateEntity()
     {
     	this.setMilkAmount(this.milkAmount);
     }
-    
 	
 	@Override
 	public Packet getDescriptionPacket() 

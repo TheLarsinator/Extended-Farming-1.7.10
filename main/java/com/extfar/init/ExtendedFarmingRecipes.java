@@ -41,8 +41,9 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.Wrench, 1), new Object [] {"S", "S", "S", 'S', Items.iron_ingot});
 
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(MilkingStation), 1), new Object [] {"F F", "WHW", "WCW", 'F', Blocks.fence, 'W', Blocks.planks, 'C', Items.cauldron, 'H', Hose});
+		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(CheeseBarrel), 1), new Object [] {"W W", "W W", "WWW", 'W', Blocks.planks});
 		 
-		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), 1), new Object [] {"IHI", "WCW", "WWW", 'I', Blocks.iron_bars, 'H', ExtendedFarmingBlocks.Hose, 'W', Blocks.planks, 'C', Items.cauldron});
+//		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), 1), new Object [] {"IHI", "WCW", "WWW", 'I', Blocks.iron_bars, 'H', ExtendedFarmingBlocks.Hose, 'W', Blocks.planks, 'C', Items.cauldron});
 
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.BeetSoup, 1), new Object [] {"III", "III", " S ", 'I', ExtendedFarmingItems.RoastedBeets, 'S', Items.bowl});
 		 

@@ -13,55 +13,52 @@ public class TileEntityCheeseBarrel extends TileEntity
 
 	public int cheeseAmount;
 	public float milkAmount;
-	
-	
-	public boolean canUpdate() 
-	{
-		 return true;
-	}
-
-
+	public boolean isupdateable;
     
     public void setMilkAmount(float f)
     {
-    	((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount = f;
+    	this.milkAmount = f;
     }
 
     public void setCheeseAmount(int a)
     {
     	this.cheeseAmount = a;
     }
-    Random rand = new Random();	
+    Random rand = new Random();	   
+    
     public void updateEntity()
     {
-	if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 0 && this.cheeseAmount == 0 && this.worldObj.isRemote)
+    	
+	if(this.milkAmount > 0)
 	{
-    	System.out.println(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount);
+    	System.out.println(this.milkAmount);
+  		this.setMilkAmount(this.milkAmount - rand.nextFloat()/100);  		
+
 		
-		if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 4 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 5F)
+		if(this.milkAmount > 4 && this.milkAmount <= 5F)
 		{ 
 	          // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(4);
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(0);         
+			this.setCheeseAmount(0);         
 		}
-		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 3 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 4)
+		else if(this.milkAmount > 3 && this.milkAmount <= 4)
 		{
 	      // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(3);
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(1); 
+			this.setCheeseAmount(1); 
 		}
-		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 2 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 3)
+		else if(this.milkAmount > 2 && this.milkAmount <= 3)
 		{
 	      // ((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(2);
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(2); 
+			this.setCheeseAmount(2); 
 		}
-		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount > 1 && ((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount <= 2)
+		else if(this.milkAmount > 1 && this.milkAmount <= 2)
 		{
 	       //((TileEntityCheeseBarrel)this.worldobj.getTileEntity(x, y, z)).setMilkAmount(1);
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(3); 
+			this.setCheeseAmount(3); 
 		}
-		else if(((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).milkAmount < 0)
+		else if(this.milkAmount < 0)
 		{
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setMilkAmount(0);
-			((TileEntityCheeseBarrel)this.worldObj.getTileEntity(xCoord, yCoord, zCoord)).setCheeseAmount(3);
+			this.setMilkAmount(0);
+			this.setCheeseAmount(3);
 		}   		
 	}
     }

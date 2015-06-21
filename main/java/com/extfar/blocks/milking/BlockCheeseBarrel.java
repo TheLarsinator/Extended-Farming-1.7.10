@@ -21,6 +21,7 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	public BlockCheeseBarrel(Material p_i45394_1_) {
 		super(p_i45394_1_);
 		this.setCreativeTab(ExtendedFarming.ItemsTab);
+		this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.7F, 0.9F);
 
 	}
 
@@ -77,18 +78,15 @@ public class BlockCheeseBarrel extends Block implements ITileEntityProvider
 	          player.inventory.consumeInventoryItem(ExtendedFarmingItems.GoatMilk_Bucket);
 	          player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
 	      }
-	      else if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 3)
+	      if(heldItem == null && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount == 3)
 	      {
-	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.GoatCheese, 1));
 	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setMilkAmount(0);
-	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);         
-	      }
-	      if(heldItem != null && heldItem.getItem() == Items.stick && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).cheeseAmount != 3 && ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).milkAmount > 0)
-	      {
-	  		((TileEntityCheeseBarrel) world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityCheeseBarrel) world.getTileEntity(x, y, z)).milkAmount - rand.nextFloat()/1);  		
+	          ((TileEntityCheeseBarrel)world.getTileEntity(x, y, z)).setCheeseAmount(0);    
+	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.GoatCheese));
 
 	      }
-	      return false;
+
+	      return true;
 	}
 	
     public void randomDisplayTick(World worldObj, int xCoord, int yCoord, int zCoord, Random rand) 

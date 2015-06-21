@@ -30,16 +30,16 @@ public class TileEntityRendererCheeseBarrel extends TileEntitySpecialRenderer
 		switch(tile.cheeseAmount)
 		{
 		case 0:
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel/CheeseBarrel0.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel0.png"));
 				break;
 		case 1:
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel/CheeseBarrel1.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel1.png"));
 				break;
 		case 2:
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel/CheeseBarrel2.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel2.png"));
 				break;
 		case 3:
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel/CheeseBarrel3.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ExtendedFarming.modid, "textures/blocks/CheeseBarrel3.png"));
 				break;
 		}
 		GL11.glPushMatrix();

@@ -10,6 +10,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import com.extfar.animals.entity.EntityGoat;
 import com.extfar.animals.model.ModelGoat;
 import com.extfar.animals.render.RenderGoat;
+import com.extfar.blocks.milking.ItemRenderCheeseBarrel;
 import com.extfar.blocks.milking.ItemRenderMilkingStation;
 import com.extfar.blocks.milking.ModelMilkingStation;
 import com.extfar.blocks.milking.TileEntityCheeseBarrel;
@@ -107,6 +108,7 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
   		
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Pump), (new ItemRenderPump()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Sprayer), (new ItemRenderSprayer()));
+  		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.CheeseBarrel), (new ItemRenderCheeseBarrel()));
 
   		
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherHose.class, new TileEntityRendererNetherHose());
@@ -134,7 +136,7 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
 		MinecraftForgeClient.registerItemRenderer(ExtendedFarmingItems.Chair, (IItemRenderer)new ItemRendererChair(new EntityChair(FMLClientHandler.instance().getClient().theWorld), new ModelChair(), new ResourceLocation(ExtendedFarming.modid + ":textures/items/Tractor.png")));
 
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMilkingStation.class, new TileEntityRendererMilkingStation());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), (IItemRenderer)new ItemRenderMilkingStation(new EntityMilkingStation(FMLClientHandler.instance().getClient().theWorld), new ModelMilkingStation(), new ResourceLocation(ExtendedFarming.modid + ":textures/blocks/MilkingStation/MilkingStation0.png")));
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), (IItemRenderer)new ItemRenderMilkingStation(new EntityMilkingStation(FMLClientHandler.instance().getClient().theWorld), new ModelMilkingStation(), new ResourceLocation(ExtendedFarming.modid + ":textures/blocks/MilkingStation0.png")));
 		
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseBarrel.class, new TileEntityRendererCheeseBarrel());
 
