@@ -114,7 +114,7 @@ public class ExtendedFarmingItems
 		
 		Wrench = new ItemMaterials().setUnlocalizedName("Wrench").setTextureName(modid + ":Wrench");
 		
-		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket");
+		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket").setCreativeTab(ExtendedFarming.ItemsTab);
 		RawGoatMeat = new ItemMyFood(3, 4, false).setUnlocalizedName("RawGoatMeat").setTextureName(modid + ":RawGoatMeat");
 		GoatMeat = new ItemMyFood(6, 8, false).setUnlocalizedName("GoatMeat").setTextureName(modid + ":GoatMeat");
 		GoatCheese = new ItemGoatCheese(ExtendedFarmingBlocks.GoatCheese).setUnlocalizedName("GoatCheeseItem").setTextureName(modid + ":GoatCheeseItem").setCreativeTab(ExtendedFarming.ItemsTab);

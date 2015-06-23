@@ -67,26 +67,22 @@ public class BlockMilkingStation extends Block implements ITileEntityProvider
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public void onEntityWalking(World world, int i, int j, int k, Entity entity) 
 	{
-		System.out.println("Someone walks on me!");
+		//System.out.println("Someone walks on me!");
 		if(entity instanceof EntityGoat && ((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount < 8)
 		{
-			((TileEntityMilkingStation)world.getTileEntity(i, j, k)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount +1);
+	        ((TileEntityMilkingStation)world.getTileEntity(i,j,k)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(i,j,k)).milkAmount + 1);
 		}
-		entity.motionX *= 0.1D;
-		entity.motionZ *= 0.1D;
+		
+
+  	  //System.out.println(((TileEntityMilkingStation)world.getTileEntity(i, j, k)).milkAmount);
 	}
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
 	      ItemStack heldItem = player.getHeldItem();
-	      if(heldItem != null)
-	      {
-	    	  System.out.println(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount);
-	      }
 	      if(heldItem != null && heldItem.getItem() == Items.bucket && ((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount >= 1 && player.inventory.getFirstEmptyStack() != -1)
 	      {
 	          ((TileEntityMilkingStation)world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount - 1);
@@ -99,6 +95,12 @@ public class BlockMilkingStation extends Block implements ITileEntityProvider
 	          player.inventory.consumeInventoryItem(Items.bucket);
 	          if(!world.isRemote)
 	          player.dropItem(ExtendedFarmingItems.GoatMilk_Bucket, 1);
+	      }
+	      else if(heldItem != null)
+	      {
+	    	  System.out.println(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount);
+	          //((TileEntityMilkingStation)world.getTileEntity(x, y, z)).setMilkAmount(((TileEntityMilkingStation)world.getTileEntity(x, y, z)).milkAmount + 1);
+
 	      }
 	      return false;
 	}

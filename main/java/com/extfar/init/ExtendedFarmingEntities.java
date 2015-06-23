@@ -41,8 +41,9 @@ public class ExtendedFarmingEntities
     
     public static void registerModEntityWithEgg(Class parEntityClass, String parEntityName, int parEggColor, int parEggSpotsColor)
     {
-		EntityRegistry.registerModEntity(parEntityClass, parEntityName, ++modEntityID , ExtendedFarming.instance, 80, 3, false);
-        registerSpawnEgg(parEntityName, parEggColor, parEggSpotsColor);
+    	EntityRegistry.registerGlobalEntityID(parEntityClass, parEntityName, EntityRegistry.findGlobalUniqueEntityId(), parEggColor, parEggSpotsColor);
+		//EntityRegistry.registerModEntity(parEntityClass, parEntityName, ++modEntityID , ExtendedFarming.instance, 80, 3, false);
+        //registerSpawnEgg(parEntityName, parEggColor, parEggSpotsColor);
     }
 
 }

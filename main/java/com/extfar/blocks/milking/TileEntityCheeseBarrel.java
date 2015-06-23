@@ -30,9 +30,10 @@ public class TileEntityCheeseBarrel extends TileEntity
     	
 	if(this.milkAmount > 0)
 	{
-    	System.out.println(this.milkAmount);
+		if(!this.worldObj.isRaining() && this.worldObj.isDaytime())
+		{
   		this.setMilkAmount(this.milkAmount - rand.nextFloat()/100);  		
-
+		}
 		
 		if(this.milkAmount > 4 && this.milkAmount <= 5F)
 		{ 
