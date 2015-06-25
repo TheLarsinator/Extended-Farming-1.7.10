@@ -1,4 +1,4 @@
-package com.extfar.blocks.overworld.hose;
+package com.extfar.blocks.compost;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -6,37 +6,38 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityHose extends TileEntity
+public class TileEntityCompost extends TileEntity
 {
-	public static int renderID;
-	public static boolean hasWater;
+	public int grassLevel;
 	
+    public boolean canUpdate()
+    {
+    	return true;
+    }
+	
+    public void setgrassLevel(int grassLevel)
+    {
+    	this.grassLevel = grassLevel;
+    }
+      
+    public void updateEntity()
+    {
+    	this.setgrassLevel(this.grassLevel);
+    } 
+    
 	@Override
     public void writeToNBT(NBTTagCompound nbttag)
     {
 		super.writeToNBT(nbttag);  
-        nbttag.setBoolean("hasWater", hasWater);
-        nbttag.setInteger("renderID", renderID);
+        nbttag.setInteger("grasslv", grassLevel);
     }
 	
 	@Override
     public void readFromNBT(NBTTagCompound nbttag)
     {
 		super.readFromNBT(nbttag);
-        this.hasWater = nbttag.getBoolean("hasWater");
-        this.renderID = nbttag.getInteger("renderID");
+        this.grassLevel = nbttag.getInteger("grasslv");
     }
-	
-	public void setRenderID(int ID)
-	{
-		this.renderID = ID;
-	}
-	
-	public void setHasWater(boolean water)
-	{
-		this.hasWater = water;
-	}
-	
 	@Override
 	public Packet getDescriptionPacket() 
 	{

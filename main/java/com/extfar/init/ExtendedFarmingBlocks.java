@@ -7,6 +7,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
+import com.extfar.blocks.compost.BlockCompost;
+import com.extfar.blocks.compost.TileEntityCompost;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
 import com.extfar.blocks.milking.BlockGoatCheese;
 import com.extfar.blocks.milking.BlockMilkLiquid;
@@ -90,6 +92,7 @@ public class ExtendedFarmingBlocks
 	public static Block MilkLiquid;
 	public static Block CheeseBarrel;
 	public static Block GoatCheese;
+	public static Block Composter;
 	
 	public static void init()
 	{
@@ -134,6 +137,7 @@ public class ExtendedFarmingBlocks
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockGoatCheese().setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
+		Composter = new BlockCompost(Material.wood).setBlockName("Composter").setBlockTextureName("planks_acacia");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -172,6 +176,9 @@ public class ExtendedFarmingBlocks
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
 		GameRegistry.registerBlock(GoatCheese, "GoatCheeseBlock");
+		
+		GameRegistry.registerBlock(Composter, "Composter");
+		GameRegistry.registerTileEntity(TileEntityCompost.class, "ComposterTE");
 	 
 		GameRegistry.registerBlock(Beans, "Beans");
 		GameRegistry.registerBlock(Peas, "Peas");
