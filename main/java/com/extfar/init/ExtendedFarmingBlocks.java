@@ -9,6 +9,8 @@ import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
 import com.extfar.blocks.compost.BlockCompost;
 import com.extfar.blocks.compost.TileEntityCompost;
+import com.extfar.blocks.grinder.BlockGrinder;
+import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
 import com.extfar.blocks.milking.BlockGoatCheese;
 import com.extfar.blocks.milking.BlockMilkLiquid;
@@ -93,6 +95,7 @@ public class ExtendedFarmingBlocks
 	public static Block CheeseBarrel;
 	public static Block GoatCheese;
 	public static Block Composter;
+	public static Block Grinder;
 	
 	public static void init()
 	{
@@ -138,6 +141,7 @@ public class ExtendedFarmingBlocks
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockGoatCheese().setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
 		Composter = new BlockCompost(Material.wood).setBlockName("Composter").setBlockTextureName("planks_acacia");
+		Grinder = new BlockGrinder(Material.wood).setBlockName("Grinder").setBlockTextureName("planks_acacia");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -179,6 +183,8 @@ public class ExtendedFarmingBlocks
 		
 		GameRegistry.registerBlock(Composter, "Composter");
 		GameRegistry.registerTileEntity(TileEntityCompost.class, "ComposterTE");
+		GameRegistry.registerBlock(Grinder, "Grinder");
+		GameRegistry.registerTileEntity(TileEntityGrinder.class, "GrinderTE");
 	 
 		GameRegistry.registerBlock(Beans, "Beans");
 		GameRegistry.registerBlock(Peas, "Peas");

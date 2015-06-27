@@ -10,6 +10,8 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import com.extfar.animals.entity.EntityGoat;
 import com.extfar.animals.model.ModelGoat;
 import com.extfar.animals.render.RenderGoat;
+import com.extfar.blocks.grinder.TileEntityGrinder;
+import com.extfar.blocks.grinder.TileEntityRenderGrinder;
 import com.extfar.blocks.milking.ItemRenderCheeseBarrel;
 import com.extfar.blocks.milking.ItemRenderMilkingStation;
 import com.extfar.blocks.milking.ModelMilkingStation;
@@ -117,6 +119,7 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherPump.class, new TileEntityRendererNetherPump());
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherSprayer.class, new TileEntityRendererNetherSprayer());
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityActiveNetherSprayer.class, new TileEntityRendererActiveNetherSprayer());
+  		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntityRenderGrinder());
   		
   		
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.NetherPump), (new ItemRenderNetherPump()));
