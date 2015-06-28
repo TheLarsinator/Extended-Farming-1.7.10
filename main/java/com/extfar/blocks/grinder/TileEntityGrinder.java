@@ -9,20 +9,32 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityGrinder extends TileEntity
 {
 	public boolean hasWheat;
+	public boolean hasSlab;
+	public int wheatAmount;
 	
     public boolean canUpdate()
     {
     	return true;
     }
 	
+    public void setWheatAmount(int wheats)
+    {
+    	this.wheatAmount = wheats;
+    }
     public void setWheat(boolean wheat)
     {
     	this.hasWheat = wheat;
+    }
+    public void setSlab(boolean slab)
+    {
+    	this.hasSlab = slab;
     }
       
     public void updateEntity()
     {
     	this.setWheat(this.hasWheat);
+    	this.setSlab(this.hasSlab);
+    	this.setWheatAmount(this.wheatAmount);
     } 
     
 	@Override
@@ -30,6 +42,8 @@ public class TileEntityGrinder extends TileEntity
     {
 		super.writeToNBT(nbttag);  
         nbttag.setBoolean("wheat", hasWheat);
+        nbttag.setBoolean("slab", hasSlab);
+        nbttag.setInteger("wheatamount", wheatAmount);
     }
 	
 	@Override
@@ -37,7 +51,10 @@ public class TileEntityGrinder extends TileEntity
     {
 		super.readFromNBT(nbttag);
         this.hasWheat = nbttag.getBoolean("wheat");
+        this.hasSlab= nbttag.getBoolean("slab");
+        this.wheatAmount = nbttag.getInteger("wheatamount");
     }
+	
 	@Override
 	public Packet getDescriptionPacket() 
 	{
