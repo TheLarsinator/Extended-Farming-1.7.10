@@ -1,24 +1,21 @@
 package com.extfar.blocks.grinder;
 
-import java.util.List;
 import java.util.Random;
-
+import com.extfar.init.ExtendedFarmingItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.extfar.animals.entity.EntityGoat;
 import com.extfar.core.ExtendedFarming;
-import com.extfar.init.ExtendedFarmingItems;
 
 public class BlockGrinder extends Block implements ITileEntityProvider
 {
@@ -62,19 +59,43 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 	    
 	    
 	}
-	
-	@Override
-	public void onEntityWalking(World world, int i, int j, int k, Entity entity) 
-	{
 
-	}
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
-	      ItemStack heldItem = player.getHeldItem();
-
-	      return false;
+	      Item heldItem = player.getHeldItem().getItem();
+	      int stack = player.getHeldItem().stackSize;
+	      TileEntityGrinder grinder = ((TileEntityGrinder)world.getTileEntity(x, y, z));
+	      
+	      if(heldItem != null && heldItem == Items.wheat && stack >= 2 && grinder.wheatAmount == 0 && !grinder.isDone)
+	      {
+	    	  grinder.setWheat(true);
+	    	  grinder.setWheatAmount(2);
+	    	  player.inventory.consumeInventoryItem(Items.wheat);
+	    	  player.inventory.consumeInventoryItem(Items.wheat);
+	      }
+	      else if(heldItem != null && heldItem == Items.wheat && grinder.wheatAmount != 2 && !grinder.isDone)
+	      {
+	    	  grinder.setWheat(true);
+	    	  grinder.setWheatAmount(grinder.wheatAmount +1);
+	    	  player.inventory.consumeInventoryItem(Items.wheat);
+	      }
+	      else if(heldItem != null && heldItem == Item.getItemFromBlock(Blocks.cobblestone) && grinder.wheatAmount == 2 && grinder.hasWheat && !grinder.isDone)
+	      {
+	    	  grinder.setSlab(true);
+	    	  player.inventory.consumeInventoryItem(Item.getItemFromBlock(Blocks.cobblestone));
+	      }
+	      else if(heldItem != null && grinder.isDone)
+	      {
+	    	  grinder.setDone(false);
+	    	  grinder.setSlab(false);
+	    	  grinder.setWheat(false);
+	    	  grinder.setWheatAmount(0);
+	    	  player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone));
+	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.Flour, 2));
+	      }
+	      return true;
 	}
 	
 }

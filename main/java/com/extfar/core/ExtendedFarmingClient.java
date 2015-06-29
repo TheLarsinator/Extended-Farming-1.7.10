@@ -10,6 +10,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import com.extfar.animals.entity.EntityGoat;
 import com.extfar.animals.model.ModelGoat;
 import com.extfar.animals.render.RenderGoat;
+import com.extfar.blocks.grinder.ItemRenderGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.grinder.TileEntityRenderGrinder;
 import com.extfar.blocks.milking.ItemRenderCheeseBarrel;
@@ -111,6 +112,7 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Pump), (new ItemRenderPump()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Sprayer), (new ItemRenderSprayer()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.CheeseBarrel), (new ItemRenderCheeseBarrel()));
+  		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Grinder), (new ItemRenderGrinder()));
 
   		
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherHose.class, new TileEntityRendererNetherHose());

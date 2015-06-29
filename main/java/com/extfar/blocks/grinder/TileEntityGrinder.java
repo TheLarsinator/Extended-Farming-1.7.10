@@ -11,6 +11,8 @@ public class TileEntityGrinder extends TileEntity
 	public boolean hasWheat;
 	public boolean hasSlab;
 	public int wheatAmount;
+	public boolean isDone;
+	public float progress;
 	
     public boolean canUpdate()
     {
@@ -29,13 +31,32 @@ public class TileEntityGrinder extends TileEntity
     {
     	this.hasSlab = slab;
     }
+    public void setDone(boolean done)
+    {
+    	this.isDone = done;
+    }
+    public void setProgress(float work)
+    {
+    	this.progress = work;
+    }
       
     public void updateEntity()
     {
-    	this.setWheat(this.hasWheat);
-    	this.setSlab(this.hasSlab);
-    	this.setWheatAmount(this.wheatAmount);
+    	System.out.println(this.progress);
+    	System.out.println(this.isDone);
+    	if(this.hasSlab && this.hasWheat && this.wheatAmount == 2 && !this.isDone)
+    	{
+    		this.setProgress(this.progress + 0.01F);
+    		
+    		if(this.progress > 10)
+    		{
+    			this.isDone = true;
+    			this.setProgress(0);
+    		}
+    	}
     } 
+    
+    
     
 	@Override
     public void writeToNBT(NBTTagCompound nbttag)
@@ -44,6 +65,8 @@ public class TileEntityGrinder extends TileEntity
         nbttag.setBoolean("wheat", hasWheat);
         nbttag.setBoolean("slab", hasSlab);
         nbttag.setInteger("wheatamount", wheatAmount);
+        nbttag.setBoolean("done", isDone);
+        nbttag.setFloat("work", progress);
     }
 	
 	@Override
@@ -53,6 +76,8 @@ public class TileEntityGrinder extends TileEntity
         this.hasWheat = nbttag.getBoolean("wheat");
         this.hasSlab= nbttag.getBoolean("slab");
         this.wheatAmount = nbttag.getInteger("wheatamount");
+        this.isDone = nbttag.getBoolean("done");
+        this.progress = nbttag.getFloat("work");
     }
 	
 	@Override

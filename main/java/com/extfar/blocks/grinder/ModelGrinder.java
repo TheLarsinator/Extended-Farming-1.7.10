@@ -3,6 +3,7 @@ package com.extfar.blocks.grinder;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 
 /**
  * Grinder - TheLarsinator
@@ -77,6 +78,31 @@ public class ModelGrinder extends ModelBase {
         this.shape2.render(f5);
         this.BottomStone.render(f5);
         this.shape1.render(f5);
+        this.TopStone.render(f5);
+        setRotationAngles(f5, f5, f5, f5, f5, f5);
+
+    }
+    public void renderHalf(float f5)
+    {
+        this.shape3.render(f5);
+        this.shape5.render(f5);
+        this.shape8.render(f5);
+        this.shape4.render(f5);
+        this.shape2.render(f5);
+        this.BottomStone.render(f5);
+        this.shape1.render(f5);
         //this.TopStone.render(f5);
+    }
+    private float i;
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
+    {
+      super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
+      
+      i = i + 0.05F;
+      
+      if(i == 100)
+    	  i=0;
+      
+      this.TopStone.rotateAngleY = i;
     }
 }
