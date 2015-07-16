@@ -12,9 +12,9 @@ import com.extfar.blocks.compost.TileEntityCompost;
 import com.extfar.blocks.grinder.BlockGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
-import com.extfar.blocks.milking.BlockGoatCheese;
 import com.extfar.blocks.milking.BlockMilkLiquid;
 import com.extfar.blocks.milking.BlockMilkingStation;
+import com.extfar.blocks.milking.BlockPie;
 import com.extfar.blocks.milking.TileEntityCheeseBarrel;
 import com.extfar.blocks.milking.TileEntityMilkingStation;
 import com.extfar.blocks.nether.BlockFarmSoulSand;
@@ -94,6 +94,8 @@ public class ExtendedFarmingBlocks
 	public static Block MilkLiquid;
 	public static Block CheeseBarrel;
 	public static Block GoatCheese;
+	public static Block ApplePie;
+	
 	public static Block Composter;
 	public static Block Grinder;
 	
@@ -139,7 +141,8 @@ public class ExtendedFarmingBlocks
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid").setCreativeTab(ExtendedFarming.ItemsTab);
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
-		GoatCheese = new BlockGoatCheese().setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
+		GoatCheese = new BlockPie(ExtendedFarmingItems.GoatCheese).setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
+		ApplePie = new BlockPie(ExtendedFarmingItems.ApplePie).setBlockName("ApplePie").setBlockTextureName("ApplePie");
 		Composter = new BlockCompost(Material.wood).setBlockName("Composter").setBlockTextureName("planks_acacia");
 		Grinder = new BlockGrinder(Material.wood).setBlockName("Grinder").setBlockTextureName("planks_acacia");
 		
@@ -180,6 +183,7 @@ public class ExtendedFarmingBlocks
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
 		GameRegistry.registerBlock(GoatCheese, "GoatCheeseBlock");
+		GameRegistry.registerBlock(ApplePie, "ApplePie");
 		
 		GameRegistry.registerBlock(Composter, "Composter");
 		GameRegistry.registerTileEntity(TileEntityCompost.class, "ComposterTE");

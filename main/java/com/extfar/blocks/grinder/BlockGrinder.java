@@ -24,6 +24,7 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 	{
 		super(material);
 		this.setCreativeTab(ExtendedFarming.ItemsTab);
+		this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.7F, 0.9F);
 	}
 
 	@Override
@@ -64,6 +65,8 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
+		if(player.getHeldItem() != null)
+		{
 	      Item heldItem = player.getHeldItem().getItem();
 	      int stack = player.getHeldItem().stackSize;
 	      TileEntityGrinder grinder = ((TileEntityGrinder)world.getTileEntity(x, y, z));
@@ -95,6 +98,7 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 	    	  player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone));
 	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.Flour, 2));
 	      }
+		}
 	      return true;
 	}
 	

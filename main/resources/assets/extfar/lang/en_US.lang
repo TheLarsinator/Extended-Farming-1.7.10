@@ -41,6 +41,10 @@ item.Wrench.name=Wrench
 item.BeetSoup.name=Beet Soup
 
 item.QuartzHoe.name=Quartz Hoe
+item.RawApplePie.name=Raw Apple Pie
+item.ApplePieItem.name=Apple Pie
+item.Doug.name=Dough
+item.Flour.name=Flour
 //Blocks
 tile.Hose.name=Hose
 tile.Pump.name=Pump
@@ -52,6 +56,7 @@ tile.NetherSprayer.name=Lava Sprinkler
 
 tile.MilkingStation.name=Milking Station
 tile.CheeseBarrel.name=Cheese Barrel
+tile.Grinder.name=Wheat Grinder
 
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items

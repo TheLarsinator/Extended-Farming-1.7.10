@@ -18,7 +18,7 @@ import com.extfar.init.ExtendedFarmingItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockGoatCheese extends Block
+public class BlockPie extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon field_150038_a;
@@ -27,11 +27,13 @@ public class BlockGoatCheese extends Block
     @SideOnly(Side.CLIENT)
     private IIcon field_150039_M;
     private static final String __OBFID = "CL_00000211";
+    private Item item;
 
-    public BlockGoatCheese()
+    public BlockPie(Item items)
     {
         super(Material.cake);
         this.setTickRandomly(true);
+        this.item = items;
     }
 
     /**
@@ -199,6 +201,6 @@ public class BlockGoatCheese extends Block
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
-        return ExtendedFarmingItems.GoatCheese;
+        return this.item;
     }
 }

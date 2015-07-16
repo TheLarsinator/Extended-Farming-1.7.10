@@ -2,6 +2,8 @@ package com.extfar.items;
 
 import java.util.List;
 
+import com.extfar.core.ExtendedFarming;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,14 +12,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGoatCheese extends Item
+public class ItemCustomCake extends Item
 {
     private Block field_150935_a;
     private static final String __OBFID = "CL_00001773";
 
-    public ItemGoatCheese(Block p_i45329_1_)
+    public ItemCustomCake(Block p_i45329_1_)
     {
         this.field_150935_a = p_i45329_1_;
+        this.setCreativeTab(ExtendedFarming.ItemsTab);
     }
 
     /**

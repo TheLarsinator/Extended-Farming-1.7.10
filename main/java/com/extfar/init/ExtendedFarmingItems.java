@@ -1,5 +1,6 @@
 package com.extfar.init;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucketMilk;
 
@@ -7,7 +8,7 @@ import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
 import com.extfar.items.ItemCropSupport;
-import com.extfar.items.ItemGoatCheese;
+import com.extfar.items.ItemCustomCake;
 import com.extfar.items.ItemMaterials;
 import com.extfar.items.ItemMyFood;
 import com.extfar.items.ItemQuartzHoe;
@@ -54,7 +55,9 @@ public class ExtendedFarmingItems
 	public static Item GoatCheese;
 	
 	public static Item Flour;
-	
+	public static Item Doug;
+	public static Item RawApplePie;
+	public static Item ApplePie;	
 	
 	public static final Item Tractor = new ItemTractor(0);
 	
@@ -119,10 +122,13 @@ public class ExtendedFarmingItems
 		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket").setCreativeTab(ExtendedFarming.ItemsTab);
 		RawGoatMeat = new ItemMyFood(3, 4, false).setUnlocalizedName("RawGoatMeat").setTextureName(modid + ":RawGoatMeat");
 		GoatMeat = new ItemMyFood(6, 8, false).setUnlocalizedName("GoatMeat").setTextureName(modid + ":GoatMeat");
-		GoatCheese = new ItemGoatCheese(ExtendedFarmingBlocks.GoatCheese).setUnlocalizedName("GoatCheeseItem").setTextureName(modid + ":GoatCheeseItem").setCreativeTab(ExtendedFarming.ItemsTab);
+		GoatCheese = new ItemCustomCake(ExtendedFarmingBlocks.GoatCheese).setUnlocalizedName("GoatCheeseItem").setTextureName(modid + ":GoatCheeseItem").setCreativeTab(ExtendedFarming.ItemsTab);
 		
 		Flour = new ItemMaterials().setUnlocalizedName("Flour").setTextureName(modid + ":Flour");
-		
+		Doug = new ItemMaterials().setUnlocalizedName("Doug").setTextureName(modid + ":Doug");	
+		RawApplePie = new ItemMaterials().setUnlocalizedName("RawApplePie").setTextureName(modid + ":RawApplePie");
+		ApplePie = new ItemCustomCake(ExtendedFarmingBlocks.ApplePie).setUnlocalizedName("ApplePieItem").setTextureName(modid + ":ApplePieItem").setCreativeTab(ExtendedFarming.ItemsTab);
+
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
 		
@@ -167,6 +173,10 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(GoatMeat, "GoatMeat", modid);
 		GameRegistry.registerItem(GoatCheese, "GoatCheese", modid);
 		GameRegistry.registerItem(Flour, "Flour", modid);
+		GameRegistry.registerItem(Doug, "Doug", modid);
+		GameRegistry.registerItem(RawApplePie, "RawApplePie", modid);
+		GameRegistry.registerItem(ApplePie, "ApplePieItem", modid);
+
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
 		Rice = new ItemMyFood(0, 2, false);

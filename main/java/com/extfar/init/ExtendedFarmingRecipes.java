@@ -42,11 +42,11 @@ public class ExtendedFarmingRecipes
 
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(MilkingStation), 1), new Object [] {"F F", "WHW", "WCW", 'F', Blocks.fence, 'W', Blocks.planks, 'C', Items.cauldron, 'H', Hose});
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(CheeseBarrel), 1), new Object [] {"W W", "W W", "WWW", 'W', Blocks.planks});
-		 
-//		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.MilkingStation), 1), new Object [] {"IHI", "WCW", "WWW", 'I', Blocks.iron_bars, 'H', ExtendedFarmingBlocks.Hose, 'W', Blocks.planks, 'C', Items.cauldron});
+		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(Grinder), 1), new Object [] {"C", "B", 'C', Blocks.cobblestone, 'B', CheeseBarrel});
 
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.BeetSoup, 1), new Object [] {"III", "III", " S ", 'I', ExtendedFarmingItems.RoastedBeets, 'S', Items.bowl});
-		 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.RawApplePie, 1), new Object [] {"A A", "III", "AAA", 'A', ExtendedFarmingItems.Doug, 'I', Items.apple});
+
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BeanSeeds, 2), new Object[]{ExtendedFarmingItems.Beans});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.PeaSeeds, 2), new Object[]{ExtendedFarmingItems.Peas});
@@ -55,11 +55,13 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingBlocks.NetherHose, 8), new Object[]{Hose, Hose, Hose, Hose, Hose, Hose, Hose, Hose, Blocks.obsidian});
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 2), new Object[]{ExtendedFarmingItems.SugarBeets});
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[]{ExtendedFarmingItems.Beets});
+		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.Doug, 1, 1), new Object[]{ExtendedFarmingItems.Flour, Items.water_bucket});
 
 		 GameRegistry.addSmelting(ExtendedFarmingItems.RawGoatMeat, new ItemStack(ExtendedFarmingItems.GoatMeat), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beans, new ItemStack(ExtendedFarmingItems.RoastedBeans), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Peas, new ItemStack(ExtendedFarmingItems.BakedPeas), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.ChilliPeppers, new ItemStack(ExtendedFarmingItems.RoastedPeppers), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beets, new ItemStack(ExtendedFarmingItems.RoastedBeets), 3F);
+		 GameRegistry.addSmelting(ExtendedFarmingItems.RawApplePie, new ItemStack(ExtendedFarmingItems.ApplePie), 3F);
 	}
 }
