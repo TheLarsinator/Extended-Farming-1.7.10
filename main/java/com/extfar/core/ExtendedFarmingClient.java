@@ -160,10 +160,4 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
 		return null;
     	
     }
-    
-    @Override
-    public World getClientWorld()
-    {
-        return FMLClientHandler.instance().getClient().theWorld;
-    }
 }

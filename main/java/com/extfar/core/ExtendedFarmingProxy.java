@@ -23,9 +23,4 @@ public class ExtendedFarmingProxy {
 	{
 		return null;
 	}
-	
-	public World getClientWorld() {
-		// TODO Auto-generated method stub
-        return FMLClientHandler.instance().getClient().theWorld;
-	}
 }
