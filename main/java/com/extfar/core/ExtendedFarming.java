@@ -22,7 +22,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-5.2", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-5.3", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {
@@ -35,7 +35,7 @@ public class ExtendedFarming
 	
 	public static CreativeTabs ItemsTab = new MyItemsTab(CreativeTabs.getNextID(),"ExtendedFarmingItems");
 
-	public static ToolMaterial Quartz= EnumHelper.addToolMaterial("QUARTZ", 1, 200, 5.0F, 2, 8);
+	public static ToolMaterial Quartz = EnumHelper.addToolMaterial("QUARTZ", 1, 200, 5.0F, 2, 8);
 
 	//PreInit
 	@Mod.EventHandler

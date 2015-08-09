@@ -1,6 +1,5 @@
 package com.extfar.init;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucketMilk;
 
@@ -15,6 +14,7 @@ import com.extfar.items.ItemQuartzHoe;
 import com.extfar.items.ItemSupportCrop;
 import com.extfar.items.ItemTractor;
 import com.extfar.items.ItemTractorParts;
+import com.extfar.items.ItemWateringCan;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -75,6 +75,9 @@ public class ExtendedFarmingItems
 	public static Item SteeringWheel;
 	
 	public static Item Wrench;
+	public static Item WateringCan;
+	public static Item EmptyWateringCan;
+	public static Item LavaingCan;
 
 		
 	public static void init()
@@ -129,6 +132,10 @@ public class ExtendedFarmingItems
 		RawApplePie = new ItemMaterials().setUnlocalizedName("RawApplePie").setTextureName(modid + ":RawApplePie");
 		ApplePie = new ItemCustomCake(ExtendedFarmingBlocks.ApplePie).setUnlocalizedName("ApplePieItem").setTextureName(modid + ":ApplePieItem").setCreativeTab(ExtendedFarming.ItemsTab);
 
+		WateringCan = new ItemWateringCan(false, false).setUnlocalizedName("WateringCan").setTextureName(modid + ":WateringCan");
+		EmptyWateringCan = new ItemWateringCan(true, true).setUnlocalizedName("EmptyWateringCan").setTextureName(modid + ":EmptyWateringCan");
+		LavaingCan = new ItemWateringCan(false, true).setUnlocalizedName("LavaingCan").setTextureName(modid + ":LavaingCan");
+		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
 		
@@ -176,6 +183,10 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(Doug, "Doug", modid);
 		GameRegistry.registerItem(RawApplePie, "RawApplePie", modid);
 		GameRegistry.registerItem(ApplePie, "ApplePieItem", modid);
+
+		GameRegistry.registerItem(EmptyWateringCan, "EmptyWateringCan", modid);
+		GameRegistry.registerItem(WateringCan, "WateringCan", modid);
+		GameRegistry.registerItem(LavaingCan, "LavaingCan", modid);
 
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);

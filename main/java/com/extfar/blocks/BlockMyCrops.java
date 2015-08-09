@@ -77,6 +77,7 @@ public class BlockMyCrops extends BlockCrops
         return this.field_149867_a[3];
         }
     }
+    
     protected Item func_149866_i()
     {
         switch(SeedItem)

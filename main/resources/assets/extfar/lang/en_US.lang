@@ -45,6 +45,10 @@ item.RawApplePie.name=Raw Apple Pie
 item.ApplePieItem.name=Apple Pie
 item.Doug.name=Dough
 item.Flour.name=Flour
+
+item.EmptyWateringCan.name=Empty Watering Can
+item.WateringCan.name=Watering Can
+item.LavaingCan.name=Lavaing Can
 //Blocks
 tile.Hose.name=Hose
 tile.Pump.name=Pump

@@ -42,6 +42,7 @@ import com.extfar.blocks.overworld.sprayer.BlockActiveSprayer;
 import com.extfar.blocks.overworld.sprayer.BlockSprayer;
 import com.extfar.blocks.overworld.sprayer.TileEntityActiveSprayer;
 import com.extfar.blocks.overworld.sprayer.TileEntitySprayer;
+import com.extfar.blocks.trees.BlockFruitLeaf;
 import com.extfar.core.ExtendedFarming;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -99,6 +100,8 @@ public class ExtendedFarmingBlocks
 	public static Block Composter;
 	public static Block Grinder;
 	
+	public static Block PearLeaves;
+	
 	public static void init()
 	{
 
@@ -145,6 +148,9 @@ public class ExtendedFarmingBlocks
 		ApplePie = new BlockPie(ExtendedFarmingItems.ApplePie).setBlockName("ApplePie").setBlockTextureName("ApplePie");
 		Composter = new BlockCompost(Material.wood).setBlockName("Composter").setBlockTextureName("planks_acacia");
 		Grinder = new BlockGrinder(Material.wood).setBlockName("Grinder").setBlockTextureName("planks_acacia");
+
+		PearLeaves = new BlockFruitLeaf(3).setBlockName("PearLeaves").setBlockTextureName("PearLeaves");
+		
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -185,8 +191,8 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(GoatCheese, "GoatCheeseBlock");
 		GameRegistry.registerBlock(ApplePie, "ApplePie");
 		
-		GameRegistry.registerBlock(Composter, "Composter");
-		GameRegistry.registerTileEntity(TileEntityCompost.class, "ComposterTE");
+	//	GameRegistry.registerBlock(Composter, "Composter");
+	//	GameRegistry.registerTileEntity(TileEntityCompost.class, "ComposterTE");
 		GameRegistry.registerBlock(Grinder, "Grinder");
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, "GrinderTE");
 	 
@@ -204,6 +210,9 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(NetherPotatoes, "NetherPotatoes");
 		GameRegistry.registerBlock(NetherCarrots, "NetherCarrots");
 		GameRegistry.registerBlock(NetherWheat, "NetherWheat");
+		
+		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");
+
 		/*Rice = new BlockMyWaterCrops(ExtendedFarmingItems.RiceSeeds, ExtendedFarmingItems.Rice, 6, 4).setHardness(0.1F).setBlockName("RicePlant");
 
 		GameRegistry.registerBlock(Rice, "RiceBlock");

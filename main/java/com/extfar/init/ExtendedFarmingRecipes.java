@@ -47,6 +47,8 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.BeetSoup, 1), new Object [] {"III", "III", " S ", 'I', ExtendedFarmingItems.RoastedBeets, 'S', Items.bowl});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.RawApplePie, 1), new Object [] {"A A", "III", "AAA", 'A', ExtendedFarmingItems.Doug, 'I', Items.apple});
 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.EmptyWateringCan, 1), new Object [] {"I  ", " I ", "  B", 'B', Items.bucket, 'I', Items.iron_ingot});
+
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BeanSeeds, 2), new Object[]{ExtendedFarmingItems.Beans});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.PeaSeeds, 2), new Object[]{ExtendedFarmingItems.Peas});
