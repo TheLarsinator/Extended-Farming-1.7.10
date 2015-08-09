@@ -231,16 +231,16 @@ public class BlockBioFuelCompressor extends BlockContainer
 
 	}
 
+	String modid =  ExtendedFarming.modid + ":";
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BioFuelCompressorTop");
-		this.theIcon = par1IconRegister.registerIcon("BioFuelCompressorBottom");
-		this.theIcon2 = par1IconRegister.registerIcon("BioFuelCompressorSide");
-		this.theIcon4 = par1IconRegister
-				.registerIcon("BioFuelCompressorActiveFront");
-		this.theIcon3 = par1IconRegister.registerIcon("BioFuelCompressorFront");
+		this.blockIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
+		this.theIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
+		this.theIcon2 = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
+		this.theIcon4 = par1IconRegister.registerIcon(modid + "BioFuelCompressorActiveFront");
+		this.theIcon3 = par1IconRegister.registerIcon(modid + "BioFuelCompressorFront");
 
 	}
 

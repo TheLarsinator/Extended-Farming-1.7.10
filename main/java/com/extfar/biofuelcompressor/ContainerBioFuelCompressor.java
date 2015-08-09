@@ -11,20 +11,21 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerBioFuelCompressor extends Container
 {
-private TileEntityBioFuelCompressor goldOven;
-private int lastGoldOvenCookTime;
-private int lastGoldOvenBurnTime;
-private int lastGoldOvenItemBurnTime;
+private TileEntityBioFuelCompressor bioCompressor;
+private int lastbioCompressorCookTime;
+private int lastbioCompressorBurnTime;
+private int lastbioCompressorItemBurnTime;
 
-public ContainerBioFuelCompressor(InventoryPlayer par1InventoryPlayer, TileEntityBioFuelCompressor par2TileEntityGoldOven)
+public ContainerBioFuelCompressor(InventoryPlayer par1InventoryPlayer, TileEntityBioFuelCompressor par2TileEntitybioCompressor)
 {
-         lastGoldOvenCookTime = 0;
-         lastGoldOvenBurnTime = 0;
-         lastGoldOvenItemBurnTime = 0;
-         goldOven = par2TileEntityGoldOven;
-         addSlotToContainer(new Slot(par2TileEntityGoldOven, 0, 61, 16));
-         addSlotToContainer(new Slot(par2TileEntityGoldOven, 1, 101, 16));
-         addSlotToContainer(new SlotBioFuelCompressor(par1InventoryPlayer.player, par2TileEntityGoldOven, 2, 81, 53));
+         lastbioCompressorCookTime = 0;
+         lastbioCompressorBurnTime = 0;
+         lastbioCompressorItemBurnTime = 0;
+         bioCompressor = par2TileEntitybioCompressor;
+         
+         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 0, 36, 15));
+         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 1, 36, 47));
+         addSlotToContainer(new SlotBioFuelCompressor(par1InventoryPlayer.player, par2TileEntitybioCompressor, 2, 101, 30));
          
         //slotNumber 0 = "Smelting Slot"
         //slotNumber 1 = "input Slot"
@@ -36,7 +37,7 @@ public ContainerBioFuelCompressor(InventoryPlayer par1InventoryPlayer, TileEntit
                  {
                          addSlotToContainer(new Slot(par1InventoryPlayer, k + i * 9 + 9, 8 + k * 18, 84 + i * 18));
                  }
-         }
+         } 
 
          for (int j = 0; j < 9; j++)
          {
@@ -54,45 +55,45 @@ public void detectAndSendChanges()
          while (var1.hasNext())
          {
                  ICrafting var2 = (ICrafting)var1.next();
-                 if (this.lastGoldOvenCookTime != this.goldOven.BioFuelCompressorCookTime)
+                 if (this.lastbioCompressorCookTime != this.bioCompressor.BioFuelCompressorCookTime)
                  {
-                         var2.sendProgressBarUpdate(this, 0, this.goldOven.BioFuelCompressorCookTime);
+                         var2.sendProgressBarUpdate(this, 0, this.bioCompressor.BioFuelCompressorCookTime);
                  }
-                 if (this.lastGoldOvenBurnTime != this.goldOven.BioFuelCompressorBurnTime)
+                 if (this.lastbioCompressorBurnTime != this.bioCompressor.BioFuelCompressorBurnTime)
                  {
-                         var2.sendProgressBarUpdate(this, 1, this.goldOven.BioFuelCompressorBurnTime);
+                         var2.sendProgressBarUpdate(this, 1, this.bioCompressor.BioFuelCompressorBurnTime);
                  }
-                 if (this.lastGoldOvenItemBurnTime != this.goldOven.currentItemBurnTime)
+                 if (this.lastbioCompressorItemBurnTime != this.bioCompressor.currentItemBurnTime)
                  {
-                         var2.sendProgressBarUpdate(this, 2, this.goldOven.currentItemBurnTime);
+                         var2.sendProgressBarUpdate(this, 2, this.bioCompressor.currentItemBurnTime);
                  }
          }
-         this.lastGoldOvenCookTime = this.goldOven.BioFuelCompressorCookTime;
-         this.lastGoldOvenBurnTime = this.goldOven.BioFuelCompressorBurnTime;
-         this.lastGoldOvenItemBurnTime = this.goldOven.currentItemBurnTime;
+         this.lastbioCompressorCookTime = this.bioCompressor.BioFuelCompressorCookTime;
+         this.lastbioCompressorBurnTime = this.bioCompressor.BioFuelCompressorBurnTime;
+         this.lastbioCompressorItemBurnTime = this.bioCompressor.currentItemBurnTime;
 }
 
 public void updateProgressBar(int par1, int par2)
 {
          if (par1 == 0)
          {
-                 goldOven.BioFuelCompressorCookTime = par2;
+                 bioCompressor.BioFuelCompressorCookTime = par2;
          }
 
          if (par1 == 1)
          {
-                 goldOven.BioFuelCompressorBurnTime = par2;
+                 bioCompressor.BioFuelCompressorBurnTime = par2;
          }
 
          if (par1 == 2)
          {
-                 goldOven.currentItemBurnTime = par2;
+                 bioCompressor.currentItemBurnTime = par2;
          }
 }
 
 public boolean canInteractWith(EntityPlayer par1EntityPlayer)
 {
-         return goldOven.isUseableByPlayer(par1EntityPlayer);
+         return bioCompressor.isUseableByPlayer(par1EntityPlayer);
 }
 
 /**

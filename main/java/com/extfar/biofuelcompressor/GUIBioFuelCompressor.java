@@ -32,7 +32,8 @@ public class GUIBioFuelCompressor extends GuiContainer
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0xffffff);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0x8b8b8b);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("Biofuel compressor"), 8, (ySize - 164) + 2, 0x8b8b8b);
 	}
 
 	/**s
@@ -50,12 +51,12 @@ public class GUIBioFuelCompressor extends GuiContainer
 
 		if (BFCInventory.isBurning())
 		{
-			int burn = BFCInventory.getBurnTimeRemainingScaled(18);
-			drawTexturedModalRect(j + 83, k + 15, 176, 0, 12, burn);
+			int burn = BFCInventory.getBurnTimeRemainingScaled(9);
+			drawTexturedModalRect(j + 36, k + 33  + 9-burn , 176, 40-burn , 18 , burn+2);
 		}
 
-		int update = BFCInventory.getCookProgressScaled(11);
-		drawTexturedModalRect(j + 70, k + 34, 176, 19, 38, update);
+		int update = BFCInventory.getCookProgressScaled(58);
+		drawTexturedModalRect(j + 55, k + 19, 176, 42,  update, 38);
 
 	}
 }
