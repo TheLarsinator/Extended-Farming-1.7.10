@@ -5,10 +5,11 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
+import com.extfar.biofuelcompressor.BlockBioFuelCompressor;
+import com.extfar.biofuelcompressor.TileEntityBioFuelCompressor;
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
 import com.extfar.blocks.compost.BlockCompost;
-import com.extfar.blocks.compost.TileEntityCompost;
 import com.extfar.blocks.grinder.BlockGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
@@ -102,6 +103,8 @@ public class ExtendedFarmingBlocks
 	
 	public static Block PearLeaves;
 	
+	public static Block BioFuelCompressor;
+	
 	public static void init()
 	{
 
@@ -151,6 +154,7 @@ public class ExtendedFarmingBlocks
 
 		PearLeaves = new BlockFruitLeaf(3).setBlockName("PearLeaves").setBlockTextureName("PearLeaves");
 		
+		BioFuelCompressor= new BlockBioFuelCompressor(Material.rock, false).setBlockName("BioFuelCompressor").setBlockTextureName("BioFuelCompressor");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -210,6 +214,10 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(NetherPotatoes, "NetherPotatoes");
 		GameRegistry.registerBlock(NetherCarrots, "NetherCarrots");
 		GameRegistry.registerBlock(NetherWheat, "NetherWheat");
+		
+		GameRegistry.registerBlock(BioFuelCompressor, "BioFuelCompressor");
+	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "BioFuelCompressorTE");
+
 		
 		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");
 

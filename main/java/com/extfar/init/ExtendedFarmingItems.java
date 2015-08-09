@@ -1,5 +1,6 @@
 package com.extfar.init;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucketMilk;
 
@@ -79,6 +80,8 @@ public class ExtendedFarmingItems
 	public static Item EmptyWateringCan;
 	public static Item LavaingCan;
 
+	public static Item FuelCannister;
+
 		
 	public static void init()
 	{
@@ -136,6 +139,8 @@ public class ExtendedFarmingItems
 		EmptyWateringCan = new ItemWateringCan(true, true).setUnlocalizedName("EmptyWateringCan").setTextureName(modid + ":EmptyWateringCan");
 		LavaingCan = new ItemWateringCan(false, true).setUnlocalizedName("LavaingCan").setTextureName(modid + ":LavaingCan");
 		
+		FuelCannister = new ItemMaterials().setUnlocalizedName("FuelCannister").setTextureName(modid + ":FuelCannister");
+		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
 		
@@ -187,6 +192,8 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(EmptyWateringCan, "EmptyWateringCan", modid);
 		GameRegistry.registerItem(WateringCan, "WateringCan", modid);
 		GameRegistry.registerItem(LavaingCan, "LavaingCan", modid);
+		
+		GameRegistry.registerItem(FuelCannister, "FuelCannister", modid);
 
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);

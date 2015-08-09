@@ -9,6 +9,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import com.extfar.core.handler.ConfigHandler;
 import com.extfar.core.handler.ExtendedFarmingEventHandler;
+import com.extfar.core.handler.GuiHandler;
 import com.extfar.init.ExtendedFarmingAchievementsBook;
 import com.extfar.init.ExtendedFarmingBlocks;
 import com.extfar.init.ExtendedFarmingEntities;
@@ -21,6 +22,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-5.3", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
@@ -54,6 +56,7 @@ public class ExtendedFarming
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{	
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		ExtendedFarmingRecipes.RecipeBook();
 		proxy.registerRenderInformation();
      	
