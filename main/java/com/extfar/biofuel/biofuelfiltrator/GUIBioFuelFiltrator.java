@@ -33,7 +33,7 @@ public class GUIBioFuelFiltrator extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0x8b8b8b);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("Biofuel compressor"), 8, (ySize - 164) + 2, 0x8b8b8b);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("Biofuel filtrator"), 8, (ySize - 164) + 2, 0x8b8b8b);
 	}
 
 	/**s

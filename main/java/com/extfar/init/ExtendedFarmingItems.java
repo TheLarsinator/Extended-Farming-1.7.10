@@ -1,6 +1,5 @@
 package com.extfar.init;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucketMilk;
 
@@ -9,6 +8,7 @@ import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
 import com.extfar.items.ItemCropSupport;
 import com.extfar.items.ItemCustomCake;
+import com.extfar.items.ItemFuelCannisters;
 import com.extfar.items.ItemMaterials;
 import com.extfar.items.ItemMyFood;
 import com.extfar.items.ItemQuartzHoe;
@@ -144,12 +144,12 @@ public class ExtendedFarmingItems
 		EmptyWateringCan = new ItemWateringCan(true, true).setUnlocalizedName("EmptyWateringCan").setTextureName(modid + ":EmptyWateringCan");
 		LavaingCan = new ItemWateringCan(false, true).setUnlocalizedName("LavaingCan").setTextureName(modid + ":LavaingCan");
 		
-		UnfilteredFuel = new ItemMaterials().setUnlocalizedName("UnfilteredFuel").setTextureName(modid + ":UnfilteredFuel");
+		UnfilteredFuel = new ItemFuelCannisters().setUnlocalizedName("UnfilteredFuel").setTextureName(modid + ":UnfilteredFuel");
 		OrganicMaterial = new ItemMaterials().setUnlocalizedName("OrganicMaterial").setTextureName(modid + ":OrganicMaterial");
-		BioFuel = new ItemMaterials().setUnlocalizedName("BioFuel").setTextureName(modid + ":BioFuel");
+		BioFuel = new ItemFuelCannisters().setUnlocalizedName("BioFuel").setTextureName(modid + ":BioFuel");
 		FilterPaper = new ItemMaterials().setUnlocalizedName("FilterPaper").setTextureName(modid + ":FilterPaper");
-		EmptyCannister = new ItemMaterials().setUnlocalizedName("EmptyCannister").setTextureName(modid + ":EmptyCannister");
-		VegetableOil = new ItemMaterials().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
+		EmptyCannister = new ItemFuelCannisters().setUnlocalizedName("EmptyCannister").setTextureName(modid + ":EmptyCannister");
+		VegetableOil = new ItemFuelCannisters().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
 		
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);

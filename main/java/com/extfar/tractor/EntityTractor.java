@@ -1025,18 +1025,12 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 					/**
 					 * Add fuel and water
 					 */
-					if(player.getHeldItem() != null && (player.getHeldItem().getItem() == Items.coal || player.getHeldItem().getItem() == Item.getItemFromBlock(Blocks.coal_block)))
+					if(player.getHeldItem() != null && (player.getHeldItem().getItem() == ExtendedFarmingItems.BioFuel))
 					{
-						if(player.getHeldItem().getItem() == Items.coal)
-						{
-							this.fuel += player.getHeldItem().stackSize;
+							int size = player.getHeldItem().stackSize;
+							this.fuel += (player.getHeldItem().stackSize) * 5;
+							player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.EmptyCannister, size, 0));
 							player.getHeldItem().stackSize = 0;
-						}
-						else if(player.getHeldItem().getItem() == Item.getItemFromBlock(Blocks.coal_block))
-						{
-							this.fuel += (player.getHeldItem().stackSize * 9);
-							player.getHeldItem().stackSize = 0;
-						}
 						
 						player.addChatMessage(new ChatComponentText("Tractor Fuel: " + fuel));
 					}
