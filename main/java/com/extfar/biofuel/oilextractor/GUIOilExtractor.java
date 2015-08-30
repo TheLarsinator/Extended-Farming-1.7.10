@@ -1,4 +1,4 @@
-package com.extfar.biofuelcompressor;
+package com.extfar.biofuel.oilextractor;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,16 +13,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GUIBioFuelCompressor extends GuiContainer
+public class GUIOilExtractor extends GuiContainer
 {
 
-	private TileEntityBioFuelCompressor BFCInventory;
+	private TileEntityOilExtractor BFCInventory;
 	private static final ResourceLocation texture = new ResourceLocation(
-			ExtendedFarming.modid, "textures/gui/BioFuelCompressorGUI.png");
+			ExtendedFarming.modid, "textures/gui/OilExtractorGUI.png");
 
-	public GUIBioFuelCompressor(InventoryPlayer inventory, TileEntityBioFuelCompressor tileentity)
+	public GUIOilExtractor(InventoryPlayer inventory, TileEntityOilExtractor tileentity)
 	{
-		super(new ContainerBioFuelCompressor(inventory, tileentity));
+		super(new ContainerOilExtractor(inventory, tileentity));
 		BFCInventory = tileentity;
 	}
 

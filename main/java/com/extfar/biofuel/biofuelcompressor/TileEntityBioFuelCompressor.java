@@ -1,4 +1,6 @@
-package com.extfar.biofuelcompressor;
+package com.extfar.biofuel.biofuelcompressor;
+
+import com.extfar.init.ExtendedFarmingItems;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -355,7 +357,7 @@ public class TileEntityBioFuelCompressor extends TileEntity implements ISidedInv
         else
         {
             Item item = p_145952_0_.getItem();
-            if (item == Items.bucket) return 200;
+            if (item == ExtendedFarmingItems.VegetableOil) return 200;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
     }

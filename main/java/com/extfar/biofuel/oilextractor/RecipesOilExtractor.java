@@ -1,4 +1,4 @@
-package com.extfar.biofuelcompressor;
+package com.extfar.biofuel.oilextractor;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -6,14 +6,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.extfar.init.ExtendedFarmingItems;
 
-public class RecipesBioFuelCompressor
+public class RecipesOilExtractor
 {
-    private static final RecipesBioFuelCompressor smeltingBase = new RecipesBioFuelCompressor();
+    private static final RecipesOilExtractor smeltingBase = new RecipesOilExtractor();
     /** The list of smelting results. */
     private Map smeltingList = new HashMap();
     private Map experienceList = new HashMap();
@@ -22,14 +23,14 @@ public class RecipesBioFuelCompressor
     /**
      * Used to call methods addSmelting and getSmeltingResult.
      */
-    public static RecipesBioFuelCompressor smelting()
+    public static RecipesOilExtractor smelting()
     {
         return smeltingBase;
     }
 
-    private RecipesBioFuelCompressor()
+    private RecipesOilExtractor()
     {
-    addSmelting(new ItemStack(ExtendedFarmingItems.Beans, 1, 0), new ItemStack(ExtendedFarmingItems.FuelCannister, 1, 0), 0.7F);
+    	addSmelting(new ItemStack(Item.getItemFromBlock(Blocks.double_plant), 1, 0), new ItemStack(ExtendedFarmingItems.VegetableOil, 1, 0), 0.7F);
     }
 
     public void func_151393_a(Block p_151393_1_, ItemStack p_151393_2_, float p_151393_3_)

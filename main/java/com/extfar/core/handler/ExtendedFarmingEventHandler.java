@@ -27,15 +27,15 @@ public class ExtendedFarmingEventHandler
 	{
 		if(event.blockMetadata == 7)
 		{
-			if(event.block == ExtendedFarmingBlocks.Beans)
+			if(event.block == ExtendedFarmingBlocks.Beans_Block)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarBeans, 1);
-			if(event.block == ExtendedFarmingBlocks.Peas)
+			if(event.block == ExtendedFarmingBlocks.Peas_Block)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarPeas, 1);
-			if(event.block == ExtendedFarmingBlocks.ChilliPepper)
+			if(event.block == ExtendedFarmingBlocks.ChilliPepper_Block)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarPeppers, 1);
-			if(event.block == ExtendedFarmingBlocks.SugarBeet)
+			if(event.block == ExtendedFarmingBlocks.SugarBeet_Block)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarSugarBeets, 1);
-			if(event.block == ExtendedFarmingBlocks.Beets)
+			if(event.block == ExtendedFarmingBlocks.Beets_Block)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarBeets, 1);
 			if(event.block == ExtendedFarmingBlocks.NetherBeets  || event.block == ExtendedFarmingBlocks.NetherPeppers  || event.block == ExtendedFarmingBlocks.NetherPeas  || event.block == ExtendedFarmingBlocks.NetherBeans)
 				event.getPlayer().addStat(ExtendedFarmingAchievementsBook.AchievementextfarShortcut, 1);

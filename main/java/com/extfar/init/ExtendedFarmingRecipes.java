@@ -1,6 +1,15 @@
 package com.extfar.init;
 
 import static com.extfar.init.ExtendedFarmingBlocks.*;
+import static com.extfar.init.ExtendedFarmingItems.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -15,8 +24,8 @@ public class ExtendedFarmingRecipes
 	{
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(Pump), 1), new Object [] {" I ", "SHS", "BIB", 'B', Item.getItemFromBlock(Blocks.iron_block), 'I', Items.iron_ingot, 'S', Items.stick, 'H', Item.getItemFromBlock(ExtendedFarmingBlocks.Hose)});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.NetItem, 16), new Object [] {"BBB", "BBB", "BBB", 'B', Items.string});
-		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(Sprayer), 1), new Object [] {"III", " WH", " XH", 'I', Items.iron_ingot, 'W', Blocks.planks, 'X', Blocks.mossy_cobblestone, 'H', Hose});
-		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(Sprayer), 1), new Object [] {"III", "HW ", "HX ", 'I', Items.iron_ingot, 'W', Blocks.planks, 'X', Blocks.mossy_cobblestone, 'H', Hose});
+		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.Sprayer), 1), new Object [] {"III", " WH", " XH", 'I', Items.iron_ingot, 'W', Blocks.planks, 'X', Blocks.mossy_cobblestone, 'H', Hose});
+		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ExtendedFarmingBlocks.Sprayer), 1), new Object [] {"III", "HW ", "HX ", 'I', Items.iron_ingot, 'W', Blocks.planks, 'X', Blocks.mossy_cobblestone, 'H', Hose});
 
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(NetherPump), 1), new Object [] {" I ", "SHS", "BIB", 'B', Item.getItemFromBlock(Blocks.obsidian), 'I', Items.iron_ingot, 'S', Items.stick, 'H', Item.getItemFromBlock(ExtendedFarmingBlocks.NetherHose)});
 		 GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(NetherSprayer), 1), new Object [] {"III", " WH", " XH", 'I', Items.iron_ingot, 'W', Blocks.iron_block, 'X', Blocks.obsidian, 'H', NetherHose});
@@ -59,6 +68,14 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[]{ExtendedFarmingItems.Beets});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.Doug, 1, 1), new Object[]{ExtendedFarmingItems.Flour, Items.water_bucket});
 
+		 Item[] vegetables = {Peas, Beans, ChilliPeppers, Beets, SugarBeets, Items.potato, Items.poisonous_potato, Items.carrot, Items.wheat, Item.getItemFromBlock(Blocks.tallgrass), Item.getItemFromBlock(Blocks.leaves), Item.getItemFromBlock(Blocks.leaves2), Item.getItemFromBlock(Blocks.vine), Items.apple};  
+		 int[] vegetableValue = {2, 2, 1, 2, 1, 2, 1, 2, 3, 1, 1, 1, 1, 2};  
+		 
+		 for(int i = 0; i< vegetables.length; i++)
+		 {
+			 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.OrganicMaterial, vegetableValue[i], 1), new Object[]{vegetables[i], vegetables[i], vegetables[i], vegetables[i], vegetables[i], vegetables[i], vegetables[i], vegetables[i], vegetables[i]});
+		 }
+		 
 		 GameRegistry.addSmelting(ExtendedFarmingItems.RawGoatMeat, new ItemStack(ExtendedFarmingItems.GoatMeat), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Beans, new ItemStack(ExtendedFarmingItems.RoastedBeans), 3F);
 		 GameRegistry.addSmelting(ExtendedFarmingItems.Peas, new ItemStack(ExtendedFarmingItems.BakedPeas), 3F);

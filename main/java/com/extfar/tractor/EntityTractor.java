@@ -627,11 +627,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 				    			}
 				    			else if(item == ExtendedFarmingItems.SugarBeets)
 				    			{
-				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 				    			}
 				    			else if(item == ExtendedFarmingItems.Beets)
 				    			{
-				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+				    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 				    			}
 				    			this.decrStackSize(1, 1);
 				    		}	
@@ -655,11 +655,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(2, 1);}
 			    		}
@@ -682,11 +682,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(3, 1);}
 			    		}
@@ -709,11 +709,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(4, 1);	}
 			    		}
@@ -736,11 +736,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(5, 1);	}
 			    		}
@@ -763,11 +763,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(6, 1);
 				    		}
@@ -791,11 +791,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(7, 1);}
 			    		}
@@ -818,11 +818,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 			    			this.decrStackSize(8, 1);
 				    		}
@@ -846,11 +846,11 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 			    			}
 			    			else if(item == ExtendedFarmingItems.SugarBeets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.SugarBeet_Block);
 			    			}
 			    			else if(item == ExtendedFarmingItems.Beets)
 			    			{
-			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets);
+			    			world.setBlock(i+xCoord, j, k+zCoord, ExtendedFarmingBlocks.Beets_Block);
 			    			}
 				    	
 			    			this.decrStackSize(0, 1);
@@ -893,7 +893,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 				    	    }
 			    			}
 			    			
-			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.SugarBeet && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.SugarBeet_Block && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
 			    			{
 				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
 				    	    if(this.worldObj.isRemote == false)
@@ -903,7 +903,7 @@ public class EntityTractor extends Entity implements IEntityAdditionalSpawnData,
 				    	    }
 			    			}
 			    			
-			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.Beets && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
+			    			if(world.getBlock(i+xCoord, j, k+zCoord) == ExtendedFarmingBlocks.Beets_Block && world.getBlockMetadata(i+xCoord, j, k+zCoord) == 7)
 			    			{
 				    			world.setBlockToAir(i+xCoord, j, k+zCoord);
 				    	    if(this.worldObj.isRemote == false)

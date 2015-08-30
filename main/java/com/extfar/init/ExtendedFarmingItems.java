@@ -80,7 +80,12 @@ public class ExtendedFarmingItems
 	public static Item EmptyWateringCan;
 	public static Item LavaingCan;
 
-	public static Item FuelCannister;
+	public static Item UnfilteredFuel;
+	public static Item BioFuel;
+	public static Item OrganicMaterial;
+	public static Item FilterPaper;
+	public static Item EmptyCannister;
+	public static Item VegetableOil;
 
 		
 	public static void init()
@@ -89,9 +94,9 @@ public class ExtendedFarmingItems
 		BambooSticksItem = new ItemCropSupport(ExtendedFarmingBlocks.BambooSticks).setUnlocalizedName("BambooSticksItem").setTextureName(modid + ":BambooSticks");
 		NetItem = new ItemCropSupport(ExtendedFarmingBlocks.Net).setUnlocalizedName("NetItem").setTextureName(modid + ":Net");
 				
-		BeanSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Beans, 1).setUnlocalizedName("BeanSeeds").setTextureName(modid + ":BeanSeeds");
-		PeaSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Peas, 2).setUnlocalizedName("PeaSeeds").setTextureName(modid + ":PeaSeeds");
-		ChilliPepperSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.ChilliPepper, 1).setUnlocalizedName("ChilliPepperSeeds").setTextureName(modid + ":ChilliPepperSeeds");
+		BeanSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Beans_Block, 1).setUnlocalizedName("BeanSeeds").setTextureName(modid + ":BeanSeeds");
+		PeaSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Peas_Block, 2).setUnlocalizedName("PeaSeeds").setTextureName(modid + ":PeaSeeds");
+		ChilliPepperSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.ChilliPepper_Block, 1).setUnlocalizedName("ChilliPepperSeeds").setTextureName(modid + ":ChilliPepperSeeds");
 		
 		Beans = new ItemMyFood(2, 2, false).setUnlocalizedName("Beans").setTextureName(modid + ":Beans");
 		Peas = new ItemMyFood(2, 2, false).setUnlocalizedName("Peas").setTextureName(modid + ":Peas");
@@ -103,8 +108,8 @@ public class ExtendedFarmingItems
 		BakedPeas = new ItemMyFood(3, 4, false).setUnlocalizedName("BakedPeas").setTextureName(modid + ":BakedPeas");
 		RoastedBeets = new ItemMyFood(3, 4, false).setUnlocalizedName("RoastedBeets").setTextureName(modid + ":RoastedBeets");
 
-		SugarBeets = new ItemMyFoodSeed(1, 2, ExtendedFarmingBlocks.SugarBeet).setUnlocalizedName("SugarBeets").setTextureName(modid + ":SugarBeet");
-		Beets = new ItemMyFoodSeed(1, 2, ExtendedFarmingBlocks.Beets).setUnlocalizedName("Beets").setTextureName(modid + ":Beets");
+		SugarBeets = new ItemMyFoodSeed(1, 2, ExtendedFarmingBlocks.SugarBeet_Block).setUnlocalizedName("SugarBeets").setTextureName(modid + ":SugarBeet");
+		Beets = new ItemMyFoodSeed(1, 2, ExtendedFarmingBlocks.Beets_Block).setUnlocalizedName("Beets").setTextureName(modid + ":Beets");
 		
 		BeetSoup = new ItemBowlFood(8).setUnlocalizedName("BeetSoup").setTextureName(modid + ":BeetSoup");
 
@@ -139,7 +144,13 @@ public class ExtendedFarmingItems
 		EmptyWateringCan = new ItemWateringCan(true, true).setUnlocalizedName("EmptyWateringCan").setTextureName(modid + ":EmptyWateringCan");
 		LavaingCan = new ItemWateringCan(false, true).setUnlocalizedName("LavaingCan").setTextureName(modid + ":LavaingCan");
 		
-		FuelCannister = new ItemMaterials().setUnlocalizedName("FuelCannister").setTextureName(modid + ":FuelCannister");
+		UnfilteredFuel = new ItemMaterials().setUnlocalizedName("UnfilteredFuel").setTextureName(modid + ":UnfilteredFuel");
+		OrganicMaterial = new ItemMaterials().setUnlocalizedName("OrganicMaterial").setTextureName(modid + ":OrganicMaterial");
+		BioFuel = new ItemMaterials().setUnlocalizedName("BioFuel").setTextureName(modid + ":BioFuel");
+		FilterPaper = new ItemMaterials().setUnlocalizedName("FilterPaper").setTextureName(modid + ":FilterPaper");
+		EmptyCannister = new ItemMaterials().setUnlocalizedName("EmptyCannister").setTextureName(modid + ":EmptyCannister");
+		VegetableOil = new ItemMaterials().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
+		
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
@@ -193,7 +204,12 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(WateringCan, "WateringCan", modid);
 		GameRegistry.registerItem(LavaingCan, "LavaingCan", modid);
 		
-		GameRegistry.registerItem(FuelCannister, "FuelCannister", modid);
+		GameRegistry.registerItem(EmptyCannister, "EmptyCannister", modid);
+		GameRegistry.registerItem(VegetableOil, "VegetableOil", modid);
+		GameRegistry.registerItem(UnfilteredFuel, "UnfilteredFuel", modid);
+		GameRegistry.registerItem(BioFuel, "BioFuel", modid);
+		GameRegistry.registerItem(OrganicMaterial, "OrganicMaterial", modid);
+		GameRegistry.registerItem(FilterPaper, "FilterPaper", modid);
 
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);

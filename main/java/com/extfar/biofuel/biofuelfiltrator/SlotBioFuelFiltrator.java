@@ -1,4 +1,4 @@
-package com.extfar.biofuelcompressor;
+package com.extfar.biofuel.biofuelfiltrator;
 
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,12 +7,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
-public class SlotBioFuelCompressor extends Slot
+public class SlotBioFuelFiltrator extends Slot
 {
 /** The player that is using the GUI where this slot resides. */
 private EntityPlayer thePlayer;
 private int field_75228_b;
-public SlotBioFuelCompressor(EntityPlayer par1EntityPlayer, IInventory par2IInventory, int par3, int par4, int par5)
+public SlotBioFuelFiltrator(EntityPlayer par1EntityPlayer, IInventory par2IInventory, int par3, int par4, int par5)
 {
          super(par2IInventory, par3, par4, par5);
          this.thePlayer = par1EntityPlayer;
@@ -63,7 +63,7 @@ protected void onCrafting(ItemStack par1ItemStack)
     if (!this.thePlayer.worldObj.isRemote)
     {
         int i = this.field_75228_b;
-        float f = RecipesBioFuelCompressor.smelting().func_151398_b(par1ItemStack);
+        float f = RecipesBioFuelFiltrator.smelting().func_151398_b(par1ItemStack);
         int j;
 
         if (f == 0.0F)

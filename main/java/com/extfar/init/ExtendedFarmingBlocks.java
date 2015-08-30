@@ -5,8 +5,10 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import com.extfar.biofuelcompressor.BlockBioFuelCompressor;
-import com.extfar.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.biofuel.biofuelcompressor.BlockBioFuelCompressor;
+import com.extfar.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.biofuel.biofuelfiltrator.BlockBioFuelFiltrator;
+import com.extfar.biofuel.oilextractor.BlockOilExtractor;
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
 import com.extfar.blocks.compost.BlockCompost;
@@ -74,11 +76,11 @@ public class ExtendedFarmingBlocks
 	public static Block FarmSoulSand;
 	
 	//Crops
-	public static Block Beans;
-	public static Block Peas;
-	public static Block ChilliPepper;
-	public static Block SugarBeet;
-	public static Block Beets;
+	public static Block Beans_Block;
+	public static Block Peas_Block;
+	public static Block ChilliPepper_Block;
+	public static Block SugarBeet_Block;
+	public static Block Beets_Block;
 	
 	public static Block NetherBeans;
 	public static Block NetherPeas;
@@ -104,6 +106,8 @@ public class ExtendedFarmingBlocks
 	public static Block PearLeaves;
 	
 	public static Block BioFuelCompressor;
+	public static Block OilExtractor;
+	public static Block BioFuelFiltrator;
 	
 	public static void init()
 	{
@@ -126,11 +130,11 @@ public class ExtendedFarmingBlocks
 		ActiveNetherSprayer = new BlockActiveNetherSprayer(Material.lava).setBlockName("ActiveNetherSprayer").setBlockTextureName("NetherSprayer").setHardness(1.6F);
 		FarmSoulSand = new BlockFarmSoulSand().setBlockName("FarmSoulSand").setBlockTextureName("FarmSoulSand").setHardness(1F);
 		
-		Beans = new BlockMyCrops(1, 1, 6, 4, 1).setBlockName("Beans").setBlockTextureName("Beans");
-		Peas = new BlockMyCrops(2, 2, 6, 4, 2).setBlockName("Peas").setBlockTextureName("Peas");
-		ChilliPepper = new BlockMyCrops(3, 3, 6, 4, 1).setBlockName("ChilliPepper").setBlockTextureName("ChilliPepper");
-		SugarBeet = new BlockMyCrops(0, 4, 6, 4, 0).setBlockName("SugarBeet").setBlockTextureName("SugarBeet");
-		Beets = new BlockMyCrops(4, 5, 6, 4, 0).setBlockName("Beets").setBlockTextureName("Beets");
+		Beans_Block = new BlockMyCrops(1, 1, 6, 4, 1).setBlockName("Beans").setBlockTextureName("Beans");
+		Peas_Block = new BlockMyCrops(2, 2, 6, 4, 2).setBlockName("Peas").setBlockTextureName("Peas");
+		ChilliPepper_Block = new BlockMyCrops(3, 3, 6, 4, 1).setBlockName("ChilliPepper").setBlockTextureName("ChilliPepper");
+		SugarBeet_Block = new BlockMyCrops(0, 4, 6, 4, 0).setBlockName("SugarBeet").setBlockTextureName("SugarBeet");
+		Beets_Block = new BlockMyCrops(4, 5, 6, 4, 0).setBlockName("Beets").setBlockTextureName("Beets");
 		
 		NetherBeans = new BlockMyCrops(1, 101, 6, 4, 1).setBlockName("NetherBeans").setBlockTextureName("Beans");
 		NetherPeas = new BlockMyCrops(2, 102, 6, 4, 2).setBlockName("NetherPeas").setBlockTextureName("Peas");
@@ -155,6 +159,8 @@ public class ExtendedFarmingBlocks
 		PearLeaves = new BlockFruitLeaf(3).setBlockName("PearLeaves").setBlockTextureName("PearLeaves");
 		
 		BioFuelCompressor= new BlockBioFuelCompressor(Material.rock, false).setBlockName("BioFuelCompressor").setBlockTextureName("BioFuelCompressor");
+		OilExtractor= new BlockOilExtractor(Material.rock, false).setBlockName("OilExtractor").setBlockTextureName("OilExtractor");
+		BioFuelFiltrator= new BlockBioFuelFiltrator(Material.rock, false).setBlockName("BioFuelFiltrator").setBlockTextureName("BioFuelFiltrator");
 		
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
@@ -200,11 +206,11 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(Grinder, "Grinder");
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, "GrinderTE");
 	 
-		GameRegistry.registerBlock(Beans, "Beans");
-		GameRegistry.registerBlock(Peas, "Peas");
-		GameRegistry.registerBlock(ChilliPepper, "ChilliPepper");
-		GameRegistry.registerBlock(SugarBeet, "SugarBeet");
-		GameRegistry.registerBlock(Beets, "Beets");
+		GameRegistry.registerBlock(Beans_Block, "Beans");
+		GameRegistry.registerBlock(Peas_Block, "Peas");
+		GameRegistry.registerBlock(ChilliPepper_Block, "ChilliPepper");
+		GameRegistry.registerBlock(SugarBeet_Block, "SugarBeet");
+		GameRegistry.registerBlock(Beets_Block, "Beets");
 		
 		GameRegistry.registerBlock(NetherBeans, "NetherBeans");
 		GameRegistry.registerBlock(NetherPeas, "NetherPeas");
@@ -217,6 +223,12 @@ public class ExtendedFarmingBlocks
 		
 		GameRegistry.registerBlock(BioFuelCompressor, "BioFuelCompressor");
 	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "BioFuelCompressorTE");
+	    
+		GameRegistry.registerBlock(OilExtractor, "OilExtractor");
+	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "OilExtractorTE");
+	    
+		GameRegistry.registerBlock(BioFuelFiltrator, "BioFuelFiltrator");
+	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "BioFuelFiltratorTE");
 
 		
 		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");

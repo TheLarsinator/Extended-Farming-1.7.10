@@ -4,9 +4,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.extfar.biofuelcompressor.ContainerBioFuelCompressor;
-import com.extfar.biofuelcompressor.GUIBioFuelCompressor;
-import com.extfar.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.biofuel.biofuelcompressor.ContainerBioFuelCompressor;
+import com.extfar.biofuel.biofuelcompressor.GUIBioFuelCompressor;
+import com.extfar.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.biofuel.biofuelfiltrator.ContainerBioFuelFiltrator;
+import com.extfar.biofuel.biofuelfiltrator.GUIBioFuelFiltrator;
+import com.extfar.biofuel.biofuelfiltrator.TileEntityBioFuelFiltrator;
+import com.extfar.biofuel.oilextractor.ContainerOilExtractor;
+import com.extfar.biofuel.oilextractor.GUIOilExtractor;
+import com.extfar.biofuel.oilextractor.TileEntityOilExtractor;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -22,6 +28,16 @@ public class GuiHandler implements IGuiHandler {
 				return new ContainerBioFuelCompressor(player.inventory, (TileEntityBioFuelCompressor) tileEntity);
 			}
 			break;
+		case 2:
+			if (tileEntity != null && tileEntity instanceof TileEntityOilExtractor) {
+				return new ContainerOilExtractor(player.inventory, (TileEntityOilExtractor) tileEntity);
+			}
+			break;
+		case 3:
+			if (tileEntity != null && tileEntity instanceof TileEntityBioFuelFiltrator) {
+				return new ContainerBioFuelFiltrator(player.inventory, (TileEntityBioFuelFiltrator) tileEntity);
+			}
+			break;
 		}
 		return null;
 	}
@@ -34,6 +50,18 @@ public class GuiHandler implements IGuiHandler {
 			if (tileEntity != null && tileEntity instanceof TileEntity) {
 
 				return new GUIBioFuelCompressor(player.inventory, (TileEntityBioFuelCompressor) tileEntity);
+			}
+			break;
+		case 2:
+			if (tileEntity != null && tileEntity instanceof TileEntity) {
+
+				return new GUIOilExtractor(player.inventory, (TileEntityOilExtractor) tileEntity);
+			}
+			break;
+		case 3:
+			if (tileEntity != null && tileEntity instanceof TileEntity) {
+
+				return new GUIBioFuelFiltrator(player.inventory, (TileEntityBioFuelFiltrator) tileEntity);
 			}
 			break;
 		}

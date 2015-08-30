@@ -1,4 +1,4 @@
-package com.extfar.biofuelcompressor;
+package com.extfar.biofuel.oilextractor;
 
 import java.util.Random;
 
@@ -22,12 +22,12 @@ import com.extfar.core.ExtendedFarming;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBioFuelCompressor extends BlockContainer
+public class BlockOilExtractor extends BlockContainer
 {
 
 	private static boolean keepInventory = false;
 
-	/** True if this is an active BioFuelCompressor, false if idle */
+	/** True if this is an active OilExtractor, false if idle */
 	private final Random field_149933_a = new Random();
 	private static boolean field_149934_M;
 	public static boolean isActive;
@@ -38,12 +38,12 @@ public class BlockBioFuelCompressor extends BlockContainer
 	private IIcon theIcon4;
 
 	/**
-	 * Is the random generator used by BioFuelCompressor to drop the inventory
+	 * Is the random generator used by OilExtractor to drop the inventory
 	 * contents in random directions.
 	 */
 	private Random goldRand;
 
-	public BlockBioFuelCompressor(Material material, boolean active)
+	public BlockOilExtractor(Material material, boolean active)
 	{
 		super(material);
 		goldRand = new Random();
@@ -54,7 +54,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2)
 	{
-		return new TileEntityBioFuelCompressor();
+		return new TileEntityOilExtractor();
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 				case 2:
 					return theIcon2;
 				case 3:
-					if (((TileEntityBioFuelCompressor) tile).isActive())
+					if (((TileEntityOilExtractor) tile).isActive())
 					{
 						return theIcon4;
 					}
@@ -158,7 +158,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 				case 2:
 					return theIcon2;
 				case 4:
-					if (((TileEntityBioFuelCompressor) tile).isActive())
+					if (((TileEntityOilExtractor) tile).isActive())
 					{
 						return theIcon4;
 					}
@@ -185,7 +185,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 				case 3:
 					return theIcon2;
 				case 2:
-					if (((TileEntityBioFuelCompressor) tile).isActive())
+					if (((TileEntityOilExtractor) tile).isActive())
 					{
 						return theIcon4;
 					}
@@ -212,7 +212,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 				case 2:
 					return theIcon2;
 				case 5:
-					if (((TileEntityBioFuelCompressor) tile).isActive())
+					if (((TileEntityOilExtractor) tile).isActive())
 					{
 						return theIcon4;
 					}
@@ -236,11 +236,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
-		this.theIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
-		this.theIcon2 = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
-		this.theIcon4 = par1IconRegister.registerIcon(modid + "BioFuelCompressorActiveFront");
-		this.theIcon3 = par1IconRegister.registerIcon(modid + "BioFuelCompressorFront");
+		this.blockIcon = par1IconRegister.registerIcon(modid + "OilExtractorSide");
+		this.theIcon = par1IconRegister.registerIcon(modid + "OilExtractorSide");
+		this.theIcon2 = par1IconRegister.registerIcon(modid + "OilExtractorSide");
+		this.theIcon4 = par1IconRegister.registerIcon(modid + "OilExtractorActiveFront");
+		this.theIcon3 = par1IconRegister.registerIcon(modid + "OilExtractorFront");
 
 	}
 
@@ -379,7 +379,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 	public boolean onBlockActivated(World world, int x, int y, int z,
 			EntityPlayer player, int i, float a, float b, float c)
 	{
-		TileEntityBioFuelCompressor gold = (TileEntityBioFuelCompressor) world
+		TileEntityOilExtractor tile = (TileEntityOilExtractor) world
 				.getTileEntity(x, y, z);
 		if (world.isRemote)
 		{
@@ -390,9 +390,9 @@ public class BlockBioFuelCompressor extends BlockContainer
 		else
 		{
 			System.out.println(this.isActive);
-			if (gold != null && !player.isSneaking())
+			if (tile != null && !player.isSneaking())
 			{
-				player.openGui(ExtendedFarming.modid, 1, world, x, y, z);
+				player.openGui(ExtendedFarming.modid, 2, world, x, y, z);
 			}
 			return true;
 		}
@@ -416,14 +416,14 @@ public class BlockBioFuelCompressor extends BlockContainer
 	{
 		if (!field_149934_M)
 		{
-			TileEntityBioFuelCompressor tileentityBioFuelCompressor = (TileEntityBioFuelCompressor) p_149749_1_
+			TileEntityOilExtractor tileentityOilExtractor = (TileEntityOilExtractor) p_149749_1_
 					.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
 
-			if (tileentityBioFuelCompressor != null)
+			if (tileentityOilExtractor != null)
 			{
-				for (int i1 = 0; i1 < tileentityBioFuelCompressor.getSizeInventory(); ++i1)
+				for (int i1 = 0; i1 < tileentityOilExtractor.getSizeInventory(); ++i1)
 				{
-					ItemStack itemstack = tileentityBioFuelCompressor
+					ItemStack itemstack = tileentityOilExtractor
 							.getStackInSlot(i1);
 
 					if (itemstack != null)
@@ -479,8 +479,8 @@ public class BlockBioFuelCompressor extends BlockContainer
 
 	/*
 	 * public void breakBlock(World par1World, int par2, int par3, int par4, int
-	 * par5, int par6) { if (!keepInventory) { TileEntityBioFuelCompressor gold =
-	 * (TileEntityBioFuelCompressor)par1World.getBlockTileEntity(par2, par3, par4);
+	 * par5, int par6) { if (!keepInventory) { TileEntityOilExtractor gold =
+	 * (TileEntityOilExtractor)par1World.getBlockTileEntity(par2, par3, par4);
 	 * if (gold != null) { for (int var8 = 0; var8 < gold.getSizeInventory();
 	 * ++var8) { ItemStack item = gold.getStackInSlot(var8); if (item != null) {
 	 * float var10 = this.goldRand.nextFloat() * 0.8F + 0.1F; float var11 =

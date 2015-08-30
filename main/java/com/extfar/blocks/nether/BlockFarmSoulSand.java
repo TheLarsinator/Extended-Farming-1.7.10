@@ -79,13 +79,13 @@ public class BlockFarmSoulSand extends Block
     	int metadata = world.getBlockMetadata(i, j+1, k);
 
         //Set crops to their Nether Counterparts        
-        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans)
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beans_Block)
         	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeans, metadata, 2);
-        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas)
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Peas_Block)
         	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeas, metadata, 2);
-        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper)
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.ChilliPepper_Block)
         	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherPeppers, metadata, 2);
-        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beets)
+        if(world.getBlock(i, j+1, k) == ExtendedFarmingBlocks.Beets_Block)
         	world.setBlock(i, j+1, k, ExtendedFarmingBlocks.NetherBeets, metadata, 2);
         
         
