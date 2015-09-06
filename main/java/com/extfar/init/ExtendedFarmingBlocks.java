@@ -2,6 +2,7 @@ package com.extfar.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -118,6 +119,8 @@ public class ExtendedFarmingBlocks
 	
 	public static Block DeepFrier;
 	
+	private IIcon Oilflow;
+	
 	public static void init()
 	{
 
@@ -158,7 +161,9 @@ public class ExtendedFarmingBlocks
 		MilkFluid = new Fluid("milk").setLuminosity(0).setViscosity(20);
 		FluidRegistry.registerFluid(MilkFluid);
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid");
-		OilFluid = new Fluid("frying_oil").setLuminosity(0).setViscosity(20);
+		
+
+		OilFluid = new Fluid("frying_oil").setLuminosity(0).setViscosity(20).getColor(0xCFAE00);
 		FluidRegistry.registerFluid(OilFluid);
 		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid").setCreativeTab(ExtendedFarming.ItemsTab);
 		
