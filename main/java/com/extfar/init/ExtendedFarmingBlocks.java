@@ -7,6 +7,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
+import com.extfar.blocks.BlockOilLiquid;
 import com.extfar.blocks.biofuel.biofuelcompressor.BlockBioFuelCompressor;
 import com.extfar.blocks.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
 import com.extfar.blocks.biofuel.biofuelfiltrator.BlockBioFuelFiltrator;
@@ -14,6 +15,8 @@ import com.extfar.blocks.biofuel.biofuelfiltrator.TileEntityBioFuelFiltrator;
 import com.extfar.blocks.biofuel.oilextractor.BlockOilExtractor;
 import com.extfar.blocks.biofuel.oilextractor.TileEntityOilExtractor;
 import com.extfar.blocks.compost.BlockCompost;
+import com.extfar.blocks.deepfrier.frier.BlockFrier;
+import com.extfar.blocks.deepfrier.frier.TileEntityFrier;
 import com.extfar.blocks.grinder.BlockGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.milking.BlockCheeseBarrel;
@@ -98,6 +101,8 @@ public class ExtendedFarmingBlocks
 	public static Block MilkingStation;
 	public static Fluid MilkFluid;
 	public static Block MilkLiquid;
+	public static Fluid OilFluid;
+	public static Block OilLiquid;
 	public static Block CheeseBarrel;
 	public static Block GoatCheese;
 	public static Block ApplePie;
@@ -110,6 +115,8 @@ public class ExtendedFarmingBlocks
 	public static Block BioFuelCompressor;
 	public static Block OilExtractor;
 	public static Block BioFuelFiltrator;
+	
+	public static Block DeepFrier;
 	
 	public static void init()
 	{
@@ -150,7 +157,10 @@ public class ExtendedFarmingBlocks
 		MilkingStation = new BlockMilkingStation(Material.iron).setBlockName("MilkingStation").setBlockTextureName("planks_acacia").setHardness(1.8F);
 		MilkFluid = new Fluid("milk").setLuminosity(0).setViscosity(20);
 		FluidRegistry.registerFluid(MilkFluid);
-		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid").setCreativeTab(ExtendedFarming.ItemsTab);
+		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid");
+		OilFluid = new Fluid("frying_oil").setLuminosity(0).setViscosity(20);
+		FluidRegistry.registerFluid(OilFluid);
+		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid").setCreativeTab(ExtendedFarming.ItemsTab);
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockPie(ExtendedFarmingItems.GoatCheese).setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
@@ -164,6 +174,7 @@ public class ExtendedFarmingBlocks
 		OilExtractor= new BlockOilExtractor(Material.rock, false).setBlockName("OilExtractor").setBlockTextureName("OilExtractor");
 		BioFuelFiltrator= new BlockBioFuelFiltrator(Material.rock, false).setBlockName("BioFuelFiltrator").setBlockTextureName("BioFuelFiltrator");
 		
+		DeepFrier = new BlockFrier(Material.iron).setBlockName("DeepFrier").setBlockTextureName("Frier");
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
 
@@ -197,6 +208,7 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(MilkingStation, "MilkingStation");
 	    GameRegistry.registerTileEntity(TileEntityMilkingStation.class, "MilkingStationTE");
 		GameRegistry.registerBlock(MilkLiquid, "MilkLiquid");
+		GameRegistry.registerBlock(OilLiquid, "OilLiquid");
 		
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
@@ -231,6 +243,9 @@ public class ExtendedFarmingBlocks
 	    
 		GameRegistry.registerBlock(BioFuelFiltrator, "BioFuelFiltrator");
 	    GameRegistry.registerTileEntity(TileEntityBioFuelFiltrator.class, "BioFuelFiltratorTE");
+	    
+		GameRegistry.registerBlock(DeepFrier, "DeepFrier");
+	    GameRegistry.registerTileEntity(TileEntityFrier.class, "DeepFrierTE");
 
 		
 		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");

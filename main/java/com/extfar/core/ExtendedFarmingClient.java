@@ -3,13 +3,15 @@ package com.extfar.core;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.extfar.animals.entity.EntityGoat;
 import com.extfar.animals.model.ModelGoat;
 import com.extfar.animals.render.RenderGoat;
+import com.extfar.blocks.deepfrier.frier.ItemRenderFrier;
+import com.extfar.blocks.deepfrier.frier.TileEntityFrier;
+import com.extfar.blocks.deepfrier.frier.TileEntityRenderFrier;
 import com.extfar.blocks.grinder.ItemRenderGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
 import com.extfar.blocks.grinder.TileEntityRenderGrinder;
@@ -107,12 +109,14 @@ public class ExtendedFarmingClient extends ExtendedFarmingProxy{
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPump.class, new TileEntityRendererPump());
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySprayer.class, new TileEntityRendererSprayer());
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityActiveSprayer.class, new TileEntityRendererActiveSprayer());
+  		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrier.class, new TileEntityRenderFrier());
   		
   		
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Pump), (new ItemRenderPump()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Sprayer), (new ItemRenderSprayer()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.CheeseBarrel), (new ItemRenderCheeseBarrel()));
   		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.Grinder), (new ItemRenderGrinder()));
+  		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ExtendedFarmingBlocks.DeepFrier), (new ItemRenderFrier()));
 
   		
   		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherHose.class, new TileEntityRendererNetherHose());

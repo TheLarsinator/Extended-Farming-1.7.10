@@ -155,7 +155,8 @@ public class ExtendedFarmingItems
 		VegetableOil = new ItemFuelCannisters().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
 		FryingOil = new ItemFuelCannisters().setUnlocalizedName("FryingOil").setTextureName(modid + ":FryingOil");
 		
-		PotatoChips = new ItemMyFood(3, 4, false).setUnlocalizedName("PotatoChips").setTextureName(modid + ":PotatoChips");
+		PotatoChips = new ItemMyFood(4, 6, false).setUnlocalizedName("PotatoChips").setTextureName(modid + ":PotatoChips");
+		RawPotatoChips = new ItemMyFood(1, 2, false).setUnlocalizedName("RawPotatoChips").setTextureName(modid + ":RawPotatoChips");
 
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
@@ -216,6 +217,10 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(BioFuel, "BioFuel", modid);
 		GameRegistry.registerItem(OrganicMaterial, "OrganicMaterial", modid);
 		GameRegistry.registerItem(FilterPaper, "FilterPaper", modid);
+		
+		GameRegistry.registerItem(FryingOil, "FryingOil", modid);
+		GameRegistry.registerItem(RawPotatoChips, "RawPotatoChips", modid);
+		GameRegistry.registerItem(PotatoChips, "PotatoChips", modid);
 
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);
