@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelcompressor;
+package com.extfar.blocks.biofuel.biofuelcompressor;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +29,7 @@ public class RecipesBioFuelCompressor
 
     private RecipesBioFuelCompressor()
     {
-    	addSmelting(new ItemStack(ExtendedFarmingItems.OrganicMaterial, 1, 0), new ItemStack(ExtendedFarmingItems.UnfilteredFuel, 1, 0), 0.7F);
+    	addSmelting(new ItemStack(ExtendedFarmingItems.VegetableOil, 1, 0), new ItemStack(ExtendedFarmingItems.UnfilteredFuel, 1, 0), 0.7F);
     }
 
     public void func_151393_a(Block p_151393_1_, ItemStack p_151393_2_, float p_151393_3_)

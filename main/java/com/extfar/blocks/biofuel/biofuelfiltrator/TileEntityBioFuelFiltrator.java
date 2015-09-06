@@ -1,4 +1,4 @@
-package com.extfar.biofuel.oilextractor;
+package com.extfar.blocks.biofuel.biofuelfiltrator;
 
 import com.extfar.init.ExtendedFarmingItems;
 
@@ -14,25 +14,25 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityOilExtractor extends TileEntity implements ISidedInventory
+public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInventory
 {
     private static final int[] slotsTop = new int[] {0};
     private static final int[] slotsBottom = new int[] {2, 1};
     private static final int[] slotsSides = new int[] {1};
     /**
-     * The ItemStacks that hold the items currently being used in the OilExtractor
+     * The ItemStacks that hold the items currently being used in the BioFuelFiltrator
      */
-    private ItemStack[] OilExtractorItemStacks = new ItemStack[3];
-    /** The number of ticks that the OilExtractor will keep burning */
-    public int OilExtractorBurnTime;
+    private ItemStack[] BioFuelFiltratorItemStacks = new ItemStack[3];
+    /** The number of ticks that the BioFuelFiltrator will keep burning */
+    public int BioFuelFiltratorBurnTime;
     /**
-     * The number of ticks that a fresh copy of the currently-burning item would keep the OilExtractor burning for
+     * The number of ticks that a fresh copy of the currently-burning item would keep the BioFuelFiltrator burning for
      */
     public int currentItemBurnTime;
     private boolean isActive;
 
     /** The number of ticks that the current item has been cooking for */
-    public int OilExtractorCookTime;
+    public int BioFuelFiltratorCookTime;
     private String field_145958_o;
     private static final String __OBFID = "CL_00000357";
 
@@ -41,7 +41,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public int getSizeInventory()
     {
-        return this.OilExtractorItemStacks.length;
+        return this.BioFuelFiltratorItemStacks.length;
     }
 
     /**
@@ -49,7 +49,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public ItemStack getStackInSlot(int par1)
     {
-        return this.OilExtractorItemStacks[par1];
+        return this.BioFuelFiltratorItemStacks[par1];
     }
 
     /**
@@ -58,23 +58,23 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public ItemStack decrStackSize(int par1, int par2)
     {
-        if (this.OilExtractorItemStacks[par1] != null)
+        if (this.BioFuelFiltratorItemStacks[par1] != null)
         {
             ItemStack itemstack;
 
-            if (this.OilExtractorItemStacks[par1].stackSize <= par2)
+            if (this.BioFuelFiltratorItemStacks[par1].stackSize <= par2)
             {
-                itemstack = this.OilExtractorItemStacks[par1];
-                this.OilExtractorItemStacks[par1] = null;
+                itemstack = this.BioFuelFiltratorItemStacks[par1];
+                this.BioFuelFiltratorItemStacks[par1] = null;
                 return itemstack;
             }
             else
             {
-                itemstack = this.OilExtractorItemStacks[par1].splitStack(par2);
+                itemstack = this.BioFuelFiltratorItemStacks[par1].splitStack(par2);
 
-                if (this.OilExtractorItemStacks[par1].stackSize == 0)
+                if (this.BioFuelFiltratorItemStacks[par1].stackSize == 0)
                 {
-                    this.OilExtractorItemStacks[par1] = null;
+                    this.BioFuelFiltratorItemStacks[par1] = null;
                 }
 
                 return itemstack;
@@ -96,10 +96,10 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public ItemStack getStackInSlotOnClosing(int par1)
     {
-        if (this.OilExtractorItemStacks[par1] != null)
+        if (this.BioFuelFiltratorItemStacks[par1] != null)
         {
-            ItemStack itemstack = this.OilExtractorItemStacks[par1];
-            this.OilExtractorItemStacks[par1] = null;
+            ItemStack itemstack = this.BioFuelFiltratorItemStacks[par1];
+            this.BioFuelFiltratorItemStacks[par1] = null;
             return itemstack;
         }
         else
@@ -113,7 +113,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
-        this.OilExtractorItemStacks[par1] = par2ItemStack;
+        this.BioFuelFiltratorItemStacks[par1] = par2ItemStack;
 
         if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit())
         {
@@ -126,7 +126,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      */
     public String getInventoryName()
     {
-        return this.hasCustomInventoryName() ? this.field_145958_o : "container.OilExtractor";
+        return this.hasCustomInventoryName() ? this.field_145958_o : "container.BioFuelFiltrator";
     }
 
     /**
@@ -146,22 +146,22 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     {
         super.readFromNBT(p_145839_1_);
         NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
-        this.OilExtractorItemStacks = new ItemStack[this.getSizeInventory()];
+        this.BioFuelFiltratorItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
         {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
 
-            if (b0 >= 0 && b0 < this.OilExtractorItemStacks.length)
+            if (b0 >= 0 && b0 < this.BioFuelFiltratorItemStacks.length)
             {
-                this.OilExtractorItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+                this.BioFuelFiltratorItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
 
-        this.OilExtractorBurnTime = p_145839_1_.getShort("BurnTime");
-        this.OilExtractorCookTime = p_145839_1_.getShort("CookTime");
-        this.currentItemBurnTime = getItemBurnTime(this.OilExtractorItemStacks[1]);
+        this.BioFuelFiltratorBurnTime = p_145839_1_.getShort("BurnTime");
+        this.BioFuelFiltratorCookTime = p_145839_1_.getShort("CookTime");
+        this.currentItemBurnTime = getItemBurnTime(this.BioFuelFiltratorItemStacks[1]);
 
         if (p_145839_1_.hasKey("CustomName", 8))
         {
@@ -172,17 +172,17 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short)this.OilExtractorBurnTime);
-        p_145841_1_.setShort("CookTime", (short)this.OilExtractorCookTime);
+        p_145841_1_.setShort("BurnTime", (short)this.BioFuelFiltratorBurnTime);
+        p_145841_1_.setShort("CookTime", (short)this.BioFuelFiltratorCookTime);
         NBTTagList nbttaglist = new NBTTagList();
 
-        for (int i = 0; i < this.OilExtractorItemStacks.length; ++i)
+        for (int i = 0; i < this.BioFuelFiltratorItemStacks.length; ++i)
         {
-            if (this.OilExtractorItemStacks[i] != null)
+            if (this.BioFuelFiltratorItemStacks[i] != null)
             {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
                 nbttagcompound1.setByte("Slot", (byte)i);
-                this.OilExtractorItemStacks[i].writeToNBT(nbttagcompound1);
+                this.BioFuelFiltratorItemStacks[i].writeToNBT(nbttagcompound1);
                 nbttaglist.appendTag(nbttagcompound1);
             }
         }
@@ -210,7 +210,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     @SideOnly(Side.CLIENT)
     public int getCookProgressScaled(int p_145953_1_)
     {
-        return this.OilExtractorCookTime * p_145953_1_ / 200;
+        return this.BioFuelFiltratorCookTime * p_145953_1_ / 1800;
     }
 
     /**
@@ -222,46 +222,46 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     {
         if (this.currentItemBurnTime == 0)
         {
-            this.currentItemBurnTime = 200;
+            this.currentItemBurnTime = 1800;
         }
 
-        return this.OilExtractorBurnTime * p_145955_1_ / this.currentItemBurnTime;
+        return this.BioFuelFiltratorBurnTime * p_145955_1_ / this.currentItemBurnTime;
     }
 
     /**
-     * OilExtractor isBurning
+     * BioFuelFiltrator isBurning
      */
     public boolean isBurning()
     {
-        return this.OilExtractorBurnTime > 0;
+        return this.BioFuelFiltratorBurnTime > 0;
     }
 
     public void updateEntity()
     {
-        boolean flag = this.OilExtractorBurnTime > 0;
+        boolean flag = this.BioFuelFiltratorBurnTime > 0;
         boolean flag1 = false;
-        if (this.OilExtractorBurnTime > 0)
+        if (this.BioFuelFiltratorBurnTime > 0)
         {
-            --this.OilExtractorBurnTime;
+            --this.BioFuelFiltratorBurnTime;
         }
 
         if (!this.worldObj.isRemote)
         {
-            if (this.OilExtractorBurnTime == 0 && this.canSmelt())
+            if (this.BioFuelFiltratorBurnTime == 0 && this.canSmelt())
             {
-                this.currentItemBurnTime = this.OilExtractorBurnTime = getItemBurnTime(this.OilExtractorItemStacks[1]);
+                this.currentItemBurnTime = this.BioFuelFiltratorBurnTime = getItemBurnTime(this.BioFuelFiltratorItemStacks[1]);
 
-                if (this.OilExtractorBurnTime > 0)
+                if (this.BioFuelFiltratorBurnTime > 0)
                 {
                     flag1 = true;
 
-                    if (this.OilExtractorItemStacks[1] != null)
+                    if (this.BioFuelFiltratorItemStacks[1] != null)
                     {
-                        --this.OilExtractorItemStacks[1].stackSize;
+                        --this.BioFuelFiltratorItemStacks[1].stackSize;
 
-                        if (this.OilExtractorItemStacks[1].stackSize == 0)
+                        if (this.BioFuelFiltratorItemStacks[1].stackSize == 0)
                         {
-                            this.OilExtractorItemStacks[1] = OilExtractorItemStacks[1].getItem().getContainerItem(OilExtractorItemStacks[1]);
+                            this.BioFuelFiltratorItemStacks[1] = BioFuelFiltratorItemStacks[1].getItem().getContainerItem(BioFuelFiltratorItemStacks[1]);
                         }
                     }
                 }
@@ -269,18 +269,18 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
 
             if (this.isBurning() && this.canSmelt())
             {
-                ++this.OilExtractorCookTime;
+                ++this.BioFuelFiltratorCookTime;
 
-                if (this.OilExtractorCookTime == 200)
+                if (this.BioFuelFiltratorCookTime == 1800)
                 {
-                    this.OilExtractorCookTime = 0;
+                    this.BioFuelFiltratorCookTime = 0;
                     this.smeltItem();
                     flag1 = true;
                 }
             }
             else
             {
-                this.OilExtractorCookTime = 0;
+                this.BioFuelFiltratorCookTime = 0;
             }
 
         }
@@ -298,54 +298,54 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     }
 
     /**
-     * Returns true if the OilExtractor can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     * Returns true if the BioFuelFiltrator can smelt an item, i.e. has a source item, destination stack isn't full, etc.
      */
     private boolean canSmelt()
     {
-        if (this.OilExtractorItemStacks[0] == null)
+        if (this.BioFuelFiltratorItemStacks[0] == null)
         {
             return false;
         }
         else
         {
-            ItemStack itemstack = RecipesOilExtractor.smelting().getSmeltingResult(this.OilExtractorItemStacks[0]);
+            ItemStack itemstack = RecipesBioFuelFiltrator.smelting().getSmeltingResult(this.BioFuelFiltratorItemStacks[0]);
             if (itemstack == null) return false;
-            if (this.OilExtractorItemStacks[2] == null) return true;
-            if (!this.OilExtractorItemStacks[2].isItemEqual(itemstack)) return false;
-            int result = OilExtractorItemStacks[2].stackSize + itemstack.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.OilExtractorItemStacks[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+            if (this.BioFuelFiltratorItemStacks[2] == null) return true;
+            if (!this.BioFuelFiltratorItemStacks[2].isItemEqual(itemstack)) return false;
+            int result = BioFuelFiltratorItemStacks[2].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.BioFuelFiltratorItemStacks[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
     }
 
     /**
-     * Turn one item from the OilExtractor source stack into the appropriate smelted item in the OilExtractor result stack
+     * Turn one item from the BioFuelFiltrator source stack into the appropriate smelted item in the BioFuelFiltrator result stack
      */
     public void smeltItem()
     {
         if (this.canSmelt())
         {
-            ItemStack itemstack = RecipesOilExtractor.smelting().getSmeltingResult(this.OilExtractorItemStacks[0]);
+            ItemStack itemstack = RecipesBioFuelFiltrator.smelting().getSmeltingResult(this.BioFuelFiltratorItemStacks[0]);
 
-            if (this.OilExtractorItemStacks[2] == null)
+            if (this.BioFuelFiltratorItemStacks[2] == null)
             {
-                this.OilExtractorItemStacks[2] = itemstack.copy();
+                this.BioFuelFiltratorItemStacks[2] = itemstack.copy();
             }
-            else if (this.OilExtractorItemStacks[2].getItem() == itemstack.getItem())
+            else if (this.BioFuelFiltratorItemStacks[2].getItem() == itemstack.getItem())
             {
-                this.OilExtractorItemStacks[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+                this.BioFuelFiltratorItemStacks[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
             }
 
-            --this.OilExtractorItemStacks[0].stackSize;
+            --this.BioFuelFiltratorItemStacks[0].stackSize;
 
-            if (this.OilExtractorItemStacks[0].stackSize <= 0)
+            if (this.BioFuelFiltratorItemStacks[0].stackSize <= 0)
             {
-                this.OilExtractorItemStacks[0] = null;
+                this.BioFuelFiltratorItemStacks[0] = null;
             }
         }
     }
 
     /**
-     * Returns the number of ticks that the supplied fuel item will keep the OilExtractor burning, or 0 if the item isn't
+     * Returns the number of ticks that the supplied fuel item will keep the BioFuelFiltrator burning, or 0 if the item isn't
      * fuel
      */
     public static int getItemBurnTime(ItemStack p_145952_0_)
@@ -357,7 +357,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
         else
         {
             Item item = p_145952_0_.getItem();
-            if (item == ExtendedFarmingItems.EmptyCannister) return 200;
+            if (item == ExtendedFarmingItems.FilterPaper) return 1800;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
     }
@@ -365,7 +365,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
     public static boolean isItemFuel(ItemStack p_145954_0_)
     {
         /**
-         * Returns the number of ticks that the supplied fuel item will keep the OilExtractor burning, or 0 if the item isn't
+         * Returns the number of ticks that the supplied fuel item will keep the BioFuelFiltrator burning, or 0 if the item isn't
          * fuel
          */
         return getItemBurnTime(p_145954_0_) > 0;

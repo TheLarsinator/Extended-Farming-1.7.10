@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelcompressor;
+package com.extfar.blocks.biofuel.biofuelcompressor;
 
 import java.util.Random;
 
@@ -125,11 +125,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 			switch (side)
 			{
 				case 0:
-					return theIcon;
+					return blockIcon;
 				case 1:
 					return blockIcon;
 				case 2:
-					return theIcon2;
+					return blockIcon;
 				case 3:
 					if (((TileEntityBioFuelCompressor) tile).isActive())
 					{
@@ -140,11 +140,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 						return theIcon3;
 					}
 				case 4:
-					return theIcon2;
+					return blockIcon;
 				case 5:
-					return theIcon2;
+					return blockIcon;
 				default:
-					return theIcon2;
+					return blockIcon;
 			}
 		}
 		else if (Meta == 1)
@@ -152,11 +152,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 			switch (side)
 			{
 				case 0:
-					return theIcon;
+					return blockIcon;
 				case 1:
 					return blockIcon;
 				case 2:
-					return theIcon2;
+					return blockIcon;
 				case 4:
 					if (((TileEntityBioFuelCompressor) tile).isActive())
 					{
@@ -167,11 +167,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 						return theIcon3;
 					}
 				case 3:
-					return theIcon2;
+					return blockIcon;
 				case 5:
-					return theIcon2;
+					return blockIcon;
 				default:
-					return theIcon2;
+					return blockIcon;
 			}
 		}
 		else if (Meta == 2)
@@ -179,11 +179,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 			switch (side)
 			{
 				case 0:
-					return theIcon;
+					return blockIcon;
 				case 1:
 					return blockIcon;
 				case 3:
-					return theIcon2;
+					return blockIcon;
 				case 2:
 					if (((TileEntityBioFuelCompressor) tile).isActive())
 					{
@@ -194,11 +194,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 						return theIcon3;
 					}
 				case 4:
-					return theIcon2;
+					return blockIcon;
 				case 5:
-					return theIcon2;
+					return blockIcon;
 				default:
-					return theIcon2;
+					return blockIcon;
 			}
 		}
 		else
@@ -206,11 +206,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 			switch (side)
 			{
 				case 0:
-					return theIcon;
+					return blockIcon;
 				case 1:
 					return blockIcon;
 				case 2:
-					return theIcon2;
+					return blockIcon;
 				case 5:
 					if (((TileEntityBioFuelCompressor) tile).isActive())
 					{
@@ -221,11 +221,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 						return theIcon3;
 					}
 				case 4:
-					return theIcon2;
+					return blockIcon;
 				case 3:
-					return theIcon2;
+					return blockIcon;
 				default:
-					return theIcon2;
+					return blockIcon;
 			}
 		}
 
@@ -236,9 +236,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
-		this.theIcon = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
-		this.theIcon2 = par1IconRegister.registerIcon(modid + "BioFuelCompressorSide");
+		this.blockIcon = par1IconRegister.registerIcon(modid + "MachineSide");
 		this.theIcon4 = par1IconRegister.registerIcon(modid + "BioFuelCompressorActiveFront");
 		this.theIcon3 = par1IconRegister.registerIcon(modid + "BioFuelCompressorFront");
 
@@ -258,11 +256,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 				switch (par1)
 				{
 					case 0:
-						return theIcon;
+						return blockIcon;
 					case 1:
 						return blockIcon;
 					case 2:
-						return theIcon2;
+						return blockIcon;
 					case 3:
 					{
 						if (this.isActive == true)
@@ -275,11 +273,11 @@ public class BlockBioFuelCompressor extends BlockContainer
 						}
 					}
 					case 4:
-						return theIcon2;
+						return blockIcon;
 					case 5:
-						return theIcon2;
+						return blockIcon;
 					default:
-						return theIcon2;
+						return blockIcon;
 				}
 			}
 			case 1:
@@ -287,13 +285,13 @@ public class BlockBioFuelCompressor extends BlockContainer
 				switch (par1)
 				{
 					case 0:
-						return theIcon;
+						return blockIcon;
 					case 1:
 						return blockIcon;
 					case 2:
-						return theIcon2;
+						return blockIcon;
 					case 3:
-						return theIcon2;
+						return blockIcon;
 					case 4:
 					{
 						if (this.isActive == true)
@@ -306,9 +304,9 @@ public class BlockBioFuelCompressor extends BlockContainer
 						}
 					}
 					case 5:
-						return theIcon2;
+						return blockIcon;
 					default:
-						return theIcon2;
+						return blockIcon;
 				}
 			}
 			case 2:
@@ -316,7 +314,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 				switch (par1)
 				{
 					case 0:
-						return theIcon;
+						return blockIcon;
 					case 1:
 						return blockIcon;
 					case 2:
@@ -331,13 +329,13 @@ public class BlockBioFuelCompressor extends BlockContainer
 						}
 					}
 					case 3:
-						return theIcon2;
+						return blockIcon;
 					case 4:
-						return theIcon2;
+						return blockIcon;
 					case 5:
-						return theIcon2;
+						return blockIcon;
 					default:
-						return theIcon2;
+						return blockIcon;
 				}
 			}
 			case 3:
@@ -345,15 +343,15 @@ public class BlockBioFuelCompressor extends BlockContainer
 				switch (par1)
 				{
 					case 0:
-						return theIcon;
+						return blockIcon;
 					case 1:
 						return blockIcon;
 					case 2:
-						return theIcon2;
+						return blockIcon;
 					case 3:
-						return theIcon2;
+						return blockIcon;
 					case 4:
-						return theIcon2;
+						return blockIcon;
 					case 5:
 					{
 						if (this.isActive == true)
@@ -366,7 +364,7 @@ public class BlockBioFuelCompressor extends BlockContainer
 						}
 					}
 					default:
-						return theIcon2;
+						return blockIcon;
 				}
 			}
 		}

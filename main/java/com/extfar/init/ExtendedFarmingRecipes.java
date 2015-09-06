@@ -58,6 +58,13 @@ public class ExtendedFarmingRecipes
 
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.EmptyWateringCan, 1), new Object [] {"I  ", " I ", "  B", 'B', Items.bucket, 'I', Items.iron_ingot});
 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingBlocks.OilExtractor, 1), new Object [] {"BHB", "BSB", "BCB", 'B', Blocks.brick_block, 'H', Blocks.hopper, 'C', ExtendedFarmingItems.EmptyCannister, 'S', Items.stick});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingBlocks.BioFuelCompressor, 1), new Object [] {"BHB", "BOB", "BCB", 'B', Blocks.brick_block, 'H', Blocks.hopper, 'C', ExtendedFarmingItems.EmptyCannister, 'O', Blocks.obsidian});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingBlocks.BioFuelFiltrator, 1), new Object [] {"BBB", "BPB", "BCB", 'B', Blocks.brick_block, 'H', Blocks.hopper, 'C', ExtendedFarmingItems.EmptyCannister, 'P', Blocks.planks});
+		 
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.EmptyCannister, 3), new Object [] {"BBB", "BSB", "BBB", 'B', Items.iron_ingot, 'S', Blocks.glass});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.FilterPaper, 3), new Object [] {"BBB", "B B", "BBB", 'B', Items.paper});
+		 
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BeanSeeds, 2), new Object[]{ExtendedFarmingItems.Beans});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.PeaSeeds, 2), new Object[]{ExtendedFarmingItems.Peas});

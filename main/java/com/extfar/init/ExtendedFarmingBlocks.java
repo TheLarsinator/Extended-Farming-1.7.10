@@ -5,12 +5,14 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import com.extfar.biofuel.biofuelcompressor.BlockBioFuelCompressor;
-import com.extfar.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
-import com.extfar.biofuel.biofuelfiltrator.BlockBioFuelFiltrator;
-import com.extfar.biofuel.oilextractor.BlockOilExtractor;
 import com.extfar.blocks.BlockCropSupport;
 import com.extfar.blocks.BlockMyCrops;
+import com.extfar.blocks.biofuel.biofuelcompressor.BlockBioFuelCompressor;
+import com.extfar.blocks.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.blocks.biofuel.biofuelfiltrator.BlockBioFuelFiltrator;
+import com.extfar.blocks.biofuel.biofuelfiltrator.TileEntityBioFuelFiltrator;
+import com.extfar.blocks.biofuel.oilextractor.BlockOilExtractor;
+import com.extfar.blocks.biofuel.oilextractor.TileEntityOilExtractor;
 import com.extfar.blocks.compost.BlockCompost;
 import com.extfar.blocks.grinder.BlockGrinder;
 import com.extfar.blocks.grinder.TileEntityGrinder;
@@ -225,10 +227,10 @@ public class ExtendedFarmingBlocks
 	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "BioFuelCompressorTE");
 	    
 		GameRegistry.registerBlock(OilExtractor, "OilExtractor");
-	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "OilExtractorTE");
+	    GameRegistry.registerTileEntity(TileEntityOilExtractor.class, "OilExtractorTE");
 	    
 		GameRegistry.registerBlock(BioFuelFiltrator, "BioFuelFiltrator");
-	    GameRegistry.registerTileEntity(TileEntityBioFuelCompressor.class, "BioFuelFiltratorTE");
+	    GameRegistry.registerTileEntity(TileEntityBioFuelFiltrator.class, "BioFuelFiltratorTE");
 
 		
 		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");

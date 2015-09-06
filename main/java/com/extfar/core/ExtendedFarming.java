@@ -24,7 +24,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-5.3", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-6.0", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {

@@ -1,4 +1,4 @@
-package com.extfar.biofuel.oilextractor;
+package com.extfar.blocks.biofuel.oilextractor;
 
 import java.util.Random;
 
@@ -236,11 +236,12 @@ public class BlockOilExtractor extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(modid + "OilExtractorSide");
-		this.theIcon = par1IconRegister.registerIcon(modid + "OilExtractorSide");
-		this.theIcon2 = par1IconRegister.registerIcon(modid + "OilExtractorSide");
+		this.blockIcon = par1IconRegister.registerIcon(modid + "MachineSide");
+		this.theIcon = par1IconRegister.registerIcon(modid + "MachineSide");
+		this.theIcon2 = par1IconRegister.registerIcon(modid + "MachineSide");
 		this.theIcon4 = par1IconRegister.registerIcon(modid + "OilExtractorActiveFront");
 		this.theIcon3 = par1IconRegister.registerIcon(modid + "OilExtractorFront");
+
 
 	}
 

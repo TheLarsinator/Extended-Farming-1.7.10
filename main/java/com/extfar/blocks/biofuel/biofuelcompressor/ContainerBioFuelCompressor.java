@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelfiltrator;
+package com.extfar.blocks.biofuel.biofuelcompressor;
 
 import java.util.Iterator;
 
@@ -9,23 +9,23 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class ContainerBioFuelFiltrator extends Container
+public class ContainerBioFuelCompressor extends Container
 {
-private TileEntityBioFuelFiltrator bioCompressor;
+private TileEntityBioFuelCompressor bioCompressor;
 private int lastbioCompressorCookTime;
 private int lastbioCompressorBurnTime;
 private int lastbioCompressorItemBurnTime;
 
-public ContainerBioFuelFiltrator(InventoryPlayer par1InventoryPlayer, TileEntityBioFuelFiltrator par2TileEntitybioCompressor)
+public ContainerBioFuelCompressor(InventoryPlayer par1InventoryPlayer, TileEntityBioFuelCompressor par2TileEntitybioCompressor)
 {
          lastbioCompressorCookTime = 0;
          lastbioCompressorBurnTime = 0;
          lastbioCompressorItemBurnTime = 0;
          bioCompressor = par2TileEntitybioCompressor;
          
-         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 0, 36, 15));
-         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 1, 36, 47));
-         addSlotToContainer(new SlotBioFuelFiltrator(par1InventoryPlayer.player, par2TileEntitybioCompressor, 2, 101, 30));
+         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 0, 44, 51));
+         addSlotToContainer(new Slot(par2TileEntitybioCompressor, 1, 44, 18));
+         addSlotToContainer(new SlotBioFuelCompressor(par1InventoryPlayer.player, par2TileEntitybioCompressor, 2, 108, 34));
          
         //slotNumber 0 = "Smelting Slot"
         //slotNumber 1 = "input Slot"
@@ -55,21 +55,21 @@ public void detectAndSendChanges()
          while (var1.hasNext())
          {
                  ICrafting var2 = (ICrafting)var1.next();
-                 if (this.lastbioCompressorCookTime != this.bioCompressor.BioFuelFiltratorCookTime)
+                 if (this.lastbioCompressorCookTime != this.bioCompressor.BioFuelCompressorCookTime)
                  {
-                         var2.sendProgressBarUpdate(this, 0, this.bioCompressor.BioFuelFiltratorCookTime);
+                         var2.sendProgressBarUpdate(this, 0, this.bioCompressor.BioFuelCompressorCookTime);
                  }
-                 if (this.lastbioCompressorBurnTime != this.bioCompressor.BioFuelFiltratorBurnTime)
+                 if (this.lastbioCompressorBurnTime != this.bioCompressor.BioFuelCompressorBurnTime)
                  {
-                         var2.sendProgressBarUpdate(this, 1, this.bioCompressor.BioFuelFiltratorBurnTime);
+                         var2.sendProgressBarUpdate(this, 1, this.bioCompressor.BioFuelCompressorBurnTime);
                  }
                  if (this.lastbioCompressorItemBurnTime != this.bioCompressor.currentItemBurnTime)
                  {
                          var2.sendProgressBarUpdate(this, 2, this.bioCompressor.currentItemBurnTime);
                  }
          }
-         this.lastbioCompressorCookTime = this.bioCompressor.BioFuelFiltratorCookTime;
-         this.lastbioCompressorBurnTime = this.bioCompressor.BioFuelFiltratorBurnTime;
+         this.lastbioCompressorCookTime = this.bioCompressor.BioFuelCompressorCookTime;
+         this.lastbioCompressorBurnTime = this.bioCompressor.BioFuelCompressorBurnTime;
          this.lastbioCompressorItemBurnTime = this.bioCompressor.currentItemBurnTime;
 }
 
@@ -77,12 +77,12 @@ public void updateProgressBar(int par1, int par2)
 {
          if (par1 == 0)
          {
-                 bioCompressor.BioFuelFiltratorCookTime = par2;
+                 bioCompressor.BioFuelCompressorCookTime = par2;
          }
 
          if (par1 == 1)
          {
-                 bioCompressor.BioFuelFiltratorBurnTime = par2;
+                 bioCompressor.BioFuelCompressorBurnTime = par2;
          }
 
          if (par1 == 2)
@@ -120,14 +120,14 @@ public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
         }
         else if (par2 != 1 && par2 != 0)
         {
-            if (RecipesBioFuelFiltrator.smelting().getSmeltingResult(itemstack1) != null)
+            if (RecipesBioFuelCompressor.smelting().getSmeltingResult(itemstack1) != null)
             {
                 if (!this.mergeItemStack(itemstack1, 0, 1, false))
                 {
                     return null;
                 }
             }
-            else if (TileEntityBioFuelFiltrator.isItemFuel(itemstack1))
+            else if (TileEntityBioFuelCompressor.isItemFuel(itemstack1))
             {
                 if (!this.mergeItemStack(itemstack1, 1, 2, false))
                 {

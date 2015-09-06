@@ -4,15 +4,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.extfar.biofuel.biofuelcompressor.ContainerBioFuelCompressor;
-import com.extfar.biofuel.biofuelcompressor.GUIBioFuelCompressor;
-import com.extfar.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
-import com.extfar.biofuel.biofuelfiltrator.ContainerBioFuelFiltrator;
-import com.extfar.biofuel.biofuelfiltrator.GUIBioFuelFiltrator;
-import com.extfar.biofuel.biofuelfiltrator.TileEntityBioFuelFiltrator;
-import com.extfar.biofuel.oilextractor.ContainerOilExtractor;
-import com.extfar.biofuel.oilextractor.GUIOilExtractor;
-import com.extfar.biofuel.oilextractor.TileEntityOilExtractor;
+import com.extfar.blocks.biofuel.biofuelcompressor.ContainerBioFuelCompressor;
+import com.extfar.blocks.biofuel.biofuelcompressor.GUIBioFuelCompressor;
+import com.extfar.blocks.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
+import com.extfar.blocks.biofuel.biofuelfiltrator.ContainerBioFuelFiltrator;
+import com.extfar.blocks.biofuel.biofuelfiltrator.GUIBioFuelFiltrator;
+import com.extfar.blocks.biofuel.biofuelfiltrator.TileEntityBioFuelFiltrator;
+import com.extfar.blocks.biofuel.oilextractor.ContainerOilExtractor;
+import com.extfar.blocks.biofuel.oilextractor.GUIOilExtractor;
+import com.extfar.blocks.biofuel.oilextractor.TileEntityOilExtractor;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 

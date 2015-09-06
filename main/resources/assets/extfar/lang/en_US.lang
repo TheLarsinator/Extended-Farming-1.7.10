@@ -49,6 +49,13 @@ item.Flour.name=Flour
 item.EmptyWateringCan.name=Empty Watering Can
 item.WateringCan.name=Watering Can
 item.LavaingCan.name=Lavaing Can
+
+item.EmptyCannister.name=Empty Cannister
+item.VegetableOil.name=Vegetable Oil
+item.UnfilteredFuel.name=Unfiltered Fuel
+item.BioFuel.name=Bio-Fuel
+item.OrganicMaterial.name=Organic Material
+item.FilterPaper.name=Filter Paper
 //Blocks
 tile.Hose.name=Hose
 tile.Pump.name=Pump
@@ -62,6 +69,9 @@ tile.MilkingStation.name=Milking Station
 tile.CheeseBarrel.name=Cheese Barrel
 tile.Grinder.name=Wheat Grinder
 
+tile.BioFuelCompressor.name=Bio-Fuel Compressor
+tile.BioFuelFiltrator.name=Bio-Fuel Filtrator
+tile.OilExtractor.name=Oil Extractor
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items
 

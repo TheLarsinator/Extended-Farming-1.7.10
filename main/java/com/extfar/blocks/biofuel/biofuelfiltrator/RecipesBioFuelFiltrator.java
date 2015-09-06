@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelfiltrator;
+package com.extfar.blocks.biofuel.biofuelfiltrator;
 
 import java.util.HashMap;
 import java.util.Iterator;

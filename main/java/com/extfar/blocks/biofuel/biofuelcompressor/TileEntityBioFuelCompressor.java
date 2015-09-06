@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelfiltrator;
+package com.extfar.blocks.biofuel.biofuelcompressor;
 
 import com.extfar.init.ExtendedFarmingItems;
 
@@ -14,25 +14,25 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInventory
+public class TileEntityBioFuelCompressor extends TileEntity implements ISidedInventory
 {
     private static final int[] slotsTop = new int[] {0};
     private static final int[] slotsBottom = new int[] {2, 1};
     private static final int[] slotsSides = new int[] {1};
     /**
-     * The ItemStacks that hold the items currently being used in the BioFuelFiltrator
+     * The ItemStacks that hold the items currently being used in the BioFuelCompressor
      */
-    private ItemStack[] BioFuelFiltratorItemStacks = new ItemStack[3];
-    /** The number of ticks that the BioFuelFiltrator will keep burning */
-    public int BioFuelFiltratorBurnTime;
+    private ItemStack[] BioFuelCompressorItemStacks = new ItemStack[3];
+    /** The number of ticks that the BioFuelCompressor will keep burning */
+    public int BioFuelCompressorBurnTime;
     /**
-     * The number of ticks that a fresh copy of the currently-burning item would keep the BioFuelFiltrator burning for
+     * The number of ticks that a fresh copy of the currently-burning item would keep the BioFuelCompressor burning for
      */
     public int currentItemBurnTime;
     private boolean isActive;
 
     /** The number of ticks that the current item has been cooking for */
-    public int BioFuelFiltratorCookTime;
+    public int BioFuelCompressorCookTime;
     private String field_145958_o;
     private static final String __OBFID = "CL_00000357";
 
@@ -41,7 +41,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public int getSizeInventory()
     {
-        return this.BioFuelFiltratorItemStacks.length;
+        return this.BioFuelCompressorItemStacks.length;
     }
 
     /**
@@ -49,7 +49,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public ItemStack getStackInSlot(int par1)
     {
-        return this.BioFuelFiltratorItemStacks[par1];
+        return this.BioFuelCompressorItemStacks[par1];
     }
 
     /**
@@ -58,23 +58,23 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public ItemStack decrStackSize(int par1, int par2)
     {
-        if (this.BioFuelFiltratorItemStacks[par1] != null)
+        if (this.BioFuelCompressorItemStacks[par1] != null)
         {
             ItemStack itemstack;
 
-            if (this.BioFuelFiltratorItemStacks[par1].stackSize <= par2)
+            if (this.BioFuelCompressorItemStacks[par1].stackSize <= par2)
             {
-                itemstack = this.BioFuelFiltratorItemStacks[par1];
-                this.BioFuelFiltratorItemStacks[par1] = null;
+                itemstack = this.BioFuelCompressorItemStacks[par1];
+                this.BioFuelCompressorItemStacks[par1] = null;
                 return itemstack;
             }
             else
             {
-                itemstack = this.BioFuelFiltratorItemStacks[par1].splitStack(par2);
+                itemstack = this.BioFuelCompressorItemStacks[par1].splitStack(par2);
 
-                if (this.BioFuelFiltratorItemStacks[par1].stackSize == 0)
+                if (this.BioFuelCompressorItemStacks[par1].stackSize == 0)
                 {
-                    this.BioFuelFiltratorItemStacks[par1] = null;
+                    this.BioFuelCompressorItemStacks[par1] = null;
                 }
 
                 return itemstack;
@@ -96,10 +96,10 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public ItemStack getStackInSlotOnClosing(int par1)
     {
-        if (this.BioFuelFiltratorItemStacks[par1] != null)
+        if (this.BioFuelCompressorItemStacks[par1] != null)
         {
-            ItemStack itemstack = this.BioFuelFiltratorItemStacks[par1];
-            this.BioFuelFiltratorItemStacks[par1] = null;
+            ItemStack itemstack = this.BioFuelCompressorItemStacks[par1];
+            this.BioFuelCompressorItemStacks[par1] = null;
             return itemstack;
         }
         else
@@ -113,7 +113,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
-        this.BioFuelFiltratorItemStacks[par1] = par2ItemStack;
+        this.BioFuelCompressorItemStacks[par1] = par2ItemStack;
 
         if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit())
         {
@@ -126,7 +126,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
      */
     public String getInventoryName()
     {
-        return this.hasCustomInventoryName() ? this.field_145958_o : "container.BioFuelFiltrator";
+        return this.hasCustomInventoryName() ? this.field_145958_o : "container.BioFuelCompressor";
     }
 
     /**
@@ -146,22 +146,22 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     {
         super.readFromNBT(p_145839_1_);
         NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
-        this.BioFuelFiltratorItemStacks = new ItemStack[this.getSizeInventory()];
+        this.BioFuelCompressorItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
         {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
 
-            if (b0 >= 0 && b0 < this.BioFuelFiltratorItemStacks.length)
+            if (b0 >= 0 && b0 < this.BioFuelCompressorItemStacks.length)
             {
-                this.BioFuelFiltratorItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+                this.BioFuelCompressorItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
 
-        this.BioFuelFiltratorBurnTime = p_145839_1_.getShort("BurnTime");
-        this.BioFuelFiltratorCookTime = p_145839_1_.getShort("CookTime");
-        this.currentItemBurnTime = getItemBurnTime(this.BioFuelFiltratorItemStacks[1]);
+        this.BioFuelCompressorBurnTime = p_145839_1_.getShort("BurnTime");
+        this.BioFuelCompressorCookTime = p_145839_1_.getShort("CookTime");
+        this.currentItemBurnTime = getItemBurnTime(this.BioFuelCompressorItemStacks[1]);
 
         if (p_145839_1_.hasKey("CustomName", 8))
         {
@@ -172,17 +172,17 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short)this.BioFuelFiltratorBurnTime);
-        p_145841_1_.setShort("CookTime", (short)this.BioFuelFiltratorCookTime);
+        p_145841_1_.setShort("BurnTime", (short)this.BioFuelCompressorBurnTime);
+        p_145841_1_.setShort("CookTime", (short)this.BioFuelCompressorCookTime);
         NBTTagList nbttaglist = new NBTTagList();
 
-        for (int i = 0; i < this.BioFuelFiltratorItemStacks.length; ++i)
+        for (int i = 0; i < this.BioFuelCompressorItemStacks.length; ++i)
         {
-            if (this.BioFuelFiltratorItemStacks[i] != null)
+            if (this.BioFuelCompressorItemStacks[i] != null)
             {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
                 nbttagcompound1.setByte("Slot", (byte)i);
-                this.BioFuelFiltratorItemStacks[i].writeToNBT(nbttagcompound1);
+                this.BioFuelCompressorItemStacks[i].writeToNBT(nbttagcompound1);
                 nbttaglist.appendTag(nbttagcompound1);
             }
         }
@@ -210,7 +210,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     @SideOnly(Side.CLIENT)
     public int getCookProgressScaled(int p_145953_1_)
     {
-        return this.BioFuelFiltratorCookTime * p_145953_1_ / 200;
+        return this.BioFuelCompressorCookTime * p_145953_1_ / 1600;
     }
 
     /**
@@ -222,46 +222,46 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     {
         if (this.currentItemBurnTime == 0)
         {
-            this.currentItemBurnTime = 200;
+            this.currentItemBurnTime = 1600;
         }
 
-        return this.BioFuelFiltratorBurnTime * p_145955_1_ / this.currentItemBurnTime;
+        return this.BioFuelCompressorBurnTime * p_145955_1_ / this.currentItemBurnTime;
     }
 
     /**
-     * BioFuelFiltrator isBurning
+     * BioFuelCompressor isBurning
      */
     public boolean isBurning()
     {
-        return this.BioFuelFiltratorBurnTime > 0;
+        return this.BioFuelCompressorBurnTime > 0;
     }
 
     public void updateEntity()
     {
-        boolean flag = this.BioFuelFiltratorBurnTime > 0;
+        boolean flag = this.BioFuelCompressorBurnTime > 0;
         boolean flag1 = false;
-        if (this.BioFuelFiltratorBurnTime > 0)
+        if (this.BioFuelCompressorBurnTime > 0)
         {
-            --this.BioFuelFiltratorBurnTime;
+            --this.BioFuelCompressorBurnTime;
         }
 
         if (!this.worldObj.isRemote)
         {
-            if (this.BioFuelFiltratorBurnTime == 0 && this.canSmelt())
+            if (this.BioFuelCompressorBurnTime == 0 && this.canSmelt())
             {
-                this.currentItemBurnTime = this.BioFuelFiltratorBurnTime = getItemBurnTime(this.BioFuelFiltratorItemStacks[1]);
+                this.currentItemBurnTime = this.BioFuelCompressorBurnTime = getItemBurnTime(this.BioFuelCompressorItemStacks[1]);
 
-                if (this.BioFuelFiltratorBurnTime > 0)
+                if (this.BioFuelCompressorBurnTime > 0)
                 {
                     flag1 = true;
 
-                    if (this.BioFuelFiltratorItemStacks[1] != null)
+                    if (this.BioFuelCompressorItemStacks[1] != null)
                     {
-                        --this.BioFuelFiltratorItemStacks[1].stackSize;
+                        --this.BioFuelCompressorItemStacks[1].stackSize;
 
-                        if (this.BioFuelFiltratorItemStacks[1].stackSize == 0)
+                        if (this.BioFuelCompressorItemStacks[1].stackSize == 0)
                         {
-                            this.BioFuelFiltratorItemStacks[1] = BioFuelFiltratorItemStacks[1].getItem().getContainerItem(BioFuelFiltratorItemStacks[1]);
+                            this.BioFuelCompressorItemStacks[1] = BioFuelCompressorItemStacks[1].getItem().getContainerItem(BioFuelCompressorItemStacks[1]);
                         }
                     }
                 }
@@ -269,18 +269,18 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
 
             if (this.isBurning() && this.canSmelt())
             {
-                ++this.BioFuelFiltratorCookTime;
+                ++this.BioFuelCompressorCookTime;
 
-                if (this.BioFuelFiltratorCookTime == 200)
+                if (this.BioFuelCompressorCookTime == 1600)
                 {
-                    this.BioFuelFiltratorCookTime = 0;
+                    this.BioFuelCompressorCookTime = 0;
                     this.smeltItem();
                     flag1 = true;
                 }
             }
             else
             {
-                this.BioFuelFiltratorCookTime = 0;
+                this.BioFuelCompressorCookTime = 0;
             }
 
         }
@@ -298,54 +298,54 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     }
 
     /**
-     * Returns true if the BioFuelFiltrator can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     * Returns true if the BioFuelCompressor can smelt an item, i.e. has a source item, destination stack isn't full, etc.
      */
     private boolean canSmelt()
     {
-        if (this.BioFuelFiltratorItemStacks[0] == null)
+        if (this.BioFuelCompressorItemStacks[0] == null)
         {
             return false;
         }
         else
         {
-            ItemStack itemstack = RecipesBioFuelFiltrator.smelting().getSmeltingResult(this.BioFuelFiltratorItemStacks[0]);
+            ItemStack itemstack = RecipesBioFuelCompressor.smelting().getSmeltingResult(this.BioFuelCompressorItemStacks[0]);
             if (itemstack == null) return false;
-            if (this.BioFuelFiltratorItemStacks[2] == null) return true;
-            if (!this.BioFuelFiltratorItemStacks[2].isItemEqual(itemstack)) return false;
-            int result = BioFuelFiltratorItemStacks[2].stackSize + itemstack.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.BioFuelFiltratorItemStacks[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+            if (this.BioFuelCompressorItemStacks[2] == null) return true;
+            if (!this.BioFuelCompressorItemStacks[2].isItemEqual(itemstack)) return false;
+            int result = BioFuelCompressorItemStacks[2].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.BioFuelCompressorItemStacks[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
     }
 
     /**
-     * Turn one item from the BioFuelFiltrator source stack into the appropriate smelted item in the BioFuelFiltrator result stack
+     * Turn one item from the BioFuelCompressor source stack into the appropriate smelted item in the BioFuelCompressor result stack
      */
     public void smeltItem()
     {
         if (this.canSmelt())
         {
-            ItemStack itemstack = RecipesBioFuelFiltrator.smelting().getSmeltingResult(this.BioFuelFiltratorItemStacks[0]);
+            ItemStack itemstack = RecipesBioFuelCompressor.smelting().getSmeltingResult(this.BioFuelCompressorItemStacks[0]);
 
-            if (this.BioFuelFiltratorItemStacks[2] == null)
+            if (this.BioFuelCompressorItemStacks[2] == null)
             {
-                this.BioFuelFiltratorItemStacks[2] = itemstack.copy();
+                this.BioFuelCompressorItemStacks[2] = itemstack.copy();
             }
-            else if (this.BioFuelFiltratorItemStacks[2].getItem() == itemstack.getItem())
+            else if (this.BioFuelCompressorItemStacks[2].getItem() == itemstack.getItem())
             {
-                this.BioFuelFiltratorItemStacks[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+                this.BioFuelCompressorItemStacks[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
             }
 
-            --this.BioFuelFiltratorItemStacks[0].stackSize;
+            --this.BioFuelCompressorItemStacks[0].stackSize;
 
-            if (this.BioFuelFiltratorItemStacks[0].stackSize <= 0)
+            if (this.BioFuelCompressorItemStacks[0].stackSize <= 0)
             {
-                this.BioFuelFiltratorItemStacks[0] = null;
+                this.BioFuelCompressorItemStacks[0] = null;
             }
         }
     }
 
     /**
-     * Returns the number of ticks that the supplied fuel item will keep the BioFuelFiltrator burning, or 0 if the item isn't
+     * Returns the number of ticks that the supplied fuel item will keep the BioFuelCompressor burning, or 0 if the item isn't
      * fuel
      */
     public static int getItemBurnTime(ItemStack p_145952_0_)
@@ -357,7 +357,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
         else
         {
             Item item = p_145952_0_.getItem();
-            if (item == ExtendedFarmingItems.FilterPaper) return 200;
+            if (item == ExtendedFarmingItems.OrganicMaterial) return 1600;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
     }
@@ -365,7 +365,7 @@ public class TileEntityBioFuelFiltrator extends TileEntity implements ISidedInve
     public static boolean isItemFuel(ItemStack p_145954_0_)
     {
         /**
-         * Returns the number of ticks that the supplied fuel item will keep the BioFuelFiltrator burning, or 0 if the item isn't
+         * Returns the number of ticks that the supplied fuel item will keep the BioFuelCompressor burning, or 0 if the item isn't
          * fuel
          */
         return getItemBurnTime(p_145954_0_) > 0;

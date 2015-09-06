@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelfiltrator;
+package com.extfar.blocks.biofuel.biofuelfiltrator;
 
 import java.util.Random;
 
@@ -236,12 +236,11 @@ public class BlockBioFuelFiltrator extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon(modid + "BioFuelFiltratorSide");
-		this.theIcon = par1IconRegister.registerIcon(modid + "BioFuelFiltratorSide");
-		this.theIcon2 = par1IconRegister.registerIcon(modid + "BioFuelFiltratorSide");
+		this.blockIcon = par1IconRegister.registerIcon(modid + "MachineSide");
+		this.theIcon = par1IconRegister.registerIcon(modid + "MachineSide");
+		this.theIcon2 = par1IconRegister.registerIcon(modid + "MachineSide");
 		this.theIcon4 = par1IconRegister.registerIcon(modid + "BioFuelFiltratorActiveFront");
 		this.theIcon3 = par1IconRegister.registerIcon(modid + "BioFuelFiltratorFront");
-
 	}
 
 	/**

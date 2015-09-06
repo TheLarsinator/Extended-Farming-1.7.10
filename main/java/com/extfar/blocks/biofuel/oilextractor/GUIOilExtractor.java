@@ -1,4 +1,4 @@
-package com.extfar.biofuel.biofuelfiltrator;
+package com.extfar.blocks.biofuel.oilextractor;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,16 +13,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GUIBioFuelFiltrator extends GuiContainer
+public class GUIOilExtractor extends GuiContainer
 {
 
-	private TileEntityBioFuelFiltrator BFCInventory;
+	private TileEntityOilExtractor BFCInventory;
 	private static final ResourceLocation texture = new ResourceLocation(
-			ExtendedFarming.modid, "textures/gui/BioFuelFiltratorGUI.png");
+			ExtendedFarming.modid, "textures/gui/OilExtractorGUI.png");
 
-	public GUIBioFuelFiltrator(InventoryPlayer inventory, TileEntityBioFuelFiltrator tileentity)
+	public GUIOilExtractor(InventoryPlayer inventory, TileEntityOilExtractor tileentity)
 	{
-		super(new ContainerBioFuelFiltrator(inventory, tileentity));
+		super(new ContainerOilExtractor(inventory, tileentity));
 		BFCInventory = tileentity;
 	}
 
@@ -33,7 +33,7 @@ public class GUIBioFuelFiltrator extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
 		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0x8b8b8b);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("Biofuel filtrator"), 8, (ySize - 164) + 2, 0x8b8b8b);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("Oil extractor"), 9, (ySize - 164) + 4, 0x8b8b8b);
 	}
 
 	/**s
@@ -51,12 +51,9 @@ public class GUIBioFuelFiltrator extends GuiContainer
 
 		if (BFCInventory.isBurning())
 		{
-			int burn = BFCInventory.getBurnTimeRemainingScaled(9);
-			drawTexturedModalRect(j + 36, k + 33  + 9-burn , 176, 40-burn , 18 , burn+2);
+			int burn = BFCInventory.getBurnTimeRemainingScaled(16);
+			drawTexturedModalRect(j + 79 , k + 30, 176, 0, 14 , 16-burn);
 		}
-
-		int update = BFCInventory.getCookProgressScaled(58);
-		drawTexturedModalRect(j + 55, k + 19, 176, 42,  update, 38);
 
 	}
 }
