@@ -1,4 +1,4 @@
-package com.extfar.blocks.grinder;
+package com.extfar.blocks.deepfrier.frier;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -6,11 +6,11 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityGrinder extends TileEntity
+public class TileEntityFrier extends TileEntity
 {
-	public boolean hasWheat;
-	public boolean hasSlab;
-	public int wheatAmount;
+	public boolean hasOil;
+	public boolean hasPotato;
+	//public int wheatAmount;
 	public boolean isDone;
 	public float progress;
 	
@@ -19,17 +19,13 @@ public class TileEntityGrinder extends TileEntity
     	return true;
     }
 	
-    public void setWheatAmount(int wheats)
+    public void setPotato(boolean potato)
     {
-    	this.wheatAmount = wheats;
+    	this.hasPotato = potato;
     }
-    public void setWheat(boolean wheat)
+    public void setOil(boolean oil)
     {
-    	this.hasWheat = wheat;
-    }
-    public void setSlab(boolean slab)
-    {
-    	this.hasSlab = slab;
+    	this.hasOil = oil;
     }
     public void setDone(boolean done)
     {
@@ -44,7 +40,7 @@ public class TileEntityGrinder extends TileEntity
     {
     	System.out.println(this.progress);
     	System.out.println(this.isDone);
-    	if(this.hasSlab && this.hasWheat && this.wheatAmount == 2 && !this.isDone)
+    	if(this.hasOil && this.hasPotato && !this.isDone)
     	{
     		this.setProgress(this.progress + 0.01F);
     		
@@ -62,9 +58,9 @@ public class TileEntityGrinder extends TileEntity
     public void writeToNBT(NBTTagCompound nbttag)
     {
 		super.writeToNBT(nbttag);  
-        nbttag.setBoolean("wheat", hasWheat);
-        nbttag.setBoolean("slab", hasSlab);
-        nbttag.setInteger("wheatamount", wheatAmount);
+        nbttag.setBoolean("potato", hasPotato);
+        nbttag.setBoolean("oil", hasOil);
+        
         nbttag.setBoolean("done", isDone);
         nbttag.setFloat("work", progress);
     }
@@ -73,9 +69,8 @@ public class TileEntityGrinder extends TileEntity
     public void readFromNBT(NBTTagCompound nbttag)
     {
 		super.readFromNBT(nbttag);
-        this.hasWheat = nbttag.getBoolean("wheat");
-        this.hasSlab= nbttag.getBoolean("slab");
-        this.wheatAmount = nbttag.getInteger("wheatamount");
+        this.hasPotato = nbttag.getBoolean("potato");
+        this.hasOil= nbttag.getBoolean("oil");
         this.isDone = nbttag.getBoolean("done");
         this.progress = nbttag.getFloat("work");
     }

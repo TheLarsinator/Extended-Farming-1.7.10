@@ -87,6 +87,9 @@ public class ExtendedFarmingItems
 	public static Item EmptyCannister;
 	public static Item VegetableOil;
 
+	public static Item FryingOil;
+	public static Item RawPotatoChips;
+	public static Item PotatoChips;
 		
 	public static void init()
 	{
@@ -150,7 +153,10 @@ public class ExtendedFarmingItems
 		FilterPaper = new ItemMaterials().setUnlocalizedName("FilterPaper").setTextureName(modid + ":FilterPaper");
 		EmptyCannister = new ItemFuelCannisters().setUnlocalizedName("EmptyCannister").setTextureName(modid + ":EmptyCannister");
 		VegetableOil = new ItemFuelCannisters().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
+		FryingOil = new ItemFuelCannisters().setUnlocalizedName("FryingOil").setTextureName(modid + ":FryingOil");
 		
+		PotatoChips = new ItemMyFood(3, 4, false).setUnlocalizedName("PotatoChips").setTextureName(modid + ":PotatoChips");
+
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);

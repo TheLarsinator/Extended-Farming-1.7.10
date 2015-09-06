@@ -1,7 +1,10 @@
-package com.extfar.blocks.grinder;
+package com.extfar.blocks.deepfrier.frier;
 
 import java.util.Random;
+
+import com.extfar.core.ExtendedFarming;
 import com.extfar.init.ExtendedFarmingItems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -15,12 +18,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.extfar.core.ExtendedFarming;
-
-public class BlockGrinder extends Block implements ITileEntityProvider
+public class BlockFrier extends Block implements ITileEntityProvider
 {
 
-	public BlockGrinder(Material material) 
+	public BlockFrier(Material material) 
 	{
 		super(material);
 		this.setCreativeTab(ExtendedFarming.ItemsTab);
@@ -29,7 +30,7 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int par2) {
-		return new TileEntityGrinder();
+		return new TileEntityFrier();
 	}
 
 	/**
@@ -69,39 +70,28 @@ public class BlockGrinder extends Block implements ITileEntityProvider
 		{
 	      Item heldItem = player.getHeldItem().getItem();
 	      int stack = player.getHeldItem().stackSize;
-	      TileEntityGrinder grinder = ((TileEntityGrinder)world.getTileEntity(x, y, z));
+	      TileEntityFrier frier = ((TileEntityFrier)world.getTileEntity(x, y, z));
 	      
-	      if(heldItem != null && heldItem == Items.wheat && stack >= 2 && grinder.wheatAmount == 0 && !grinder.isDone)
+	      if(heldItem != null && heldItem == ExtendedFarmingItems.RawPotatoChips && !frier.hasPotato && !frier.isDone)
 	      {
-	    	  grinder.setWheat(true);
-	    	  grinder.setWheatAmount(2);
-	    	  player.inventory.consumeInventoryItem(Items.wheat);
-	    	  player.inventory.consumeInventoryItem(Items.wheat);
+	    	  frier.setPotato(true);
+	    	  player.inventory.consumeInventoryItem(ExtendedFarmingItems.RawPotatoChips);
 	      }
-	      else if(heldItem != null && heldItem == Items.wheat && grinder.wheatAmount != 2 && !grinder.isDone)
+	      else if(heldItem != null && heldItem == ExtendedFarmingItems.FryingOil && !frier.hasPotato && !frier.hasOil && !frier.isDone)
 	      {
-	    	  grinder.setWheat(true);
-	    	  grinder.setWheatAmount(grinder.wheatAmount +1);
-	    	  player.inventory.consumeInventoryItem(Items.wheat);
+	    	  frier.setOil(true);
+	    	  player.inventory.consumeInventoryItem(ExtendedFarmingItems.FryingOil);
+	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.EmptyCannister, 1));
 	      }
-	      else if(heldItem != null && heldItem == Item.getItemFromBlock(Blocks.cobblestone) && grinder.wheatAmount == 2 && grinder.hasWheat && !grinder.isDone)
+	      else if(heldItem != null && frier.isDone)
 	      {
-	    	  grinder.setSlab(true);
-	    	  player.inventory.consumeInventoryItem(Item.getItemFromBlock(Blocks.cobblestone));
-	      }
-	      else if(heldItem != null && grinder.isDone)
-	      {
-	    	  grinder.setDone(false);
-	    	  grinder.setSlab(false);
-	    	  grinder.setWheat(false);
-	    	  grinder.setWheatAmount(0);
-	    	  player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone));
-	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.Flour, 2));
+	    	  frier.setDone(false);
+	    	  frier.setOil(false);
+	    	  frier.setPotato(false);
+	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.PotatoChips, 1));
 	      }
 		}
 	      return true;
 	}
 	
 }
-
-
