@@ -9,8 +9,9 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityFrier extends TileEntity
 {
 	public boolean hasOil;
+	public boolean hasDirtyOil;
 	public boolean hasPotato;
-	//public int wheatAmount;
+	public int oilUsage = 0;
 	public boolean isDone;
 	public float progress;
 	
@@ -27,6 +28,10 @@ public class TileEntityFrier extends TileEntity
     {
     	this.hasOil = oil;
     }
+    public void setDirtyOil(boolean oil)
+    {
+    	this.hasDirtyOil = oil;
+    }
     public void setDone(boolean done)
     {
     	this.isDone = done;
@@ -35,12 +40,23 @@ public class TileEntityFrier extends TileEntity
     {
     	this.progress = work;
     }
-      
+    public void setOilUsage(int oil)
+    {
+    	this.oilUsage = oil;
+    }
+    
     public void updateEntity()
     {
-    	System.out.println(this.progress);
-    	System.out.println(this.isDone);
-    	if(this.hasOil && this.hasPotato && !this.isDone)
+    	//System.out.println(this.progress);
+    /*	System.out.print("Dirty Oil: ");
+    	System.out.println(this.hasDirtyOil);
+
+    	System.out.print("Oil Usage: ");
+    	System.out.println(this.oilUsage);
+    	
+    	System.out.print("Has Oil: ");
+    	System.out.println(this.hasOil);*/
+    	if(this.hasOil && this.hasPotato && !this.isDone && !this.hasDirtyOil)
     	{
     		this.setProgress(this.progress + 0.01F);
     		
@@ -48,6 +64,7 @@ public class TileEntityFrier extends TileEntity
     		{
     			this.isDone = true;
     			this.setProgress(0);
+    			//this.setOilUsage(oilUsage + 1);
     		}
     	}
     } 
@@ -60,7 +77,8 @@ public class TileEntityFrier extends TileEntity
 		super.writeToNBT(nbttag);  
         nbttag.setBoolean("potato", hasPotato);
         nbttag.setBoolean("oil", hasOil);
-        
+        nbttag.setBoolean("Doil", hasDirtyOil);
+        nbttag.setInteger("oilusage", oilUsage);
         nbttag.setBoolean("done", isDone);
         nbttag.setFloat("work", progress);
     }
@@ -71,6 +89,8 @@ public class TileEntityFrier extends TileEntity
 		super.readFromNBT(nbttag);
         this.hasPotato = nbttag.getBoolean("potato");
         this.hasOil= nbttag.getBoolean("oil");
+        this.hasDirtyOil= nbttag.getBoolean("Doil");
+        this.oilUsage = nbttag.getInteger("oilusage");
         this.isDone = nbttag.getBoolean("done");
         this.progress = nbttag.getFloat("work");
     }

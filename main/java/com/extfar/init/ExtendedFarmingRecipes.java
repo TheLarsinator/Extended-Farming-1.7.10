@@ -64,6 +64,8 @@ public class ExtendedFarmingRecipes
 		 
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.EmptyCannister, 3), new Object [] {"BBB", "BSB", "BBB", 'B', Items.iron_ingot, 'S', Blocks.glass});
 		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingItems.FilterPaper, 3), new Object [] {"BBB", "B B", "BBB", 'B', Items.paper});
+		 GameRegistry.addRecipe(new ItemStack(ExtendedFarmingBlocks.DeepFrier, 1), new Object [] {"BGB", "BRB", "BBB", 'B', Items.iron_ingot, 'G', Blocks.glass, 'R', Items.redstone});
+
 		 
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BambooSticksItem, 1), new Object[]{Items.stick, Items.reeds});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.BeanSeeds, 2), new Object[]{ExtendedFarmingItems.Beans});
@@ -74,6 +76,8 @@ public class ExtendedFarmingRecipes
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 2), new Object[]{ExtendedFarmingItems.SugarBeets});
 		 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[]{ExtendedFarmingItems.Beets});
 		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.Doug, 1, 1), new Object[]{ExtendedFarmingItems.Flour, Items.water_bucket});
+		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.FryingOil, 2, 1), new Object[]{ExtendedFarmingItems.RapeseedOil, ExtendedFarmingItems.SunFlowerOil});
+		 GameRegistry.addShapelessRecipe(new ItemStack(ExtendedFarmingItems.RawPotatoChips, 2, 1), new Object[]{Items.potato});
 
 		 Item[] vegetables = {Peas, Beans, ChilliPeppers, Beets, SugarBeets, Items.potato, Items.poisonous_potato, Items.carrot, Items.wheat, Item.getItemFromBlock(Blocks.tallgrass), Item.getItemFromBlock(Blocks.leaves), Item.getItemFromBlock(Blocks.leaves2), Item.getItemFromBlock(Blocks.vine), Items.apple};  
 		 int[] vegetableValue = {2, 2, 1, 2, 1, 2, 1, 2, 3, 1, 1, 1, 1, 2};  

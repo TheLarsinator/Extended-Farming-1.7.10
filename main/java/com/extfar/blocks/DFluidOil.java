@@ -30,10 +30,10 @@ import cpw.mods.fml.common.FMLLog;
  * @author King Lemming
  *
  */
-public class FluidOil extends Fluid
+public class DFluidOil extends Fluid
 {
 
-    public FluidOil(String fluidName)
+    public DFluidOil(String fluidName)
     {
     	super(fluidName);
     }

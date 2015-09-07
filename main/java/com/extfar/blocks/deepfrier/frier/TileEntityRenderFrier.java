@@ -1,20 +1,21 @@
 package com.extfar.blocks.deepfrier.frier;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
 import com.extfar.core.ExtendedFarming;
 import com.extfar.core.RenderHelper;
 import com.extfar.init.ExtendedFarmingBlocks;
 import com.extfar.init.ExtendedFarmingItems;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 public class TileEntityRenderFrier extends TileEntitySpecialRenderer
 {
@@ -50,32 +51,27 @@ public class TileEntityRenderFrier extends TileEntitySpecialRenderer
 
 		model.renderAll(0.0625F);
 		
-	/*	if (tile.hasWheat && !tile.isDone)
+		if (tile.hasPotato && !tile.isDone)
 		{
 			// Without the below line, the item will spazz out
 			this.entItem.hoverStart = 0.0F;
 			RenderItem.renderInFrame = true;
 			// GL11.glTranslatef((float)d + 0.5F, (float)d1, (float)d2 + 0.3F);
 			GL11.glRotatef(180, 0, 1, 1);
-			RenderManager.instance.renderEntityWithPosYaw(this.entItem, -0.1D, -0.1D, 1.2D, 0F, 0.0F);
-			if (tile.wheatAmount == 2)
-			{
-				RenderManager.instance.renderEntityWithPosYaw(this.entItem, 0.1D, -0.3D, 1.2D, 0F, 0.0F);
-			}
+			RenderManager.instance.renderEntityWithPosYaw(this.entItem, 0D, -0.2D, 0.912D, 0F, 0.0F);
 			RenderItem.renderInFrame = false;
 		}
-		else if (tile.hasWheat && tile.isDone)
+		else if (tile.hasPotato && tile.isDone)
 		{
 			// Without the below line, the item will spazz out
 			this.entItem1.hoverStart = 0.0F;
 			RenderItem.renderInFrame = true;
 			// GL11.glTranslatef((float)d + 0.5F, (float)d1, (float)d2 + 0.3F);
 			GL11.glRotatef(180, 0, 1, 1);
-			RenderManager.instance.renderEntityWithPosYaw(this.entItem1, -0.1D, -0.1D, 1.2D, 0F, 0.0F);
-			RenderManager.instance.renderEntityWithPosYaw(this.entItem1, 0.1D, -0.3D, 1.2D, 0F, 0.0F);
+			RenderManager.instance.renderEntityWithPosYaw(this.entItem1, 0D, -0.2D, 0.912D, 0F, 0.0F);
 			RenderItem.renderInFrame = false;
 
-		}*/
+		}
 		GL11.glPopMatrix(); // end
 	}
 
@@ -89,18 +85,38 @@ public class TileEntityRenderFrier extends TileEntitySpecialRenderer
 		
 		TileEntityFrier tile = (TileEntityFrier)par1TileEntity;
 		
-		if(tile.hasOil)
+		if(tile.hasOil && !tile.hasDirtyOil)
 		{
-        int[] displayList = RenderHelper.getFluidDisplayLists(tile.getWorldObj(), ExtendedFarmingBlocks.OilFluid, ExtendedFarmingBlocks.MilkLiquid);
+        int[] displayList = RenderHelper.getFluidDisplayLists(tile.getWorldObj(), ExtendedFarmingBlocks.OilFluid, ExtendedFarmingBlocks.OilLiquid);
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
         GL11.glEnable(GL11.GL_CULL_FACE);
         GL11.glDisable(GL11.GL_LIGHTING);
+        //GL11.glDisable(GL11.GL_BLEND);
+        
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         this.bindTexture(TextureMap.locationBlocksTexture);
         GL11.glTranslatef((float) par2, (float) par4, (float) par6);
-        GL11.glScalef(0.8f, 0.1f, 0.79f);
-        GL11.glTranslatef(0.1f, 5f, 0.2f);
+        GL11.glScalef(0.8f, 0.001f, 0.8f);
+        GL11.glTranslatef(0.1f, 600f, 0.1f);
+        GL11.glCallList(displayList[7]);
+        GL11.glPopAttrib();
+        GL11.glPopMatrix();
+		}
+		else if(tile.hasOil && tile.hasDirtyOil)
+		{
+        int[] displayList = RenderHelper.getFluidDisplayLists(tile.getWorldObj(), ExtendedFarmingBlocks.DOilFluid, ExtendedFarmingBlocks.DOilLiquid);
+        GL11.glPushMatrix();
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+        GL11.glEnable(GL11.GL_CULL_FACE);
+        GL11.glDisable(GL11.GL_LIGHTING);
+        //GL11.glDisable(GL11.GL_BLEND);
+        
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        this.bindTexture(TextureMap.locationBlocksTexture);
+        GL11.glTranslatef((float) par2, (float) par4, (float) par6);
+        GL11.glScalef(0.8f, 0.001f, 0.8f);
+        GL11.glTranslatef(0.1f, 600f, 0.1f);
         GL11.glCallList(displayList[7]);
         GL11.glPopAttrib();
         GL11.glPopMatrix();

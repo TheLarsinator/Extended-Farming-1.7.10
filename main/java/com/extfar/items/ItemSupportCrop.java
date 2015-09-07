@@ -44,7 +44,7 @@ public class ItemSupportCrop extends Item
     		player.inventory.consumeInventoryItem(this);
     		return true;
     	}
-    	else if((world.getBlock(i, j-1, k) == Blocks.farmland || world.getBlock(i, j-1, k) == ExtendedFarmingBlocks.FarmSoulSand) && Support == 0)
+    	else if((world.getBlock(i, j-1, k) == Blocks.farmland || world.getBlock(i, j-1, k) == ExtendedFarmingBlocks.FarmSoulSand) && Support == 0 && world.getBlock(i,  j+1,  k) == Blocks.air)
     	{
     		world.setBlock(i, j, k, Crop);
     		player.inventory.consumeInventoryItem(this);

@@ -62,15 +62,15 @@ public class BlockMyCrops extends BlockCrops
      * Gets the block's texture. Args: side, meta
      */
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+    public IIcon getIcon(int side, int meta)
     {
-        if (p_149691_2_ < 7)
+        if (meta < Stages)
         {
-        	if(p_149691_2_ == 6)
+        	if(meta == Stages-1)
         	{
-            p_149691_2_ = 5;
+        		meta = Stages - 2;
         	}
-        	return this.field_149867_a[p_149691_2_ >> 1];
+        	return this.field_149867_a[meta >> 1];
         }
         else
         {
@@ -90,6 +90,8 @@ public class BlockMyCrops extends BlockCrops
         	return ExtendedFarmingItems.ChilliPepperSeeds;
         case 4:
         	return ExtendedFarmingItems.BeetSeeds;
+        case 5:
+        	return ExtendedFarmingItems.RapeseedSeeds;
         case 100:
         	return null;
         case 101:
@@ -114,6 +116,8 @@ public class BlockMyCrops extends BlockCrops
         	return ExtendedFarmingItems.SugarBeets;
         case 5:
         	return ExtendedFarmingItems.Beets;
+        case 6:
+        	return ExtendedFarmingItems.RapeseedSeeds;
         case 101:
         	return ExtendedFarmingItems.RoastedBeans;
         case 102:
@@ -143,7 +147,7 @@ public class BlockMyCrops extends BlockCrops
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return p_149650_1_ == 7 ? this.getCrop() : this.func_149866_i();
+        return p_149650_1_ == Stages-1 ? this.getCrop() : this.func_149866_i();
     }
 
     /**
@@ -151,6 +155,7 @@ public class BlockMyCrops extends BlockCrops
      */
     public int quantityDropped(Random p_149745_1_)
     {
+    	
         return p_149745_1_.nextInt(4);
     }
     /**

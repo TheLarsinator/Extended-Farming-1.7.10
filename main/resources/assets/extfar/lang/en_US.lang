@@ -37,6 +37,7 @@ item.Chair.name=Chair
 item.SteeringWheel.name=Steering Wheel
 item.Wheel.name=Wheel
 item.Wrench.name=Wrench
+item.Spoon.name=Spoon
 
 item.BeetSoup.name=Beet Soup
 
@@ -56,6 +57,16 @@ item.UnfilteredFuel.name=Unfiltered Fuel
 item.BioFuel.name=Bio-Fuel
 item.OrganicMaterial.name=Organic Material
 item.FilterPaper.name=Filter Paper
+
+item.RapeseedSeeds.name=Canola seeds
+item.PileRapeseedSeeds.name=Pile of Canola seeds
+item.RawPotatoChips.name=Raw potato chips
+item.PotatoChips.name=Fried potato chips
+item.SunFlowerOil.name=Sunflower Oil
+item.RapeseedOil.name=Rapeseed Oil
+item.FryingOil.name=Frying Oil
+item.DirtyFryingOil.name=Used frying oil
+
 //Blocks
 tile.Hose.name=Hose
 tile.Pump.name=Pump
@@ -72,6 +83,7 @@ tile.Grinder.name=Wheat Grinder
 tile.BioFuelCompressor.name=Bio-Fuel Compressor
 tile.BioFuelFiltrator.name=Bio-Fuel Filtrator
 tile.OilExtractor.name=Oil Extractor
+tile.DeepFrier.name=Frier
 //Tab
 itemGroup.ExtendedFarmingItems=Farming Items
 

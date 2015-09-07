@@ -1,8 +1,5 @@
 package com.extfar.init;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucketMilk;
-
 import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
@@ -18,6 +15,10 @@ import com.extfar.items.ItemTractorParts;
 import com.extfar.items.ItemWateringCan;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucketMilk;
+import net.minecraft.item.ItemSeeds;
 
 public class ExtendedFarmingItems 
 {
@@ -41,6 +42,8 @@ public class ExtendedFarmingItems
 	public static Item PeaSeeds;
 	public static Item ChilliPepperSeeds;
 	public static Item BeetSeeds;
+	public static Item RapeseedSeeds;
+	public static Item PileRapeseedSeeds;
 
 	public static Item Rice;
 	public static Item RiceSeeds;
@@ -76,6 +79,7 @@ public class ExtendedFarmingItems
 	public static Item SteeringWheel;
 	
 	public static Item Wrench;
+	public static Item Spoon;
 	public static Item WateringCan;
 	public static Item EmptyWateringCan;
 	public static Item LavaingCan;
@@ -85,9 +89,11 @@ public class ExtendedFarmingItems
 	public static Item OrganicMaterial;
 	public static Item FilterPaper;
 	public static Item EmptyCannister;
-	public static Item VegetableOil;
+	public static Item SunFlowerOil;
+	public static Item RapeseedOil;
 
 	public static Item FryingOil;
+	public static Item DirtyFryingOil;
 	public static Item RawPotatoChips;
 	public static Item PotatoChips;
 		
@@ -100,6 +106,8 @@ public class ExtendedFarmingItems
 		BeanSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Beans_Block, 1).setUnlocalizedName("BeanSeeds").setTextureName(modid + ":BeanSeeds");
 		PeaSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Peas_Block, 2).setUnlocalizedName("PeaSeeds").setTextureName(modid + ":PeaSeeds");
 		ChilliPepperSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.ChilliPepper_Block, 1).setUnlocalizedName("ChilliPepperSeeds").setTextureName(modid + ":ChilliPepperSeeds");
+		//RapeseedSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Rapeseed_Block, 0).setUnlocalizedName("RapeseedSeeds").setTextureName(modid + ":RapeseedSeeds");
+		RapeseedSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rapeseed_Block, Blocks.farmland).setUnlocalizedName("RapeseedSeeds").setCreativeTab(ExtendedFarming.ItemsTab).setTextureName(modid + ":RapeseedSeeds");
 		
 		Beans = new ItemMyFood(2, 2, false).setUnlocalizedName("Beans").setTextureName(modid + ":Beans");
 		Peas = new ItemMyFood(2, 2, false).setUnlocalizedName("Peas").setTextureName(modid + ":Peas");
@@ -132,6 +140,7 @@ public class ExtendedFarmingItems
 		Wheel = (new ItemTractorParts(1)).setUnlocalizedName("Wheel").setTextureName(modid + ":Wheel").setFull3D();
 		
 		Wrench = new ItemMaterials().setUnlocalizedName("Wrench").setTextureName(modid + ":Wrench");
+		Spoon = new ItemMaterials().setUnlocalizedName("Spoon").setTextureName(modid + ":Spoon");
 		
 		GoatMilk_Bucket = new ItemBucketMilk().setUnlocalizedName("GoatMilk_Bucket").setTextureName(modid + ":GoatMilk_Bucket").setCreativeTab(ExtendedFarming.ItemsTab);
 		RawGoatMeat = new ItemMyFood(3, 4, false).setUnlocalizedName("RawGoatMeat").setTextureName(modid + ":RawGoatMeat");
@@ -152,9 +161,12 @@ public class ExtendedFarmingItems
 		BioFuel = new ItemFuelCannisters().setUnlocalizedName("BioFuel").setTextureName(modid + ":BioFuel");
 		FilterPaper = new ItemMaterials().setUnlocalizedName("FilterPaper").setTextureName(modid + ":FilterPaper");
 		EmptyCannister = new ItemFuelCannisters().setUnlocalizedName("EmptyCannister").setTextureName(modid + ":EmptyCannister");
-		VegetableOil = new ItemFuelCannisters().setUnlocalizedName("VegetableOil").setTextureName(modid + ":VegetableOil");
+		SunFlowerOil = new ItemFuelCannisters().setUnlocalizedName("SunFlowerOil").setTextureName(modid + ":SunFlowerOil");
+		RapeseedOil = new ItemFuelCannisters().setUnlocalizedName("RapeseedOil").setTextureName(modid + ":RapeseedOil");
 		FryingOil = new ItemFuelCannisters().setUnlocalizedName("FryingOil").setTextureName(modid + ":FryingOil");
-		
+		DirtyFryingOil = new ItemFuelCannisters().setUnlocalizedName("DirtyFryingOil").setTextureName(modid + ":DirtyFryingOil");
+		PileRapeseedSeeds = new ItemMaterials().setUnlocalizedName("PileRapeseedSeeds").setTextureName(modid + ":PileRapeseedSeeds");
+
 		PotatoChips = new ItemMyFood(4, 6, false).setUnlocalizedName("PotatoChips").setTextureName(modid + ":PotatoChips");
 		RawPotatoChips = new ItemMyFood(1, 2, false).setUnlocalizedName("RawPotatoChips").setTextureName(modid + ":RawPotatoChips");
 
@@ -165,6 +177,8 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(BeanSeeds, "BeanSeed", modid);
 		GameRegistry.registerItem(PeaSeeds, "PeaSeed", modid);
 		GameRegistry.registerItem(ChilliPepperSeeds, "ChilliPepperSeeds", modid);		
+		GameRegistry.registerItem(RapeseedSeeds, "RapeseedSeeds", modid);		
+		GameRegistry.registerItem(PileRapeseedSeeds, "PileRapeseedSeeds", modid);		
 		
 		GameRegistry.registerItem(Beans, "BeansItem", modid);
 		GameRegistry.registerItem(Peas, "PeasItem", modid);
@@ -197,6 +211,7 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(Wheel, "Wheel", modid);
 
 		GameRegistry.registerItem(Wrench, "Wrench", modid);
+		GameRegistry.registerItem(Spoon, "Spoon", modid);
 		
 		GameRegistry.registerItem(GoatMilk_Bucket, "GoatMilk_Bucket", modid);
 		GameRegistry.registerItem(RawGoatMeat, "RawGoatMeat", modid);
@@ -206,21 +221,24 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(Doug, "Doug", modid);
 		GameRegistry.registerItem(RawApplePie, "RawApplePie", modid);
 		GameRegistry.registerItem(ApplePie, "ApplePieItem", modid);
+		GameRegistry.registerItem(RawPotatoChips, "RawPotatoChips", modid);
+		GameRegistry.registerItem(PotatoChips, "PotatoChips", modid);
 
 		GameRegistry.registerItem(EmptyWateringCan, "EmptyWateringCan", modid);
 		GameRegistry.registerItem(WateringCan, "WateringCan", modid);
 		GameRegistry.registerItem(LavaingCan, "LavaingCan", modid);
 		
 		GameRegistry.registerItem(EmptyCannister, "EmptyCannister", modid);
-		GameRegistry.registerItem(VegetableOil, "VegetableOil", modid);
+		GameRegistry.registerItem(SunFlowerOil, "SunFlowerOil", modid);
+		GameRegistry.registerItem(RapeseedOil, "RapeseedOil", modid);
+		GameRegistry.registerItem(FryingOil, "FryingOil", modid);
+		GameRegistry.registerItem(DirtyFryingOil, "DirtyFryingOil", modid);
 		GameRegistry.registerItem(UnfilteredFuel, "UnfilteredFuel", modid);
 		GameRegistry.registerItem(BioFuel, "BioFuel", modid);
 		GameRegistry.registerItem(OrganicMaterial, "OrganicMaterial", modid);
 		GameRegistry.registerItem(FilterPaper, "FilterPaper", modid);
 		
-		GameRegistry.registerItem(FryingOil, "FryingOil", modid);
-		GameRegistry.registerItem(RawPotatoChips, "RawPotatoChips", modid);
-		GameRegistry.registerItem(PotatoChips, "PotatoChips", modid);
+
 
 
 		/*RiceSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rice, Blocks.water);

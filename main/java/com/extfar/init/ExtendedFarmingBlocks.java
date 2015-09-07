@@ -1,14 +1,12 @@
 package com.extfar.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.IIcon;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-
 import com.extfar.blocks.BlockCropSupport;
+import com.extfar.blocks.BlockCrops;
+import com.extfar.blocks.BlockDOilLiquid;
 import com.extfar.blocks.BlockMyCrops;
 import com.extfar.blocks.BlockOilLiquid;
+import com.extfar.blocks.DFluidOil;
+import com.extfar.blocks.FluidOil;
 import com.extfar.blocks.biofuel.biofuelcompressor.BlockBioFuelCompressor;
 import com.extfar.blocks.biofuel.biofuelcompressor.TileEntityBioFuelCompressor;
 import com.extfar.blocks.biofuel.biofuelfiltrator.BlockBioFuelFiltrator;
@@ -55,6 +53,10 @@ import com.extfar.blocks.trees.BlockFruitLeaf;
 import com.extfar.core.ExtendedFarming;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class ExtendedFarmingBlocks 
 {
@@ -87,6 +89,7 @@ public class ExtendedFarmingBlocks
 	public static Block ChilliPepper_Block;
 	public static Block SugarBeet_Block;
 	public static Block Beets_Block;
+	public static Block Rapeseed_Block;
 	
 	public static Block NetherBeans;
 	public static Block NetherPeas;
@@ -104,6 +107,8 @@ public class ExtendedFarmingBlocks
 	public static Block MilkLiquid;
 	public static Fluid OilFluid;
 	public static Block OilLiquid;
+	public static Fluid DOilFluid;
+	public static Block DOilLiquid;
 	public static Block CheeseBarrel;
 	public static Block GoatCheese;
 	public static Block ApplePie;
@@ -119,7 +124,6 @@ public class ExtendedFarmingBlocks
 	
 	public static Block DeepFrier;
 	
-	private IIcon Oilflow;
 	
 	public static void init()
 	{
@@ -147,6 +151,8 @@ public class ExtendedFarmingBlocks
 		ChilliPepper_Block = new BlockMyCrops(3, 3, 6, 4, 1).setBlockName("ChilliPepper").setBlockTextureName("ChilliPepper");
 		SugarBeet_Block = new BlockMyCrops(0, 4, 6, 4, 0).setBlockName("SugarBeet").setBlockTextureName("SugarBeet");
 		Beets_Block = new BlockMyCrops(4, 5, 6, 4, 0).setBlockName("Beets").setBlockTextureName("Beets");
+		//Rapeseed_Block = new BlockMyCrops(5, 6, 6, 6, 0).setBlockName("Rapeseed").setBlockTextureName("Rapeseed");
+		Rapeseed_Block = new BlockCrops().setBlockName("Rapeseed").setBlockTextureName("Rapeseed");
 		
 		NetherBeans = new BlockMyCrops(1, 101, 6, 4, 1).setBlockName("NetherBeans").setBlockTextureName("Beans");
 		NetherPeas = new BlockMyCrops(2, 102, 6, 4, 2).setBlockName("NetherPeas").setBlockTextureName("Peas");
@@ -163,9 +169,13 @@ public class ExtendedFarmingBlocks
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid");
 		
 
-		OilFluid = new Fluid("frying_oil").setLuminosity(0).setViscosity(20).getColor(0xCFAE00);
+		OilFluid = new FluidOil("frying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
 		FluidRegistry.registerFluid(OilFluid);
-		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid").setCreativeTab(ExtendedFarming.ItemsTab);
+		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid");
+		
+		DOilFluid = new DFluidOil("Dfrying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
+		FluidRegistry.registerFluid(DOilFluid);
+		DOilLiquid = new BlockDOilLiquid(DOilFluid, Material.water).setBlockName("DOilFluid");
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockPie(ExtendedFarmingItems.GoatCheese).setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
@@ -214,6 +224,7 @@ public class ExtendedFarmingBlocks
 	    GameRegistry.registerTileEntity(TileEntityMilkingStation.class, "MilkingStationTE");
 		GameRegistry.registerBlock(MilkLiquid, "MilkLiquid");
 		GameRegistry.registerBlock(OilLiquid, "OilLiquid");
+		GameRegistry.registerBlock(DOilLiquid, "DOilLiquid");
 		
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
@@ -230,6 +241,7 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(ChilliPepper_Block, "ChilliPepper");
 		GameRegistry.registerBlock(SugarBeet_Block, "SugarBeet");
 		GameRegistry.registerBlock(Beets_Block, "Beets");
+		GameRegistry.registerBlock(Rapeseed_Block, "Rapeseed");
 		
 		GameRegistry.registerBlock(NetherBeans, "NetherBeans");
 		GameRegistry.registerBlock(NetherPeas, "NetherPeas");

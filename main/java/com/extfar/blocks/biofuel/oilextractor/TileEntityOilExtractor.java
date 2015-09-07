@@ -349,17 +349,18 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
      * Returns the number of ticks that the supplied fuel item will keep the OilExtractor burning, or 0 if the item isn't
      * fuel
      */
-    public static int getItemBurnTime(ItemStack p_145952_0_)
+    public static int getItemBurnTime(ItemStack stack)
     {
-        if (p_145952_0_ == null)
+        if (stack == null)
         {
             return 0;
         }
         else
         {
-            Item item = p_145952_0_.getItem();
-            if (item == item.getItemFromBlock(Blocks.double_plant)) return 1000;
-            return GameRegistry.getFuelValue(p_145952_0_);
+            Item item = stack.getItem();
+            if(item == item.getItemFromBlock(Blocks.double_plant)) return 1000;
+            if(item == ExtendedFarmingItems.PileRapeseedSeeds) return 1000;
+            return GameRegistry.getFuelValue(stack);
         }
     }
 

@@ -12,13 +12,13 @@ import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockOilLiquid extends BlockFluidClassic
+public class BlockDOilLiquid extends BlockFluidClassic
 {
     @SideOnly(Side.CLIENT)
     public IIcon[] fluidIcons;
     Fluid oil;
 
-    public BlockOilLiquid(Fluid fluid, Material material)
+    public BlockDOilLiquid(Fluid fluid, Material material)
     {
         super(fluid, material);
         oil = fluid;
@@ -34,8 +34,8 @@ public class BlockOilLiquid extends BlockFluidClassic
     {
         fluidIcons = new IIcon[2];
 
-        fluidIcons[0] = iconRegister.registerIcon(ExtendedFarming.modid + ":Oil_still");
-        fluidIcons[1] = iconRegister.registerIcon(ExtendedFarming.modid + ":Oil_still");
+        fluidIcons[0] = iconRegister.registerIcon(ExtendedFarming.modid + ":DOil_still");
+        fluidIcons[1] = iconRegister.registerIcon(ExtendedFarming.modid + ":DOil_still");
         
         oil.setIcons(fluidIcons[0]);
     }
