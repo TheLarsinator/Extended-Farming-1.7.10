@@ -24,7 +24,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-6.0", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
+@Mod (modid = "extfar", name = "ExtendedFarming", version = "1.7.10-7.0", guiFactory = "com.extfar.core.ExtendedFarmingGUIFactory")
 
 public class ExtendedFarming
 {
@@ -46,9 +46,10 @@ public class ExtendedFarming
 	 ConfigHandler.LoadFile(event.getSuggestedConfigurationFile());
 
 	 ExtendedFarmingEntities.init();
-
      ExtendedFarmingBlocks.init();
      ExtendedFarmingItems.init();
+
+     ExtendedFarmingBlocks.lateInit();
      ExtendedFarmingAchievementsBook.init();
      
 	}

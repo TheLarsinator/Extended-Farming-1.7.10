@@ -1,5 +1,7 @@
 package com.extfar.blocks.deepfrier.frier;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import com.extfar.core.ExtendedFarming;
@@ -17,16 +19,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class BlockFrier extends Block implements ITileEntityProvider
 {
+	public static final Item[] Rfood = new Item[] {ExtendedFarmingItems.RawPotatoChips, ExtendedFarmingItems.RawPotatoCrisps, Items.paper};
+	public static final Item[] Cfood = new Item[] {ExtendedFarmingItems.PotatoChips, ExtendedFarmingItems.PotatoCrisps, Items.apple};
+	
+	//public static Map<Item, Item> fryfood = new HashMap<Item, Item>();
 
+	
 	public BlockFrier(Material material) 
 	{
 		super(material);
 		this.setCreativeTab(ExtendedFarming.ItemsTab);
 		this.setBlockBounds(0.0625F, 0F, 0.0625F, 0.9375F, 0.6875F, 0.9375F);
+		//fryfood.put(ExtendedFarmingItems.RawPotatoChips, ExtendedFarmingItems.PotatoChips);
+		//fryfood.put(ExtendedFarmingItems.RawPotatoCrisps, ExtendedFarmingItems.PotatoCrisps);
 	}
 
 	@Override
@@ -68,18 +78,36 @@ public class BlockFrier extends Block implements ITileEntityProvider
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{	   
+
+		
 		if(player.getHeldItem() != null)
 		{
 	      Item heldItem = player.getHeldItem().getItem();
 	      int stack = player.getHeldItem().stackSize;
 	      TileEntityFrier frier = ((TileEntityFrier)world.getTileEntity(x, y, z));
 	      
-	      if(heldItem != null && heldItem == ExtendedFarmingItems.RawPotatoChips && !frier.hasPotato && !frier.isDone && frier.hasOil && !frier.hasDirtyOil)
+	      //System.out.println(fryfood.get(ExtendedFarmingItems.RawPotatoChips));
+	      //System.out.println("LOL" + ExtendedFarmingItems.PotatoChips);
+	      
+	      
+	      if(heldItem == Rfood[1])
+	      {
+	      System.out.print("Array: ");
+	      System.out.println(Rfood[1]);
+	      System.out.print("heldItem: ");
+	      System.out.println(heldItem);
+	      }
+	      
+		for(int a = 0; a <= Rfood.length-1; a++)
+		{
+	      if(heldItem != null && heldItem == Rfood[a] && !frier.hasPotato && !frier.isDone && frier.hasOil && !frier.hasDirtyOil)
 	      {
 	    	  frier.setPotato(true);
-	    	  player.inventory.consumeInventoryItem(ExtendedFarmingItems.RawPotatoChips);
+	    	  frier.setFoodType(a);
+	    	  player.inventory.consumeInventoryItem(Rfood[a]);
 	      }
-	      else if(heldItem != null && heldItem == ExtendedFarmingItems.FryingOil && !frier.hasPotato && !frier.hasOil && !frier.isDone)
+		}
+	      if(heldItem != null && heldItem == ExtendedFarmingItems.FryingOil && !frier.hasPotato && !frier.hasOil && !frier.isDone)
 	      {
 	    	  player.getHeldItem().stackSize = player.getHeldItem().stackSize -1;
 	    	  //player.inventory.consumeInventoryItem(ExtendedFarmingItems.FryingOil);
@@ -90,7 +118,7 @@ public class BlockFrier extends Block implements ITileEntityProvider
 	    	  //player.inventory.setInventorySlotContents(player.inventory.getFirstEmptyStack(), new ItemStack(ExtendedFarmingItems.EmptyCannister));
 	    	  
 	      }
-	      else if(heldItem == ExtendedFarmingItems.Spoon && frier.isDone && frier.hasPotato)
+	      else if(heldItem == ExtendedFarmingItems.Spoon && frier.isDone && frier.hasPotato && frier.foodType != -1)
 	      {
 	    	  frier.setDone(false);
 	    	  if(frier.oilUsage > 13)
@@ -103,7 +131,9 @@ public class BlockFrier extends Block implements ITileEntityProvider
 	    		  frier.setOilUsage(frier.oilUsage + 1);
 	    	  }
 	    	  frier.setPotato(false);
-	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.PotatoChips, 1));
+	    	player.inventory.addItemStackToInventory(new ItemStack(Cfood[frier.foodType], 1));
+	    	frier.setFoodType(-1);
+	    			  
 	      }
 	      else if(heldItem == ExtendedFarmingItems.EmptyCannister && frier.hasDirtyOil && !frier.hasPotato && !frier.isDone)
 	      {
@@ -112,11 +142,14 @@ public class BlockFrier extends Block implements ITileEntityProvider
 	    	  player.getHeldItem().stackSize = player.getHeldItem().stackSize -1;
 	    	  player.inventory.addItemStackToInventory(new ItemStack(ExtendedFarmingItems.DirtyFryingOil, 1));
 	      }
-	      else if(heldItem == ExtendedFarmingItems.RawPotatoChips && frier.hasDirtyOil)
+	      for(int a = 0; a <= Rfood.length-1; a++)
+			{
+	      if(heldItem == Rfood[a] && frier.hasDirtyOil)
 	      {
 	    	  if(!world.isRemote)
-	    	  player.addChatMessage(new ChatComponentTranslation("You can't cook that in dirty oil!"));
+	    	  player.addChatMessage(new ChatComponentTranslation("You can't cook " + StatCollector.translateToLocal(Rfood[a].getUnlocalizedName()+ ".name")+ " in dirty oil!"));
 	      }
+			}
 		}
 	      return true;
 	}

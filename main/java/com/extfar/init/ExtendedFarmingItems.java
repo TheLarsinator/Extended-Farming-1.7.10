@@ -3,6 +3,7 @@ package com.extfar.init;
 import com.extfar.blocks.ItemMyFoodSeed;
 import com.extfar.core.ExtendedFarming;
 import com.extfar.items.ItemBowlFood;
+import com.extfar.items.ItemCheat;
 import com.extfar.items.ItemCropSupport;
 import com.extfar.items.ItemCustomCake;
 import com.extfar.items.ItemFuelCannisters;
@@ -43,7 +44,7 @@ public class ExtendedFarmingItems
 	public static Item ChilliPepperSeeds;
 	public static Item BeetSeeds;
 	public static Item RapeseedSeeds;
-	public static Item PileRapeseedSeeds;
+	public static Item PileOSeeds;
 
 	public static Item Rice;
 	public static Item RiceSeeds;
@@ -96,6 +97,11 @@ public class ExtendedFarmingItems
 	public static Item DirtyFryingOil;
 	public static Item RawPotatoChips;
 	public static Item PotatoChips;
+	public static Item RawPotatoCrisps;
+	public static Item PotatoCrisps;
+	public static Item FishAndChips;
+	
+	public static Item metaCheat;
 		
 	public static void init()
 	{
@@ -108,6 +114,7 @@ public class ExtendedFarmingItems
 		ChilliPepperSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.ChilliPepper_Block, 1).setUnlocalizedName("ChilliPepperSeeds").setTextureName(modid + ":ChilliPepperSeeds");
 		//RapeseedSeeds = new ItemSupportCrop(ExtendedFarmingBlocks.Rapeseed_Block, 0).setUnlocalizedName("RapeseedSeeds").setTextureName(modid + ":RapeseedSeeds");
 		RapeseedSeeds = new ItemSeeds(ExtendedFarmingBlocks.Rapeseed_Block, Blocks.farmland).setUnlocalizedName("RapeseedSeeds").setCreativeTab(ExtendedFarming.ItemsTab).setTextureName(modid + ":RapeseedSeeds");
+		PileOSeeds = new ItemMaterials().setUnlocalizedName("PileOSeeds").setTextureName(modid + ":PileOSeeds");
 		
 		Beans = new ItemMyFood(2, 2, false).setUnlocalizedName("Beans").setTextureName(modid + ":Beans");
 		Peas = new ItemMyFood(2, 2, false).setUnlocalizedName("Peas").setTextureName(modid + ":Peas");
@@ -165,20 +172,24 @@ public class ExtendedFarmingItems
 		RapeseedOil = new ItemFuelCannisters().setUnlocalizedName("RapeseedOil").setTextureName(modid + ":RapeseedOil");
 		FryingOil = new ItemFuelCannisters().setUnlocalizedName("FryingOil").setTextureName(modid + ":FryingOil");
 		DirtyFryingOil = new ItemFuelCannisters().setUnlocalizedName("DirtyFryingOil").setTextureName(modid + ":DirtyFryingOil");
-		PileRapeseedSeeds = new ItemMaterials().setUnlocalizedName("PileRapeseedSeeds").setTextureName(modid + ":PileRapeseedSeeds");
 
 		PotatoChips = new ItemMyFood(4, 6, false).setUnlocalizedName("PotatoChips").setTextureName(modid + ":PotatoChips");
 		RawPotatoChips = new ItemMyFood(1, 2, false).setUnlocalizedName("RawPotatoChips").setTextureName(modid + ":RawPotatoChips");
-
+		PotatoCrisps = new ItemMyFood(4, 6, false).setUnlocalizedName("PotatoCrisps").setTextureName(modid + ":PotatoCrisps");
+		RawPotatoCrisps = new ItemMyFood(1, 2, false).setUnlocalizedName("RawPotatoCrisps").setTextureName(modid + ":RawPotatoCrisps");
+		FishAndChips = new ItemMyFood(8, 10, false).setUnlocalizedName("FishAndChips").setTextureName(modid + ":FishAndChips");
+		
+		metaCheat = new ItemCheat().setUnlocalizedName("Cheat");
 		
 		GameRegistry.registerItem(BambooSticksItem, "BambooSticksItem", modid);
 		GameRegistry.registerItem(NetItem, "NetItem", modid);
+		GameRegistry.registerItem(metaCheat, "Cheat", modid);
 		
 		GameRegistry.registerItem(BeanSeeds, "BeanSeed", modid);
 		GameRegistry.registerItem(PeaSeeds, "PeaSeed", modid);
 		GameRegistry.registerItem(ChilliPepperSeeds, "ChilliPepperSeeds", modid);		
 		GameRegistry.registerItem(RapeseedSeeds, "RapeseedSeeds", modid);		
-		GameRegistry.registerItem(PileRapeseedSeeds, "PileRapeseedSeeds", modid);		
+		GameRegistry.registerItem(PileOSeeds, "PileOSeeds", modid);		
 		
 		GameRegistry.registerItem(Beans, "BeansItem", modid);
 		GameRegistry.registerItem(Peas, "PeasItem", modid);
@@ -223,6 +234,9 @@ public class ExtendedFarmingItems
 		GameRegistry.registerItem(ApplePie, "ApplePieItem", modid);
 		GameRegistry.registerItem(RawPotatoChips, "RawPotatoChips", modid);
 		GameRegistry.registerItem(PotatoChips, "PotatoChips", modid);
+		GameRegistry.registerItem(RawPotatoCrisps, "RawPotatoCrisps", modid);
+		GameRegistry.registerItem(PotatoCrisps, "PotatoCrisps", modid);
+		GameRegistry.registerItem(FishAndChips, "FishAndChips", modid);
 
 		GameRegistry.registerItem(EmptyWateringCan, "EmptyWateringCan", modid);
 		GameRegistry.registerItem(WateringCan, "WateringCan", modid);

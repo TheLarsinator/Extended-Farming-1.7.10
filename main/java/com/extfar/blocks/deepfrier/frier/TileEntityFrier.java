@@ -1,5 +1,6 @@
 package com.extfar.blocks.deepfrier.frier;
 
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -14,6 +15,7 @@ public class TileEntityFrier extends TileEntity
 	public int oilUsage = 0;
 	public boolean isDone;
 	public float progress;
+	public int foodType;
 	
     public boolean canUpdate()
     {
@@ -43,6 +45,10 @@ public class TileEntityFrier extends TileEntity
     public void setOilUsage(int oil)
     {
     	this.oilUsage = oil;
+    }
+    public void setFoodType(int item)
+    {
+    	this.foodType = item;
     }
     
     public void updateEntity()
@@ -81,6 +87,7 @@ public class TileEntityFrier extends TileEntity
         nbttag.setInteger("oilusage", oilUsage);
         nbttag.setBoolean("done", isDone);
         nbttag.setFloat("work", progress);
+        nbttag.setInteger("food", foodType);
     }
 	
 	@Override
@@ -93,6 +100,7 @@ public class TileEntityFrier extends TileEntity
         this.oilUsage = nbttag.getInteger("oilusage");
         this.isDone = nbttag.getBoolean("done");
         this.progress = nbttag.getFloat("work");
+        this.foodType = nbttag.getInteger("food");
     }
 	
 	@Override

@@ -31,7 +31,7 @@ public class RecipesOilExtractor
     private RecipesOilExtractor()
     {
     	addSmelting(new ItemStack(Item.getItemFromBlock(Blocks.double_plant), 1, 0), new ItemStack(ExtendedFarmingItems.SunFlowerOil, 1, 0), 0.7F);
-    	addSmelting(new ItemStack(ExtendedFarmingItems.PileRapeseedSeeds, 1, 0), new ItemStack(ExtendedFarmingItems.RapeseedOil, 1, 0), 0.7F);
+    	addSmelting(new ItemStack(ExtendedFarmingItems.PileOSeeds, 1, 0), new ItemStack(ExtendedFarmingItems.RapeseedOil, 1, 0), 0.7F);
     }
 
     public void func_151393_a(Block p_151393_1_, ItemStack p_151393_2_, float p_151393_3_)

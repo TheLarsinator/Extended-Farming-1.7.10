@@ -169,13 +169,7 @@ public class ExtendedFarmingBlocks
 		MilkLiquid = new BlockMilkLiquid(MilkFluid, Material.water).setBlockName("MilkFluid");
 		
 
-		OilFluid = new FluidOil("frying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
-		FluidRegistry.registerFluid(OilFluid);
-		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid");
-		
-		DOilFluid = new DFluidOil("Dfrying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
-		FluidRegistry.registerFluid(DOilFluid);
-		DOilLiquid = new BlockDOilLiquid(DOilFluid, Material.water).setBlockName("DOilFluid");
+
 		
 		CheeseBarrel = new BlockCheeseBarrel(Material.wood).setBlockName("CheeseBarrel").setBlockTextureName("planks_acacia");
 		GoatCheese = new BlockPie(ExtendedFarmingItems.GoatCheese).setBlockName("GoatCheese").setBlockTextureName("GoatCheese");
@@ -189,7 +183,6 @@ public class ExtendedFarmingBlocks
 		OilExtractor= new BlockOilExtractor(Material.rock, false).setBlockName("OilExtractor").setBlockTextureName("OilExtractor");
 		BioFuelFiltrator= new BlockBioFuelFiltrator(Material.rock, false).setBlockName("BioFuelFiltrator").setBlockTextureName("BioFuelFiltrator");
 		
-		DeepFrier = new BlockFrier(Material.iron).setBlockName("DeepFrier").setBlockTextureName("Frier");
 		GameRegistry.registerBlock(BambooSticks, "BambooSticks");
 		GameRegistry.registerBlock(Net, "Net");
 
@@ -223,8 +216,7 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(MilkingStation, "MilkingStation");
 	    GameRegistry.registerTileEntity(TileEntityMilkingStation.class, "MilkingStationTE");
 		GameRegistry.registerBlock(MilkLiquid, "MilkLiquid");
-		GameRegistry.registerBlock(OilLiquid, "OilLiquid");
-		GameRegistry.registerBlock(DOilLiquid, "DOilLiquid");
+
 		
 	    GameRegistry.registerTileEntity(TileEntityCheeseBarrel.class, "CheeseBarrelTE");
 		GameRegistry.registerBlock(CheeseBarrel, "CheeseBarrel");
@@ -261,8 +253,7 @@ public class ExtendedFarmingBlocks
 		GameRegistry.registerBlock(BioFuelFiltrator, "BioFuelFiltrator");
 	    GameRegistry.registerTileEntity(TileEntityBioFuelFiltrator.class, "BioFuelFiltratorTE");
 	    
-		GameRegistry.registerBlock(DeepFrier, "DeepFrier");
-	    GameRegistry.registerTileEntity(TileEntityFrier.class, "DeepFrierTE");
+
 
 		
 		//GameRegistry.registerBlock(PearLeaves, "PearLeaves");
@@ -271,5 +262,23 @@ public class ExtendedFarmingBlocks
 
 		GameRegistry.registerBlock(Rice, "RiceBlock");
 		 */	
+	}
+	
+	public static void lateInit()
+	{
+		OilFluid = new FluidOil("frying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
+		FluidRegistry.registerFluid(OilFluid);
+		OilLiquid = new BlockOilLiquid(OilFluid, Material.water).setBlockName("OilFluid");
+		
+		DOilFluid = new DFluidOil("Dfrying_oil").setLuminosity(0).setViscosity(20).setGaseous(true);
+		FluidRegistry.registerFluid(DOilFluid);
+		DOilLiquid = new BlockDOilLiquid(DOilFluid, Material.water).setBlockName("DOilFluid");
+		
+		DeepFrier = new BlockFrier(Material.iron).setBlockName("DeepFrier").setBlockTextureName("Frier");
+
+		GameRegistry.registerBlock(OilLiquid, "OilLiquid");
+		GameRegistry.registerBlock(DOilLiquid, "DOilLiquid");
+		GameRegistry.registerBlock(DeepFrier, "DeepFrier");
+	    GameRegistry.registerTileEntity(TileEntityFrier.class, "DeepFrierTE");
 	}
 }

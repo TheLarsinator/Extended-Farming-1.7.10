@@ -358,8 +358,7 @@ public class TileEntityOilExtractor extends TileEntity implements ISidedInventor
         else
         {
             Item item = stack.getItem();
-            if(item == item.getItemFromBlock(Blocks.double_plant)) return 1000;
-            if(item == ExtendedFarmingItems.PileRapeseedSeeds) return 1000;
+            if(item == ExtendedFarmingItems.EmptyCannister) return 1000;
             return GameRegistry.getFuelValue(stack);
         }
     }
