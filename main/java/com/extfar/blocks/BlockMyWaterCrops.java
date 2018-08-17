@@ -43,14 +43,7 @@ public class BlockMyWaterCrops extends BlockCrops
      */
     public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
-    	if(world.getBlock(x, y+1, z) == Blocks.water && world.getBlock(x, y, z) == Blocks.dirt)
-    	{
-        return true;
-    	}
-    	else
-    	{
-    	return false;
-    	}
+    	return (world.getBlock(x, y+1, z) == Blocks.water && world.getBlock(x, y, z) == Blocks.dirt);
     }
 
     /**
